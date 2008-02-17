@@ -155,3 +155,10 @@ Completed in 0.00424 (235 reqs/sec) | Rendering: 0.00009 (2%) | DB: 0.00000 (0%)
  FROM sqlite_master
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
 [0m
+
+
+Processing InfoController#properties (for 127.0.0.1 at 2008-02-17 10:32:53) [GET]
+  Session ID: adf7c86807575e0fef2669777a98308a
+  Parameters: {"action"=>"properties", "controller"=>"rails/info"}
+  [4;36;1mSQL (0.000715)[0m   [0;1mSELECT version FROM schema_info[0m
+Completed in 0.11616 (8 reqs/sec) | Rendering: 0.00133 (1%) | DB: 0.00072 (0%) | 200 OK [http://localhost/rails/info/properties]

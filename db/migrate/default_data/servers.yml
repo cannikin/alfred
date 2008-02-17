@@ -1,0 +1,7 @@
+webrick:
+  name: WEBrick
+  command: webrick
+  
+mongrel:
+  name: Mongrel
+  command: mongrel

@@ -1,0 +1,14 @@
+- Add a -d onto `script/server` to detach it from the console. add '2>&1' to include STDERR in STDOUT
+  - but how to then kill that process?
+  
+- How to provide some way to tap into logging so you can read log messages as if the app was open in a console?
+
+- tail -f the development log?  Ajax call to a /logger controller that then constantly returns the log as requested
+  - add an 'environment' to the app so we know which log to grab, and what mode to start in
+  
+- System model keeps track of system-wide settings.
+  - Have some kind of "Setup" button that inserts these default settings?
+  - local_hostname = by default, 'localhost' but can be overridden
+  - remote_hostname = by default, result of a `hostname` call, but can be overridden
+  
+- If an error is thrown when starting up, display a link to the results of the standard error out

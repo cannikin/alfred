@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  local_hostname: MyString
+  remote_hostname: MyString
+
+two:
+  local_hostname: MyString
+  remote_hostname: MyString
