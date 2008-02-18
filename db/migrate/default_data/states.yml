@@ -7,7 +7,7 @@ not_running:
 running:
   name: Running
   description: The app is running.
-  color_1: '#00dd00'
+  color_1: '#e0ffb3'
   color_2: '#009900'
   
 starting:
@@ -19,5 +19,5 @@ starting:
 error:
   name: Error
   description: The app reported an error.
-  color_1: '#ee0000'
+  color_1: '#ffdcda'
   color_2: '#990000'

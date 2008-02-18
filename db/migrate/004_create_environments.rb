@@ -1,3 +1,5 @@
+require 'active_record/fixtures'
+
 class CreateEnvironments < ActiveRecord::Migration
   def self.up
     create_table :environments do |t|
@@ -5,8 +7,6 @@ class CreateEnvironments < ActiveRecord::Migration
       t.string :description
       t.string :command
       t.string :log
-
-      t.timestamps
     end
     
     # load some default data

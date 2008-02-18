@@ -1,0 +1,19 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+  <title>Alfred Dashboard</title>
+  <%= stylesheet_link_tag 'dashboard', 'main' %>
+</head>
+<body id="<%= params[:controller] %>">
+  
+  <div id="logo"><img src="/images/logo.png" alt="Alfred" /></div>
+  <ul id="tabs">
+    <li <%= 'class="active"' if params[:action] == 'compact' %>><%= link_to_unless_current 'Compact', :action => 'compact' %></li>
+    <li <%= 'class="active"' if params[:action] == 'extended' %>><%= link_to_unless_current 'Extended', :action => 'extended' %></li>
+  </ul>
+  
+  <%= yield %>
+</body>
+</html>

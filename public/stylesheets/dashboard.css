@@ -1,0 +1,121 @@
+.project {
+	width: 432px;
+	border-width: 2px;
+	border-style: solid;
+	margin: 20px 0 0 20px;
+	padding: 10px;
+	float: left;
+}
+
+	.project h2 {
+		margin: 0;
+		padding: 0;
+		font-size: 120%;
+	}
+	
+	.project p {
+		font-size: 80%;
+	}
+
+	.project table {
+		background-color: #ffffff;
+		width: 100%;
+		font-size: 80%;
+		padding: 2px 10px;
+	}
+	
+		.project table td {
+			border-bottom: 1px dotted #aaaaaa;
+			padding: 3px;
+			
+		}
+		
+		.project table td.label {
+			font-weight: bold;
+			text-align: right;
+		}
+		
+		.project table tr.last td {
+			border-bottom: 0;
+		}
+
+	.project.running {
+		background-color: #e0ffb3;
+		border-color: #009900;
+	}
+	
+	.project.stopped {
+		background-color: #eeeeee;
+		border-color: #cccccc;
+	}
+	
+	.project.starting {
+		background-color: #ffffcc;
+		border-color: #ffcc99;
+	}
+	
+	.project.error {
+		background-color: #ffdcda;
+		border-color: #990000;
+	}
+
+	.project form {
+		text-align: center;
+		margin: 10px 0 0;
+	}
+	
+table#summary {
+	font-size: 80%;
+	width: 930px;
+	margin: 20px;
+}
+
+	table#summary th {
+		text-align: left;
+		border-bottom: 3px double #cccccc;
+	}
+	
+	table#summary td {
+		border-bottom: 1px solid #ffffff;
+		padding: 4px;
+	}
+	
+	table#summary td.name {
+		font-weight: bold;
+	}
+	
+	table#summary tr.running {
+		background-color: #e0ffb3;
+	}
+	
+		table#summary tr.running td.name {
+			color: #009900;
+		}
+	
+	table#summary tr.stopped {
+		background-color: #eeeeee;
+	}
+	
+		table#summary tr.stopped td.name {
+			color: #666666;
+		}
+	
+	table#summary tr.starting {
+		background-color: #ffffcc;
+	}
+		
+		table#summary tr.starting td.name {
+			color: #ffcc99;
+		}
+	
+	table#summary tr.error {
+		background-color: #ffdcda;
+	}
+	
+		table#summary tr.error td.name {
+			color: #990000;
+		}
+		
+	table#summary td.button {
+		text-align: center;
+	}

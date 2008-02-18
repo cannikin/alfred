@@ -1,3 +1,5 @@
+require 'active_record/fixtures'
+
 class CreateStates < ActiveRecord::Migration
   def self.up
     create_table :states do |t|
@@ -5,8 +7,6 @@ class CreateStates < ActiveRecord::Migration
       t.string :description
       t.string :color_1
       t.string :color_2
-
-      t.timestamps
     end
     
     # load some default data

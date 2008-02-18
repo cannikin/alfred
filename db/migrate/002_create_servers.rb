@@ -1,10 +1,10 @@
+require 'active_record/fixtures'
+
 class CreateServers < ActiveRecord::Migration
   def self.up
     create_table :servers do |t|
       t.string :name
       t.string :command
-
-      t.timestamps
     end
     
     # load some default data
