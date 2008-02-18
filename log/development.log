@@ -2514,3 +2514,363 @@ Processing DashboardController#extended (for 127.0.0.1 at 2008-02-17 20:16:37) [
 Rendering template within layouts/dashboard
 Rendering dashboard/extended
 Completed in 0.00487 (205 reqs/sec) | Rendering: 0.00220 (45%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing DashboardController#extended (for 127.0.0.1 at 2008-02-17 20:19:28) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--b3905a39af19b4a524f8443f5f48e905dad9982b
+  Parameters: {"action"=>"extended", "controller"=>"dashboard"}
+Rendering template within layouts/dashboard
+Rendering dashboard/extended
+Completed in 0.00473 (211 reqs/sec) | Rendering: 0.00188 (39%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing DashboardController#extended (for 127.0.0.1 at 2008-02-17 20:19:53) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--b3905a39af19b4a524f8443f5f48e905dad9982b
+  Parameters: {"action"=>"extended", "controller"=>"dashboard"}
+Rendering template within layouts/dashboard
+Rendering dashboard/extended
+Completed in 0.00578 (173 reqs/sec) | Rendering: 0.00324 (56%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing DashboardController#extended (for 127.0.0.1 at 2008-02-17 20:20:30) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--b3905a39af19b4a524f8443f5f48e905dad9982b
+  Parameters: {"action"=>"extended", "controller"=>"dashboard"}
+Rendering template within layouts/dashboard
+Rendering dashboard/extended
+Completed in 0.00464 (215 reqs/sec) | Rendering: 0.00211 (45%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing DashboardController#extended (for 127.0.0.1 at 2008-02-17 20:20:50) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--b3905a39af19b4a524f8443f5f48e905dad9982b
+  Parameters: {"action"=>"extended", "controller"=>"dashboard"}
+Rendering template within layouts/dashboard
+Rendering dashboard/extended
+Completed in 0.00444 (225 reqs/sec) | Rendering: 0.00185 (41%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing DashboardController#extended (for 127.0.0.1 at 2008-02-17 20:21:07) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--b3905a39af19b4a524f8443f5f48e905dad9982b
+  Parameters: {"action"=>"extended", "controller"=>"dashboard"}
+Rendering template within layouts/dashboard
+Rendering dashboard/extended
+Completed in 0.00454 (220 reqs/sec) | Rendering: 0.00183 (40%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing DashboardController#extended (for 127.0.0.1 at 2008-02-17 20:21:12) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--b3905a39af19b4a524f8443f5f48e905dad9982b
+  Parameters: {"action"=>"extended", "controller"=>"dashboard"}
+Rendering template within layouts/dashboard
+Rendering dashboard/extended
+Completed in 0.00503 (198 reqs/sec) | Rendering: 0.00230 (45%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing DashboardController#extended (for 127.0.0.1 at 2008-02-17 20:21:16) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--b3905a39af19b4a524f8443f5f48e905dad9982b
+  Parameters: {"action"=>"extended", "controller"=>"dashboard"}
+Rendering template within layouts/dashboard
+Rendering dashboard/extended
+Completed in 0.00452 (221 reqs/sec) | Rendering: 0.00192 (42%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing DashboardController#extended (for 127.0.0.1 at 2008-02-17 20:21:57) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--b3905a39af19b4a524f8443f5f48e905dad9982b
+  Parameters: {"action"=>"extended", "controller"=>"dashboard"}
+Rendering template within layouts/dashboard
+Rendering dashboard/extended
+Completed in 0.00467 (213 reqs/sec) | Rendering: 0.00200 (42%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing DashboardController#extended (for 127.0.0.1 at 2008-02-17 20:22:05) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--b3905a39af19b4a524f8443f5f48e905dad9982b
+  Parameters: {"action"=>"extended", "controller"=>"dashboard"}
+Rendering template within layouts/dashboard
+Rendering dashboard/extended
+Completed in 0.00501 (199 reqs/sec) | Rendering: 0.00244 (48%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing DashboardController#extended (for 127.0.0.1 at 2008-02-17 20:22:11) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--b3905a39af19b4a524f8443f5f48e905dad9982b
+  Parameters: {"action"=>"extended", "controller"=>"dashboard"}
+Rendering template within layouts/dashboard
+Rendering dashboard/extended
+Completed in 0.00418 (239 reqs/sec) | Rendering: 0.00180 (42%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing DashboardController#extended (for 127.0.0.1 at 2008-02-17 20:22:28) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--b3905a39af19b4a524f8443f5f48e905dad9982b
+  Parameters: {"action"=>"extended", "controller"=>"dashboard"}
+Rendering template within layouts/dashboard
+Rendering dashboard/extended
+Completed in 0.00465 (215 reqs/sec) | Rendering: 0.00202 (43%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing DashboardController#extended (for 127.0.0.1 at 2008-02-17 20:22:33) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--b3905a39af19b4a524f8443f5f48e905dad9982b
+  Parameters: {"action"=>"extended", "controller"=>"dashboard"}
+Rendering template within layouts/dashboard
+Rendering dashboard/extended
+Completed in 0.00461 (216 reqs/sec) | Rendering: 0.00189 (40%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing DashboardController#compact (for 127.0.0.1 at 2008-02-17 20:24:04) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--b3905a39af19b4a524f8443f5f48e905dad9982b
+  Parameters: {"action"=>"compact", "controller"=>"dashboard"}
+Rendering template within layouts/dashboard
+Rendering dashboard/compact
+Completed in 0.00436 (229 reqs/sec) | Rendering: 0.00186 (42%) | DB: 0.00000 (0%) | 200 OK [http://localhost/dashboard/compact]
+
+
+Processing DashboardController#extended (for 127.0.0.1 at 2008-02-17 20:24:05) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--b3905a39af19b4a524f8443f5f48e905dad9982b
+  Parameters: {"action"=>"extended", "controller"=>"dashboard"}
+Rendering template within layouts/dashboard
+Rendering dashboard/extended
+Completed in 0.00461 (217 reqs/sec) | Rendering: 0.00193 (41%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing DashboardController#extended (for 76.176.123.19 at 2008-02-17 20:25:05) [GET]
+  Session ID: f5060a47c1a2c7595df6c019e78e6b36
+  Parameters: {"action"=>"extended", "controller"=>"dashboard"}
+Rendering template within layouts/dashboard
+Rendering dashboard/extended
+Completed in 0.00499 (200 reqs/sec) | Rendering: 0.00214 (42%) | DB: 0.00000 (0%) | 200 OK [http://76.176.123.19/]
+
+
+Processing DashboardController#extended (for 127.0.0.1 at 2008-02-17 20:27:39) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--b3905a39af19b4a524f8443f5f48e905dad9982b
+  Parameters: {"action"=>"extended", "controller"=>"dashboard"}
+Rendering template within layouts/dashboard
+Rendering dashboard/extended
+Completed in 0.00391 (255 reqs/sec) | Rendering: 0.00170 (43%) | DB: 0.00000 (0%) | 200 OK [http://localhost/]
+
+
+Processing DashboardController#extended (for 76.176.123.19 at 2008-02-17 20:28:25) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--b3905a39af19b4a524f8443f5f48e905dad9982b
+  Parameters: {"action"=>"extended", "controller"=>"dashboard"}
+Rendering template within layouts/dashboard
+Rendering dashboard/extended
+Completed in 0.00970 (103 reqs/sec) | Rendering: 0.00741 (76%) | DB: 0.00000 (0%) | 200 OK [http://76.176.123.19/]
+
+
+Processing DashboardController#extended (for 76.176.123.19 at 2008-02-17 20:28:33) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--b3905a39af19b4a524f8443f5f48e905dad9982b
+  Parameters: {"action"=>"extended", "controller"=>"dashboard"}
+Rendering template within layouts/dashboard
+Rendering dashboard/extended
+Completed in 0.00994 (100 reqs/sec) | Rendering: 0.00757 (76%) | DB: 0.00000 (0%) | 200 OK [http://76.176.123.19/]
+
+
+Processing DashboardController#extended (for 76.176.123.19 at 2008-02-17 20:29:37) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--b3905a39af19b4a524f8443f5f48e905dad9982b
+  Parameters: {"action"=>"extended", "controller"=>"dashboard"}
+Rendering template within layouts/dashboard
+Rendering dashboard/extended
+Completed in 0.01122 (89 reqs/sec) | Rendering: 0.00872 (77%) | DB: 0.00000 (0%) | 200 OK [http://76.176.123.19/]
+
+
+Processing DashboardController#extended (for 76.176.123.19 at 2008-02-17 20:29:39) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--b3905a39af19b4a524f8443f5f48e905dad9982b
+  Parameters: {"action"=>"extended", "controller"=>"dashboard"}
+Rendering template within layouts/dashboard
+Rendering dashboard/extended
+Completed in 0.00663 (150 reqs/sec) | Rendering: 0.00183 (27%) | DB: 0.00000 (0%) | 200 OK [http://76.176.123.19/]
+
+
+Processing DashboardController#extended (for 76.176.123.19 at 2008-02-17 20:31:16) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--b3905a39af19b4a524f8443f5f48e905dad9982b
+  Parameters: {"action"=>"extended", "controller"=>"dashboard"}
+Rendering template within layouts/dashboard
+Rendering dashboard/extended
+Completed in 0.00446 (224 reqs/sec) | Rendering: 0.00207 (46%) | DB: 0.00000 (0%) | 200 OK [http://76.176.123.19/]
+
+
+Processing DashboardController#extended (for 76.176.123.19 at 2008-02-17 20:34:50) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--b3905a39af19b4a524f8443f5f48e905dad9982b
+  Parameters: {"action"=>"extended", "controller"=>"dashboard"}
+Rendering template within layouts/dashboard
+Rendering dashboard/extended
+Completed in 0.01194 (83 reqs/sec) | Rendering: 0.00910 (76%) | DB: 0.00000 (0%) | 200 OK [http://76.176.123.19/]
+
+
+Processing DashboardController#extended (for 76.176.123.19 at 2008-02-17 20:35:14) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--b3905a39af19b4a524f8443f5f48e905dad9982b
+  Parameters: {"action"=>"extended", "controller"=>"dashboard"}
+Rendering template within layouts/dashboard
+Rendering dashboard/extended
+Completed in 0.00666 (150 reqs/sec) | Rendering: 0.00427 (64%) | DB: 0.00000 (0%) | 200 OK [http://76.176.123.19/]
+
+
+Processing DashboardController#extended (for 76.176.123.19 at 2008-02-17 20:36:02) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--b3905a39af19b4a524f8443f5f48e905dad9982b
+  Parameters: {"action"=>"extended", "controller"=>"dashboard"}
+Rendering template within layouts/dashboard
+Rendering dashboard/extended
+Completed in 0.01151 (86 reqs/sec) | Rendering: 0.00912 (79%) | DB: 0.00000 (0%) | 200 OK [http://76.176.123.19/]
+
+
+Processing DashboardController#extended (for 76.176.123.19 at 2008-02-17 20:36:13) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--b3905a39af19b4a524f8443f5f48e905dad9982b
+  Parameters: {"action"=>"extended", "controller"=>"dashboard"}
+Rendering template within layouts/dashboard
+Rendering dashboard/extended
+Completed in 0.01082 (92 reqs/sec) | Rendering: 0.00847 (78%) | DB: 0.00000 (0%) | 200 OK [http://76.176.123.19/]
+
+
+Processing DashboardController#extended (for 76.176.123.19 at 2008-02-17 20:36:49) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--b3905a39af19b4a524f8443f5f48e905dad9982b
+  Parameters: {"action"=>"extended", "controller"=>"dashboard"}
+Rendering template within layouts/dashboard
+Rendering dashboard/extended
+Completed in 0.01156 (86 reqs/sec) | Rendering: 0.00907 (78%) | DB: 0.00000 (0%) | 200 OK [http://76.176.123.19/]
+
+
+Processing DashboardController#extended (for 76.176.123.19 at 2008-02-17 20:37:16) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--b3905a39af19b4a524f8443f5f48e905dad9982b
+  Parameters: {"action"=>"extended", "controller"=>"dashboard"}
+Rendering template within layouts/dashboard
+Rendering dashboard/extended
+Completed in 0.01125 (88 reqs/sec) | Rendering: 0.00880 (78%) | DB: 0.00000 (0%) | 200 OK [http://76.176.123.19/]
+
+
+Processing DashboardController#extended (for 76.176.123.19 at 2008-02-17 20:37:22) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--b3905a39af19b4a524f8443f5f48e905dad9982b
+  Parameters: {"action"=>"extended", "controller"=>"dashboard"}
+Rendering template within layouts/dashboard
+Rendering dashboard/extended
+Completed in 0.00543 (184 reqs/sec) | Rendering: 0.00287 (52%) | DB: 0.00000 (0%) | 200 OK [http://76.176.123.19/]
+
+
+Processing DashboardController#extended (for 76.176.123.19 at 2008-02-17 20:37:34) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--b3905a39af19b4a524f8443f5f48e905dad9982b
+  Parameters: {"action"=>"extended", "controller"=>"dashboard"}
+Rendering template within layouts/dashboard
+Rendering dashboard/extended
+Completed in 0.00497 (201 reqs/sec) | Rendering: 0.00237 (47%) | DB: 0.00000 (0%) | 200 OK [http://76.176.123.19/]
+
+
+Processing DashboardController#extended (for 76.176.123.19 at 2008-02-17 20:37:47) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--b3905a39af19b4a524f8443f5f48e905dad9982b
+  Parameters: {"action"=>"extended", "controller"=>"dashboard"}
+Rendering template within layouts/dashboard
+Rendering dashboard/extended
+Completed in 0.00469 (213 reqs/sec) | Rendering: 0.00226 (48%) | DB: 0.00000 (0%) | 200 OK [http://76.176.123.19/]
+
+
+Processing DashboardController#extended (for 76.176.123.19 at 2008-02-17 20:38:04) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--b3905a39af19b4a524f8443f5f48e905dad9982b
+  Parameters: {"action"=>"extended", "controller"=>"dashboard"}
+Rendering template within layouts/dashboard
+Rendering dashboard/extended
+Completed in 0.00502 (199 reqs/sec) | Rendering: 0.00235 (46%) | DB: 0.00000 (0%) | 200 OK [http://76.176.123.19/]
+
+
+Processing DashboardController#extended (for 76.176.123.19 at 2008-02-17 20:38:49) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--b3905a39af19b4a524f8443f5f48e905dad9982b
+  Parameters: {"action"=>"extended", "controller"=>"dashboard"}
+Rendering template within layouts/dashboard
+Rendering dashboard/extended
+Completed in 0.01139 (87 reqs/sec) | Rendering: 0.00902 (79%) | DB: 0.00000 (0%) | 200 OK [http://76.176.123.19/]
+
+
+Processing DashboardController#extended (for 76.176.123.19 at 2008-02-17 20:40:18) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--b3905a39af19b4a524f8443f5f48e905dad9982b
+  Parameters: {"action"=>"extended", "controller"=>"dashboard"}
+Rendering template within layouts/dashboard
+Rendering dashboard/extended
+Completed in 0.01063 (94 reqs/sec) | Rendering: 0.00831 (78%) | DB: 0.00000 (0%) | 200 OK [http://76.176.123.19/]
+
+
+Processing DashboardController#extended (for 76.176.123.19 at 2008-02-17 20:40:32) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--b3905a39af19b4a524f8443f5f48e905dad9982b
+  Parameters: {"action"=>"extended", "controller"=>"dashboard"}
+Rendering template within layouts/dashboard
+Rendering dashboard/extended
+Completed in 0.00724 (138 reqs/sec) | Rendering: 0.00477 (65%) | DB: 0.00000 (0%) | 200 OK [http://76.176.123.19/]
+
+
+Processing DashboardController#extended (for 76.176.123.19 at 2008-02-17 20:40:45) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--b3905a39af19b4a524f8443f5f48e905dad9982b
+  Parameters: {"action"=>"extended", "controller"=>"dashboard"}
+Rendering template within layouts/dashboard
+Rendering dashboard/extended
+Completed in 0.00528 (189 reqs/sec) | Rendering: 0.00271 (51%) | DB: 0.00000 (0%) | 200 OK [http://76.176.123.19/]
+
+
+Processing DashboardController#extended (for 76.176.123.19 at 2008-02-17 20:41:33) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--b3905a39af19b4a524f8443f5f48e905dad9982b
+  Parameters: {"action"=>"extended", "controller"=>"dashboard"}
+Rendering template within layouts/dashboard
+Rendering dashboard/extended
+Completed in 0.00508 (196 reqs/sec) | Rendering: 0.00258 (50%) | DB: 0.00000 (0%) | 200 OK [http://76.176.123.19/]
+
+
+Processing DashboardController#compact (for 76.176.123.19 at 2008-02-17 20:41:40) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--b3905a39af19b4a524f8443f5f48e905dad9982b
+  Parameters: {"action"=>"compact", "controller"=>"dashboard"}
+Rendering template within layouts/dashboard
+Rendering dashboard/compact
+Completed in 0.00440 (227 reqs/sec) | Rendering: 0.00209 (47%) | DB: 0.00000 (0%) | 200 OK [http://76.176.123.19/dashboard/compact]
+
+
+Processing DashboardController#compact (for 76.176.123.19 at 2008-02-17 20:41:57) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--b3905a39af19b4a524f8443f5f48e905dad9982b
+  Parameters: {"action"=>"compact", "controller"=>"dashboard"}
+Rendering template within layouts/dashboard
+Rendering dashboard/compact
+Completed in 0.00612 (163 reqs/sec) | Rendering: 0.00331 (54%) | DB: 0.00000 (0%) | 200 OK [http://76.176.123.19/dashboard/compact]
+
+
+Processing DashboardController#compact (for 76.176.123.19 at 2008-02-17 20:42:12) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--b3905a39af19b4a524f8443f5f48e905dad9982b
+  Parameters: {"action"=>"compact", "controller"=>"dashboard"}
+Rendering template within layouts/dashboard
+Rendering dashboard/compact
+Completed in 0.00511 (195 reqs/sec) | Rendering: 0.00227 (44%) | DB: 0.00000 (0%) | 200 OK [http://76.176.123.19/dashboard/compact]
+
+
+Processing DashboardController#extended (for 76.176.123.19 at 2008-02-17 20:42:30) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--b3905a39af19b4a524f8443f5f48e905dad9982b
+  Parameters: {"action"=>"extended", "controller"=>"dashboard"}
+Rendering template within layouts/dashboard
+Rendering dashboard/extended
+Completed in 0.00507 (197 reqs/sec) | Rendering: 0.00237 (46%) | DB: 0.00000 (0%) | 200 OK [http://76.176.123.19/]
+
+
+Processing DashboardController#extended (for 76.176.123.19 at 2008-02-17 20:47:33) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--b3905a39af19b4a524f8443f5f48e905dad9982b
+  Parameters: {"action"=>"extended", "controller"=>"dashboard"}
+Rendering template within layouts/dashboard
+Rendering dashboard/extended
+Completed in 0.01590 (62 reqs/sec) | Rendering: 0.01348 (84%) | DB: 0.00000 (0%) | 200 OK [http://76.176.123.19/]
+
+
+Processing DashboardController#compact (for 76.176.123.19 at 2008-02-17 20:47:38) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--b3905a39af19b4a524f8443f5f48e905dad9982b
+  Parameters: {"action"=>"compact", "controller"=>"dashboard"}
+Rendering template within layouts/dashboard
+Rendering dashboard/compact
+Completed in 0.00899 (111 reqs/sec) | Rendering: 0.00606 (67%) | DB: 0.00000 (0%) | 200 OK [http://76.176.123.19/dashboard/compact]
+
+
+Processing DashboardController#extended (for 76.176.123.19 at 2008-02-17 20:47:40) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--b3905a39af19b4a524f8443f5f48e905dad9982b
+  Parameters: {"action"=>"extended", "controller"=>"dashboard"}
+Rendering template within layouts/dashboard
+Rendering dashboard/extended
+Completed in 0.00437 (228 reqs/sec) | Rendering: 0.00203 (46%) | DB: 0.00000 (0%) | 200 OK [http://76.176.123.19/]
+
+
+Processing DashboardController#compact (for 76.176.123.19 at 2008-02-17 20:47:43) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--b3905a39af19b4a524f8443f5f48e905dad9982b
+  Parameters: {"action"=>"compact", "controller"=>"dashboard"}
+Rendering template within layouts/dashboard
+Rendering dashboard/compact
+Completed in 0.00436 (229 reqs/sec) | Rendering: 0.00201 (46%) | DB: 0.00000 (0%) | 200 OK [http://76.176.123.19/dashboard/compact]
+
+
+Processing DashboardController#extended (for 76.176.123.19 at 2008-02-17 20:47:47) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--b3905a39af19b4a524f8443f5f48e905dad9982b
+  Parameters: {"action"=>"extended", "controller"=>"dashboard"}
+Rendering template within layouts/dashboard
+Rendering dashboard/extended
+Completed in 0.00536 (186 reqs/sec) | Rendering: 0.00268 (49%) | DB: 0.00000 (0%) | 200 OK [http://76.176.123.19/]

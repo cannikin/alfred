@@ -13,19 +13,31 @@ a:hover {
 	text-decoration: none;
 }
 
-#logo {
+#header {
 	width: 970px;
 	margin: 0 auto;
-	padding: 0;
-	overflow: hidden;
 }
 
+#logo {
+	width: 300px;
+	padding: 0;
+	float: left;
+	border-bottom: 1px solid #cccccc;
+}
+	#logo img {
+		margin: 0;
+		padding: 0;
+		display: block;
+		border: 0;
+	}
+
 ul#tabs {
-	width: 952px;
+	width: 650px;
+	float: right;
 	text-align: right;
 	list-style: none;
 	font-size: 80%;
-	margin: 0 auto 0;
+	margin: 91px auto 0;
 	padding: 0 10px 4px;
 	border-bottom: 1px solid #cccccc;
 }

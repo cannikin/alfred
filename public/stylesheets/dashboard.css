@@ -1,3 +1,7 @@
+.row {
+	overflow: auto;
+}
+
 .project {
 	width: 432px;
 	border-width: 2px;
@@ -8,10 +12,16 @@
 }
 
 	.project h2 {
-		margin: 0;
+		margin: 0 0 .5em;
 		padding: 0;
 		font-size: 120%;
 	}
+	
+		.project h2 span {
+			margin: 0 0 1em;
+			font-size: 60%;
+			font-weight: normal;
+		}
 	
 	.project p {
 		font-size: 80%;
@@ -67,12 +77,12 @@
 table#summary {
 	font-size: 80%;
 	width: 930px;
-	margin: 20px;
+	margin: 20px 20px 0;
 }
 
 	table#summary th {
 		text-align: left;
-		border-bottom: 3px double #cccccc;
+
 	}
 	
 	table#summary td {
