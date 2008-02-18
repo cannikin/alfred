@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  description: MyString
+  local_url: MyString
+  remote_url: MyString
+  root: MyString
+  server_id: 1
+  state_id: 1
+  last_started_at: 2008-02-17 10:40:54
+
+two:
+  name: MyString
+  description: MyString
+  local_url: MyString
+  remote_url: MyString
+  root: MyString
+  server_id: 1
+  state_id: 1
+  last_started_at: 2008-02-17 10:40:54

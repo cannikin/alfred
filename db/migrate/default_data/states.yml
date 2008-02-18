@@ -1,0 +1,23 @@
+not_running:
+  name: Not Running
+  description: The app is not running.
+  color_1: '#eeeeee'
+  color_2: '#cccccc'
+  
+running:
+  name: Running
+  description: The app is running.
+  color_1: '#e0ffb3'
+  color_2: '#009900'
+  
+starting:
+  name: Starting
+  description: The app is starting up.
+  color_1: '#ffffcc'
+  color_2: '#ffcc99'
+  
+error:
+  name: Error
+  description: The app reported an error.
+  color_1: '#ffdcda'
+  color_2: '#990000'

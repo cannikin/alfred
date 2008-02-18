@@ -1,0 +1,17 @@
+development:
+  name: Development
+  description: The development environment is used when writing your app.
+  command: development
+  log: '/log/development.log'
+  
+test:
+  name: Test
+  description: The test environment is used when testing your app.
+  command: test
+  log: '/log/test.log'
+  
+production:
+  name: Production
+  description: The production environment is used when your app is live in a production environment.
+  command: test
+  log: '/log/production.log'
