@@ -1,0 +1,524 @@
+Script started on Wed 19 Mar 2008 02:51:28 PM PDT
+]0;rob@ui: /var/www/alfredrob@ui:/var/www/alfred$ script/generate controller Settings index
+      exists  app/controllers/
+      exists  app/helpers/
+      create  app/views/settings
+      exists  test/functional/
+      create  app/controllers/settings_controller.rb
+      create  test/functional/settings_controller_test.rb
+      create  app/helpers/settings_helper.rb
+      create  app/views/settings/index.html.erb
+]0;rob@ui: /var/www/alfredrob@ui:/var/www/alfred$ script/server -p 2[K3110[K[K00 -d
+=> Booting Mongrel (use 'script/server webrick' to force WEBrick)
+=> Rails application starting on http://0.0.0.0:3100
+]0;rob@ui: /var/www/alfredrob@ui:/var/www/alfred$ rakd[Ke db:migrate:reset
+(in /var/www/alfred)
+"db/development.sqlite3 already exists"
+== 1 CreateProjects: migrating ================================================
+-- create_table(:projects)
+   -> 0.0345s
+rake aborted!
+SQLite3::SQLException: no such table: servers: DELETE FROM servers WHERE 1=1
+
+(See full trace by running task with --trace)
+]0;rob@ui: /var/www/alfredrob@ui:/var/www/alfred$ rake db;mig[K[K[K[K:migrate
+(in /var/www/alfred)
+== 1 CreateProjects: migrating ================================================
+-- create_table(:projects)
+rake aborted!
+SQLite3::SQLException: table projects already exists: CREATE TABLE projects ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL, "description" varchar(255) DEFAULT NULL, "local_url" varchar(255) DEFAULT NULL, "remote_url" varchar(255) DEFAULT NULL, "rails_root" varchar(255) DEFAULT NULL, "port" integer DEFAULT NULL, "server_id" integer DEFAULT NULL, "state_id" integer DEFAULT NULL, "environment_id" integer DEFAULT NULL, "last_started_at" datetime DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) 
+
+(See full trace by running task with --trace)
+]0;rob@ui: /var/www/alfredrob@ui:/var/www/alfred$ rake db:migrate:reset
+(in /var/www/alfred)
+"db/development.sqlite3 already exists"
+== 1 CreateProjects: migrating ================================================
+-- create_table(:projects)
+   -> 0.0202s
+rake aborted!
+SQLite3::SQLException: no such table: servers: DELETE FROM servers WHERE 1=1
+
+(See full trace by running task with --trace)
+]0;rob@ui: /var/www/alfredrob@ui:/var/www/alfred$ rake db:migrate:reset
+(in /var/www/alfred)
+"db/development.sqlite3 already exists"
+== 1 CreateProjects: migrating ================================================
+-- create_table(:projects)
+   -> 0.0095s
+rake aborted!
+SQLite3::SQLException: no such table: servers: DELETE FROM servers WHERE 1=1
+
+(See full trace by running task with --trace)
+]0;rob@ui: /var/www/alfredrob@ui:/var/www/alfred$ rake -T
+(in /var/www/alfred)
+rake db:abort_if_pending_migrations  # Raises an error if there are pending...
+rake db:charset                      # Retrieves the charset for the curren...
+rake db:collation                    # Retrieves the collation for the curr...
+rake db:create                       # Create the database defined in confi...
+rake db:create:all                   # Create all the local databases defin...
+rake db:drop                         # Drops the database for the current R...
+rake db:drop:all                     # Drops all the local databases define...
+rake db:fixtures:identify            # Search for a fixture given a LABEL o...
+rake db:fixtures:load                # Load fixtures into the current envir...
+rake db:migrate                      # Migrate the database through scripts...
+rake db:migrate:redo                 # Rollbacks the database one migration...
+rake db:migrate:reset                # Resets your database using your migr...
+rake db:reset                        # Drops and recreates the database fro...
+rake db:rollback                     # Rolls the schema back to the previou...
+rake db:schema:dump                  # Create a db/schema.rb file that can ...
+rake db:schema:load                  # Load a schema.rb file into the database
+rake db:sessions:clear               # Clear the sessions table
+rake db:sessions:create              # Creates a sessions migration for use...
+rake db:structure:dump               # Dump the database structure to a SQL...
+rake db:test:clone                   # Recreate the test database from the ...
+rake db:test:clone_structure         # Recreate the test databases from the...
+rake db:test:prepare                 # Prepare the test database and load t...
+rake db:test:purge                   # Empty the test database
+rake db:version                      # Retrieves the current schema version...
+rake doc:app                         # Build the app HTML Files
+rake doc:clobber_app                 # Remove rdoc products
+rake doc:clobber_plugins             # Remove plugin documentation
+rake doc:clobber_rails               # Remove rdoc products
+rake doc:plugins                     # Generate documentation for all insta...
+rake doc:rails                       # Build the rails HTML Files
+rake doc:reapp                       # Force a rebuild of the RDOC files
+rake doc:rerails                     # Force a rebuild of the RDOC files
+rake log:clear                       # Truncates all *.log files in log/ to...
+rake notes                           # Enumerate all annotations
+rake notes:fixme                     # Enumerate all FIXME annotations
+rake notes:optimize                  # Enumerate all OPTIMIZE annotations
+rake notes:todo                      # Enumerate all TODO annotations
+rake rails:freeze:edge               # Lock to latest Edge Rails or a speci...
+rake rails:freeze:gems               # Lock this application to the current...
+rake rails:unfreeze                  # Unlock this application from freeze ...
+rake rails:update                    # Update both configs, scripts and pub...
+rake rails:update:configs            # Update config/boot.rb from your curr...
+rake rails:update:javascripts        # Update your javascripts from your cu...
+rake rails:update:scripts            # Add new scripts to the application s...
+rake routes                          # Print out all defined routes in matc...
+rake secret                          # Generate a crytographically secure s...
+rake stats                           # Report code statistics (KLOCs, etc) ...
+rake test                            # Test all units and functionals
+rake test:functionals                # Run tests for functionalsdb:test:pre...
+rake test:integration                # Run tests for integrationdb:test:pre...
+rake test:plugins                    # Run tests for pluginsenvironment / R...
+rake test:recent                     # Run tests for recentdb:test:prepare ...
+rake test:uncommitted                # Run tests for uncommitteddb:test:pre...
+rake test:units                      # Run tests for unitsdb:test:prepare /...
+rake tmp:cache:clear                 # Clears all files and directories in ...
+rake tmp:clear                       # Clear session, cache, and socket fil...
+rake tmp:create                      # Creates tmp directories for sessions...
+rake tmp:pids:clear                  # Clears all files in tmp/pids
+rake tmp:sessions:clear              # Clears all files in tmp/sessions
+rake tmp:sockets:clear               # Clears all files in tmp/sockets
+]0;rob@ui: /var/www/alfredrob@ui:/var/www/alfred$ rake db:drop
+(in /var/www/alfred)
+]0;rob@ui: /var/www/alfredrob@ui:/var/www/alfred$ rakde[K[Ke db:migrate
+(in /var/www/alfred)
+== 1 CreateProjects: migrating ================================================
+-- create_table(:projects)
+   -> 0.0197s
+rake aborted!
+SQLite3::SQLException: no such table: servers: DELETE FROM servers WHERE 1=1
+
+(See full trace by running task with --trace)
+]0;rob@ui: /var/www/alfredrob@ui:/var/www/alfred$ rake db:migrate:reset
+(in /var/www/alfred)
+"db/development.sqlite3 already exists"
+== 1 CreateProjects: migrating ================================================
+-- create_table(:projects)
+   -> 0.0075s
+rake aborted!
+SQLite3::SQLException: no such table: servers: DELETE FROM servers WHERE 1=1
+
+(See full trace by running task with --trace)
+]0;rob@ui: /var/www/alfredrob@ui:/var/www/alfred$ rake db:migrate:reset
+(in /var/www/alfred)
+"db/development.sqlite3 already exists"
+== 1 CreateProjects: migrating ================================================
+-- create_table(:projects)
+   -> 0.0143s
+== 1 CreateProjects: migrated (0.0470s) =======================================
+
+== 2 CreateServers: migrating =================================================
+-- create_table(:servers)
+   -> 0.0035s
+== 2 CreateServers: migrated (0.0157s) ========================================
+
+== 3 CreateStates: migrating ==================================================
+-- create_table(:states)
+   -> 0.0041s
+== 3 CreateStates: migrated (0.0193s) =========================================
+
+== 4 CreateEnvironments: migrating ============================================
+-- create_table(:environments)
+   -> 0.0039s
+== 4 CreateEnvironments: migrated (0.0190s) ===================================
+
+== 5 CreateSystems: migrating =================================================
+-- create_table(:systems)
+   -> 0.0038s
+== 5 CreateSystems: migrated (0.0042s) ========================================
+
+]0;rob@ui: /var/www/alfredrob@ui:/var/www/alfred$ rake db:migrate:reset[K:reset
+(in /var/www/alfred)
+"db/development.sqlite3 already exists"
+== 1 CreateProjects: migrating ================================================
+-- create_table(:projects)
+   -> 0.0118s
+== 1 CreateProjects: migrated (0.0387s) =======================================
+
+== 2 CreateServers: migrating =================================================
+-- create_table(:servers)
+   -> 0.0213s
+== 2 CreateServers: migrated (0.0333s) ========================================
+
+== 3 CreateStates: migrating ==================================================
+-- create_table(:states)
+   -> 0.0037s
+== 3 CreateStates: migrated (0.0368s) =========================================
+
+== 4 CreateEnvironments: migrating ============================================
+-- create_table(:environments)
+   -> 0.0038s
+== 4 CreateEnvironments: migrated (0.0185s) ===================================
+
+== 5 CreateSystems: migrating =================================================
+-- create_table(:systems)
+   -> 0.0039s
+== 5 CreateSystems: migrated (0.0042s) ========================================
+
+]0;rob@ui: /var/www/alfredrob@ui:/var/www/alfred$ rake db:migrate:reset
+(in /var/www/alfred)
+"db/development.sqlite3 already exists"
+== 1 CreateProjects: migrating ================================================
+-- create_table(:projects)
+   -> 0.0353s
+== 1 CreateProjects: migrated (0.0603s) =======================================
+
+== 2 CreateServers: migrating =================================================
+-- create_table(:servers)
+   -> 0.0034s
+== 2 CreateServers: migrated (0.0158s) ========================================
+
+== 3 CreateStates: migrating ==================================================
+-- create_table(:states)
+   -> 0.0037s
+== 3 CreateStates: migrated (0.0200s) =========================================
+
+== 4 CreateEnvironments: migrating ============================================
+-- create_table(:environments)
+   -> 0.0039s
+== 4 CreateEnvironments: migrated (0.0187s) ===================================
+
+== 5 CreateSystems: migrating =================================================
+-- create_table(:systems)
+   -> 0.0128s
+== 5 CreateSystems: migrated (0.0131s) ========================================
+
+]0;rob@ui: /var/www/alfredrob@ui:/var/www/alfred$ rake db:migrate:reset
+(in /var/www/alfred)
+"db/development.sqlite3 already exists"
+== 1 CreateProjects: migrating ================================================
+-- create_table(:projects)
+   -> 0.0322s
+== 1 CreateProjects: migrated (0.0635s) =======================================
+
+== 2 CreateServers: migrating =================================================
+-- create_table(:servers)
+   -> 0.0267s
+== 2 CreateServers: migrated (0.0388s) ========================================
+
+== 3 CreateStates: migrating ==================================================
+-- create_table(:states)
+   -> 0.0037s
+== 3 CreateStates: migrated (0.0464s) =========================================
+
+== 4 CreateEnvironments: migrating ============================================
+-- create_table(:environments)
+   -> 0.0038s
+== 4 CreateEnvironments: migrated (0.0191s) ===================================
+
+== 5 CreateSystems: migrating =================================================
+-- create_table(:systems)
+   -> 0.0038s
+== 5 CreateSystems: migrated (0.0042s) ========================================
+
+]0;rob@ui: /var/www/alfredrob@ui:/var/www/alfred$ rake db:migrate:reset
+(in /var/www/alfred)
+"db/development.sqlite3 already exists"
+== 1 CreateProjects: migrating ================================================
+-- create_table(:projects)
+   -> 0.0141s
+== 1 CreateProjects: migrated (0.0482s) =======================================
+
+== 2 CreateServers: migrating =================================================
+-- create_table(:servers)
+   -> 0.0250s
+== 2 CreateServers: migrated (0.0372s) ========================================
+
+== 3 CreateStates: migrating ==================================================
+-- create_table(:states)
+   -> 0.0038s
+== 3 CreateStates: migrated (0.0444s) =========================================
+
+== 4 CreateEnvironments: migrating ============================================
+-- create_table(:environments)
+   -> 0.0038s
+== 4 CreateEnvironments: migrated (0.0187s) ===================================
+
+== 5 CreateSystems: migrating =================================================
+-- create_table(:systems)
+   -> 0.0040s
+== 5 CreateSystems: migrated (0.0167s) ========================================
+
+]0;rob@ui: /var/www/alfredrob@ui:/var/www/alfred$ rake db:migrate:reset
+(in /var/www/alfred)
+"db/development.sqlite3 already exists"
+== 1 CreateProjects: migrating ================================================
+-- create_table(:projects)
+   -> 0.0235s
+== 1 CreateProjects: migrated (0.0626s) =======================================
+
+== 2 CreateServers: migrating =================================================
+-- create_table(:servers)
+   -> 0.0191s
+== 2 CreateServers: migrated (0.0314s) ========================================
+
+== 3 CreateStates: migrating ==================================================
+-- create_table(:states)
+   -> 0.0041s
+== 3 CreateStates: migrated (0.0368s) =========================================
+
+== 4 CreateEnvironments: migrating ============================================
+-- create_table(:environments)
+   -> 0.0039s
+== 4 CreateEnvironments: migrated (0.0188s) ===================================
+
+== 5 CreateSystems: migrating =================================================
+-- create_table(:systems)
+   -> 0.0040s
+== 5 CreateSystems: migrated (0.0167s) ========================================
+
+]0;rob@ui: /var/www/alfredrob@ui:/var/www/alfred$ rake db:migrate:reset
+(in /var/www/alfred)
+"db/development.sqlite3 already exists"
+== 1 CreateProjects: migrating ================================================
+-- create_table(:projects)
+   -> 0.0057s
+== 1 CreateProjects: migrated (0.0277s) =======================================
+
+== 2 CreateServers: migrating =================================================
+-- create_table(:servers)
+   -> 0.0293s
+== 2 CreateServers: migrated (0.0414s) ========================================
+
+== 3 CreateStates: migrating ==================================================
+-- create_table(:states)
+   -> 0.0128s
+== 3 CreateStates: migrated (0.0279s) =========================================
+
+== 4 CreateEnvironments: migrating ============================================
+-- create_table(:environments)
+   -> 0.0038s
+== 4 CreateEnvironments: migrated (0.0185s) ===================================
+
+== 5 CreateSystems: migrating =================================================
+-- create_table(:systems)
+   -> 0.0041s
+== 5 CreateSystems: migrated (0.0168s) ========================================
+
+]0;rob@ui: /var/www/alfredrob@ui:/var/www/alfred$ irb
+irb(main):001:0> Time.now
+=> Wed Mar 19 16:38:03 -0700 2008
+irb(main):002:0> Time.now.to_s
+=> "Wed Mar 19 16:38:06 -0700 2008"
+irb(main):003:0> Time.now.to_s):[K[K(;[K:db)
+ArgumentError: wrong number of arguments (1 for 0)
+	from (irb):3:in `to_s'
+	from (irb):3
+	from :0
+irb(main):004:0> exit
+]0;rob@ui: /var/www/alfredrob@ui:/var/www/alfred$ script/console
+Loading development environment (Rails 2.0.2)
+>> Time.now.to_s
+=> "Wed Mar 19 16:38:23 -0700 2008"
+>> Time.now.to_s(:db)
+=> "2008-03-19 16:38:26"
+>> exit
+]0;rob@ui: /var/www/alfredrob@ui:/var/www/alfred$ script/consoleirb[Krake db:migrate:reset
+(in /var/www/alfred)
+"db/development.sqlite3 already exists"
+== 1 CreateProjects: migrating ================================================
+-- create_table(:projects)
+   -> 0.0081s
+== 1 CreateProjects: migrated (0.0390s) =======================================
+
+== 2 CreateServers: migrating =================================================
+-- create_table(:servers)
+   -> 0.0261s
+== 2 CreateServers: migrated (0.0386s) ========================================
+
+== 3 CreateStates: migrating ==================================================
+-- create_table(:states)
+   -> 0.0037s
+== 3 CreateStates: migrated (0.0409s) =========================================
+
+== 4 CreateEnvironments: migrating ============================================
+-- create_table(:environments)
+   -> 0.0038s
+== 4 CreateEnvironments: migrated (0.0185s) ===================================
+
+== 5 CreateSystems: migrating =================================================
+-- create_table(:systems)
+   -> 0.0038s
+== 5 CreateSystems: migrated (0.0169s) ========================================
+
+]0;rob@ui: /var/www/alfredrob@ui:/var/www/alfred$ rake db:migrate:reset
+(in /var/www/alfred)
+"db/development.sqlite3 already exists"
+== 1 CreateProjects: migrating ================================================
+-- create_table(:projects)
+   -> 0.0055s
+== 1 CreateProjects: migrated (0.0473s) =======================================
+
+== 2 CreateServers: migrating =================================================
+-- create_table(:servers)
+   -> 0.0034s
+== 2 CreateServers: migrated (0.0155s) ========================================
+
+== 3 CreateStates: migrating ==================================================
+-- create_table(:states)
+   -> 0.0037s
+== 3 CreateStates: migrated (0.0474s) =========================================
+
+== 4 CreateEnvironments: migrating ============================================
+-- create_table(:environments)
+   -> 0.0039s
+== 4 CreateEnvironments: migrated (0.0187s) ===================================
+
+== 5 CreateSystems: migrating =================================================
+-- create_table(:systems)
+   -> 0.0160s
+== 5 CreateSystems: migrated (0.0287s) ========================================
+
+]0;rob@ui: /var/www/alfredrob@ui:/var/www/alfred$ rake db:migrate:reset
+(in /var/www/alfred)
+"db/development.sqlite3 already exists"
+== 1 CreateProjects: migrating ================================================
+-- create_table(:projects)
+   -> 0.0094s
+== 1 CreateProjects: migrated (0.0385s) =======================================
+
+== 2 CreateServers: migrating =================================================
+-- create_table(:servers)
+   -> 0.0277s
+== 2 CreateServers: migrated (0.0398s) ========================================
+
+== 3 CreateStates: migrating ==================================================
+-- create_table(:states)
+   -> 0.0037s
+== 3 CreateStates: migrated (0.0379s) =========================================
+
+== 4 CreateEnvironments: migrating ============================================
+-- create_table(:environments)
+   -> 0.0038s
+== 4 CreateEnvironments: migrated (0.0185s) ===================================
+
+== 5 CreateSystems: migrating =================================================
+-- create_table(:systems)
+   -> 0.0039s
+== 5 CreateSystems: migrated (0.0165s) ========================================
+
+]0;rob@ui: /var/www/alfredrob@ui:/var/www/alfred$ rake db:g[Kdrop
+(in /var/www/alfred)
+]0;rob@ui: /var/www/alfredrob@ui:/var/www/alfred$ rake db:migrate
+(in /var/www/alfred)
+== 1 CreateProjects: migrating ================================================
+-- create_table(:projects)
+   -> 0.0055s
+== 1 CreateProjects: migrated (0.0483s) =======================================
+
+== 2 CreateServers: migrating =================================================
+-- create_table(:servers)
+   -> 0.0034s
+== 2 CreateServers: migrated (0.0157s) ========================================
+
+== 3 CreateStates: migrating ==================================================
+-- create_table(:states)
+   -> 0.0037s
+== 3 CreateStates: migrated (0.0195s) =========================================
+
+== 4 CreateEnvironments: migrating ============================================
+-- create_table(:environments)
+   -> 0.0244s
+== 4 CreateEnvironments: migrated (0.0392s) ===================================
+
+== 5 CreateSystems: migrating =================================================
+-- create_table(:systems)
+   -> 0.0184s
+== 5 CreateSystems: migrated (0.0310s) ========================================
+
+]0;rob@ui: /var/www/alfredrob@ui:/var/www/alfred$ rake db:migrate
+(in /var/www/alfred)
+]0;rob@ui: /var/www/alfredrob@ui:/var/www/alfred$ rake db:migrate:reset
+(in /var/www/alfred)
+"db/development.sqlite3 already exists"
+== 1 CreateProjects: migrating ================================================
+-- create_table(:projects)
+   -> 0.0143s
+== 1 CreateProjects: migrated (0.0366s) =======================================
+
+== 2 CreateServers: migrating =================================================
+-- create_table(:servers)
+   -> 0.0197s
+== 2 CreateServers: migrated (0.0318s) ========================================
+
+== 3 CreateStates: migrating ==================================================
+-- create_table(:states)
+   -> 0.0037s
+== 3 CreateStates: migrated (0.0311s) =========================================
+
+== 4 CreateEnvironments: migrating ============================================
+-- create_table(:environments)
+   -> 0.0039s
+== 4 CreateEnvironments: migrated (0.0195s) ===================================
+
+== 5 CreateSystems: migrating =================================================
+-- create_table(:systems)
+   -> 0.0038s
+== 5 CreateSystems: migrated (0.0165s) ========================================
+
+]0;rob@ui: /var/www/alfredrob@ui:/var/www/alfred$ rake db:migrate:reset
+(in /var/www/alfred)
+"db/development.sqlite3 already exists"
+== 1 CreateProjects: migrating ================================================
+-- create_table(:projects)
+   -> 0.0054s
+== 1 CreateProjects: migrated (0.0333s) =======================================
+
+== 2 CreateServers: migrating =================================================
+-- create_table(:servers)
+   -> 0.0308s
+== 2 CreateServers: migrated (0.0429s) ========================================
+
+== 3 CreateStates: migrating ==================================================
+-- create_table(:states)
+   -> 0.0037s
+== 3 CreateStates: migrated (0.0343s) =========================================
+
+== 4 CreateEnvironments: migrating ============================================
+-- create_table(:environments)
+   -> 0.0038s
+== 4 CreateEnvironments: migrated (0.0187s) ===================================
+
+== 5 CreateSystems: migrating =================================================
+-- create_table(:systems)
+   -> 0.0038s
+== 5 CreateSystems: migrated (0.0164s) ========================================
+
+]0;rob@ui: /var/www/alfredrob@ui:/var/www/alfred$ rake db:migrate:reset
+(in /var/www/alfred)
+"db/development.sqlite3 already exists"
+== 1 CreateProjects: migrating ================================================
+-- create_ta

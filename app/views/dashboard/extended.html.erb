@@ -1,156 +1,47 @@
-<div id="main">
-  <div class="row">
-    <div id="project_1" class="project running">
-      <h2>Project Name <span>(<a href="#" onclick="showDescription(1); return false;">more</a>)</span></h2>
-      <p id="project_1_description" style="display:none;">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt 
-        ut labore et dolore magna aliqua. Ut enim ad minim veniam. Here's a bunch more text to try and get this to be one line taller and a little more
-      </p>
-      <table cellspacing="0" class="stats">
-        <tr>
-          <td class="label">Local URL</td>
-          <td><a href="#">http://localhost:3001</a></td>
-        </tr>
-        <tr>
-          <td class="label">Remote URL</td>
-          <td><a href="#">http://legion:3001</a></td>
-        </tr>
-        <tr>
-          <td class="label">Rails Root</td>
-          <td>/Users/rob/sites/project</td>
-        </tr>
-        <tr>
-          <td class="label">Web Server</td>
-          <td>Mongrel 1.1</td>
-        </tr>
-        <tr>
-          <td class="label">Environment</td>
-          <td>Development (<a href="#">log</a>)</td>
-        </tr>
-        <tr class="last">
-          <td class="label">Last Started</td>
-          <td>Today at 4:15pm</td>
-        </tr>
-      </table>
+
+  <% @projects.each_with_index do |project,index| %>
+    <% if index % 2 == 0 %>
+      <div class="row">
+    <% end %>
+
+    <div id="project_1" class="project <%= cssify(project.state.name) %>">
+      <h2><%= h project.name %> <span>(<a href="#" onclick="project_blocks.toggle_description(<%= project.id %>); return false;">more</a>)</span></h2>
+      <p id="project_1_description" style="display:none;"><%= h project.description %></p>
+      <div class="stats">
+        <table cellspacing="0" class="stats">
+          <tr>
+            <td class="label">Local URL</td>
+            <td><a href="http://<%= @system.local_hostname %>:<%= project.port %>" target="_blank">http://<%= @system.local_hostname %>:<%= project.port %></a></td>
+          </tr>
+          <tr>
+            <td class="label">Remote URL</td>
+            <td><a href="http://<%= @system.remote_hostname %>:<%= project.port %>" target="_blank">http://<%= @system.remote_hostname %>:<%= project.port %></a></td>
+          </tr>
+          <tr>
+            <td class="label">Rails Root</td>
+            <td><%= h project.rails_root %></td>
+          </tr>
+          <tr>
+            <td class="label">Web Server</td>
+            <td><%= project.server.name %></td>
+          </tr>
+          <tr>
+            <td class="label">Environment</td>
+            <td><%= project.environment.name %> (<a href="#">log</a>)</td>
+          </tr>
+          <tr class="last">
+            <td class="label">Last Started</td>
+            <td>
+              <%= project.last_started_at.nil? ? 'Never' : distance_of_time_in_words(project.last_started_at) %></td>
+          </tr>
+        </table>
+      </div>
       <form>
         <input type="button" value="Stop" />
       </form>
     </div>
-  
-    <div id="project_2" class="project stopped">
-      <h2>Project Name <span>(<a href="#" onclick="showDescription(2); return false;">more</a>)</span></h2>
-      <p id="project_2_description" style="display:none;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-      <table cellspacing="0" class="stats">
-        <tr>
-          <td class="label">Local URL</td>
-          <td><a href="#">http://localhost:3001</a></td>
-        </tr>
-        <tr>
-          <td class="label">Remote URL</td>
-          <td><a href="#">http://legion:3001</a></td>
-        </tr>
-        <tr>
-          <td class="label">Rails Root</td>
-          <td>/Users/rob/sites/project</td>
-        </tr>
-        <tr>
-          <td class="label">Web Server</td>
-          <td>Mongrel 1.1</td>
-        </tr>
-        <tr>
-          <td class="label">Environment</td>
-          <td>
-            <select>
-              <option>Development</option>
-              <option>Test</option>
-              <option>Production</option>
-            </select>
-            (<a href="#">log</a>)</td>
-        </tr>
-        <tr class="last">
-          <td class="label">Last Started</td>
-          <td>Today at 4:15pm</td>
-        </tr>
-      </table>
-      <form>
-        <input type="button" value="Start" />
-      </form>
-    </div>
-  </div>
-  
-  <div class="row">
-    <div id="project_3" class="project starting">
-      <h2>Project Name <span>(<a href="#" onclick="showDescription(3); return false;">more</a>)</span></h2>
-      <p id="project_3_description" style="display:none;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-      <table cellspacing="0" class="stats">
-        <tr>
-          <td class="label">Local URL</td>
-          <td><a href="#">http://localhost:3001</a></td>
-        </tr>
-        <tr>
-          <td class="label">Remote URL</td>
-          <td><a href="#">http://legion:3001</a></td>
-        </tr>
-        <tr>
-          <td class="label">Rails Root</td>
-          <td>/Users/rob/sites/project</td>
-        </tr>
-        <tr>
-          <td class="label">Web Server</td>
-          <td>Mongrel 1.1</td>
-        </tr>
-        <tr>
-          <td class="label">Environment</td>
-          <td>Development (<a href="#">log</a>)</td>
-        </tr>
-        <tr class="last">
-          <td class="label">Last Started</td>
-          <td>Today at 4:15pm</td>
-        </tr>
-      </table>
-      <form>
-        <input type="button" value="Starting..." disabled="disabled" />
-      </form>
-    </div>
-  
-    <div id="project_4" class="project error">
-      <h2>Project Name <span>(<a href="#" onclick="showDescription(4); return false;">more</a>)</span></h2>
-      <p id="project_4_description" style="display:none;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-      <table cellspacing="0" class="stats">
-        <tr>
-          <td class="label">Local URL</td>
-          <td><a href="#">http://localhost:3001</a></td>
-        </tr>
-        <tr>
-          <td class="label">Remote URL</td>
-          <td><a href="#">http://legion:3001</a></td>
-        </tr>
-        <tr>
-          <td class="label">Rails Root</td>
-          <td>/Users/rob/sites/project</td>
-        </tr>
-        <tr>
-          <td class="label">Web Server</td>
-          <td>Mongrel 1.1</td>
-        </tr>
-        <tr>
-          <td class="label">Environment</td>
-          <td>
-            <select>
-              <option>Development</option>
-              <option>Test</option>
-              <option>Production</option>
-            </select>
-            (<a href="#">log</a>)</td>
-        </tr>
-        <tr class="last">
-          <td class="label">Last Started</td>
-          <td>Today at 4:15pm</td>
-        </tr>
-      </table>
-      <form>
-        <input type="button" value="Start" />
-      </form>
-    </div>
-  </div>
-</div>
+
+    <% if index % 2 == 1 || project == @projects.last%>
+      </div>
+    <% end %>
+  <% end %>

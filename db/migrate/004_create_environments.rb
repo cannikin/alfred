@@ -4,6 +4,7 @@ class CreateEnvironments < ActiveRecord::Migration
   def self.up
     create_table :environments do |t|
       t.string :name
+      t.string :short_name
       t.string :description
       t.string :command
       t.string :log

@@ -1,0 +1,5 @@
+default:
+  id: 1
+  local_hostname: localhost
+  remote_hostname: 172.16.19.225
+  port: 3100

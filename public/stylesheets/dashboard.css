@@ -27,17 +27,20 @@
 		font-size: 80%;
 	}
 
-	.project table {
+	.project .stats {
 		background-color: #ffffff;
+		padding: 5px 10px;
+		}
+
+	.project table {
 		width: 100%;
 		font-size: 80%;
 		padding: 2px 10px;
 	}
-	
+
 		.project table td {
 			border-bottom: 1px dotted #aaaaaa;
-			padding: 3px;
-			
+			padding: 5px;
 		}
 		
 		.project table td.label {
@@ -50,22 +53,18 @@
 		}
 
 	.project.running {
-		background-color: #e0ffb3;
 		border-color: #009900;
 	}
 	
 	.project.stopped {
-		background-color: #eeeeee;
 		border-color: #cccccc;
 	}
 	
 	.project.starting {
-		background-color: #ffffcc;
 		border-color: #ffcc99;
 	}
 	
 	.project.error {
-		background-color: #ffdcda;
 		border-color: #990000;
 	}
 
@@ -82,7 +81,6 @@ table#summary {
 
 	table#summary th {
 		text-align: left;
-
 	}
 	
 	table#summary td {
@@ -94,38 +92,41 @@ table#summary {
 		font-weight: bold;
 	}
 	
-	table#summary tr.running {
-		background-color: #e0ffb3;
+	table#summary tr.running td.name {
+		color: #009900;
+	}
+
+	table#summary tr.stopped td.name {
+		color: #666666;
 	}
 	
-		table#summary tr.running td.name {
-			color: #009900;
-		}
-	
-	table#summary tr.stopped {
-		background-color: #eeeeee;
+	table#summary tr.starting td.name {
+		color: #ffcc99;
 	}
-	
-		table#summary tr.stopped td.name {
-			color: #666666;
-		}
-	
-	table#summary tr.starting {
-		background-color: #ffffcc;
+
+	table#summary tr.error td.name {
+		color: #990000;
 	}
-		
-		table#summary tr.starting td.name {
-			color: #ffcc99;
-		}
-	
-	table#summary tr.error {
-		background-color: #ffdcda;
-	}
-	
-		table#summary tr.error td.name {
-			color: #990000;
-		}
 		
 	table#summary td.button {
 		text-align: center;
+	}
+
+
+/* General colors */
+
+.running {
+	background-color: #e0ffb3;
+	}
+
+.starting {
+	background-color: #ffffcc;
+	}
+
+.stopped {
+	background-color: #eeeeee;
+	}
+
+.error {
+	background-color: #ffdcda;
 	}

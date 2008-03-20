@@ -1,0 +1,6 @@
+<% form_for :system do |form| %>
+  <label for="system_local_hostname">Local Hostname</label>
+  <%= form.text_field :local_hostname %>
+  <label for="system_remote_hostname">Remote Hostname</label>
+  <%= form.text_field :remote_hostname %>
+<% end %>

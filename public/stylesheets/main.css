@@ -2,6 +2,7 @@ body {
 	font-family: Lucida Grande, Helvetica, Arial, sans-serif;
 	color: #333333;
 	background-color: #eeeeee;
+	margin: 10px;
 }
 
 a {
@@ -24,6 +25,7 @@ a:hover {
 	float: left;
 	border-bottom: 1px solid #cccccc;
 }
+
 	#logo img {
 		margin: 0;
 		padding: 0;
@@ -35,18 +37,16 @@ ul#tabs {
 	width: 650px;
 	float: right;
 	text-align: right;
-	list-style: none;
 	font-size: 80%;
-	margin: 91px auto 0;
-	padding: 0 10px 4px;
+	margin: 90px auto 0;
+	padding: 0 10px 7px;
 	border-bottom: 1px solid #cccccc;
 }
 
 	ul#tabs li {
 		display: inline;
 		border: 1px solid #cccccc;
-		padding: 4px 10px;
-		margin: 0;
+		padding: 4px 10px 6px;
 	}
 	
 	ul#tabs li a {

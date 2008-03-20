@@ -1,17 +1,23 @@
 development:
+  id: 1
   name: Development
+  short_name: Dev
   description: The development environment is used when writing your app.
   command: development
   log: '/log/development.log'
   
 test:
+  id: 2
   name: Test
+  short_name: Test
   description: The test environment is used when testing your app.
   command: test
   log: '/log/test.log'
   
 production:
+  id: 3
   name: Production
+  short_name: Prod
   description: The production environment is used when your app is live in a production environment.
   command: test
   log: '/log/production.log'

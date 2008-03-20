@@ -5,9 +5,10 @@ class DashboardController < ApplicationController
   end
   
   def extended
+    @projects = Project.find(:all)
   end
   
   def compact
-    
+    @projects = Project.find(:all)
   end
 end

@@ -12,3 +12,5 @@
   - remote_hostname = by default, result of a `hostname` call, but can be overridden
   
 - If an error is thrown when starting up, display a link to the results of the standard error out
+
+- Add link to email someone a URL to a project

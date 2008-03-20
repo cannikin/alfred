@@ -1,0 +1,27 @@
+trainer:
+  id: 1
+  name: Trainer Search/Checkout2
+  rails_root: /var/www/trainer
+  port: 3000
+  server_id: 2
+  state_id: 1
+  environment_id: 1
+
+myactive:
+  id: 2
+  name: MyActive 2.0
+  rails_root: /var/www/myactive
+  port: 3001
+  server_id: 2
+  state_id: 2
+  environment_id: 1
+
+classifieds:
+  id: 3
+  name: Active Classifieds
+  rails_root: /var/www/active_classified
+  port: 3002
+  server_id: 2
+  state_id: 3
+  environment_id: 1
+  last_started_at: <%= Time.now.to_s(:db) %>

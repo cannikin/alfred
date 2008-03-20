@@ -1,7 +1,9 @@
 webrick:
+  id: 1
   name: WEBrick
   command: webrick
   
 mongrel:
+  id: 2
   name: Mongrel
   command: mongrel
