@@ -12,44 +12,45 @@
 ActiveRecord::Schema.define(:version => 5) do
 
   create_table "environments", :force => true do |t|
-    t.string "name",        :default => "NULL"
-    t.string "short_name",  :default => "NULL"
-    t.string "description", :default => "NULL"
-    t.string "command",     :default => "NULL"
-    t.string "log",         :default => "NULL"
+    t.string "name"
+    t.string "short_name"
+    t.string "description"
+    t.string "command"
+    t.string "log"
   end
 
   create_table "projects", :force => true do |t|
-    t.string   "name",            :default => "NULL"
-    t.string   "description",     :default => "NULL"
-    t.string   "local_url",       :default => "NULL"
-    t.string   "remote_url",      :default => "NULL"
-    t.string   "rails_root",      :default => "NULL"
-    t.integer  "port",            :default => 0
-    t.integer  "server_id",       :default => 0
-    t.integer  "state_id",        :default => 0
-    t.integer  "environment_id",  :default => 0
+    t.string   "name"
+    t.string   "description"
+    t.string   "local_url"
+    t.string   "remote_url"
+    t.string   "rails_root"
+    t.integer  "port"
+    t.integer  "server_id"
+    t.integer  "state_id"
+    t.integer  "environment_id"
     t.datetime "last_started_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "servers", :force => true do |t|
-    t.string "name",    :default => "NULL"
-    t.string "command", :default => "NULL"
+    t.string "name"
+    t.string "command"
   end
 
   create_table "states", :force => true do |t|
-    t.string "name",        :default => "NULL"
-    t.string "description", :default => "NULL"
-    t.string "color_1",     :default => "NULL"
-    t.string "color_2",     :default => "NULL"
+    t.string "name"
+    t.string "description"
+    t.string "color_1"
+    t.string "color_2"
   end
 
   create_table "systems", :force => true do |t|
-    t.string   "local_hostname",  :default => "NULL"
-    t.string   "remote_hostname", :default => "NULL"
-    t.integer  "port",            :default => 0
+    t.string   "local_hostname"
+    t.string   "remote_hostname"
+    t.integer  "port"
+    t.integer  "poll_interval"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

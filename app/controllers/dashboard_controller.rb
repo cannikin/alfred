@@ -1,8 +1,4 @@
 class DashboardController < ApplicationController
-
-  def index
-    
-  end
   
   def extended
     @projects = Project.find(:all)

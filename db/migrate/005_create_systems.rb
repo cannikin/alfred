@@ -6,6 +6,7 @@ class CreateSystems < ActiveRecord::Migration
       t.string :local_hostname
       t.string :remote_hostname
       t.integer :port
+      t.integer :poll_interval
 
       t.timestamps
     end

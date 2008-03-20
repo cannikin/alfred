@@ -14,7 +14,7 @@
   <tbody>
     <% @projects.each_with_index do |project,index| %>
       <tr class="<%= cssify project.state.name %>">
-        <td class="name"><%= project.name %></td>
+        <td class="name"><h2><%= project.name %></h2></td>
         <td><a href="http://<%= @system.local_hostname %>:<%= project.port %>" target="_blank">http://<%= @system.local_hostname %>:<%= project.port %></a></td>
         <td><a href="http://<%= @system.remote_hostname %>:<%= project.port %>" target="_blank">http://<%= @system.remote_hostname %>:<%= project.port %></a></td>
         <td><%= project.rails_root %></td>
@@ -23,50 +23,6 @@
         <td class="button"><input type="button" value="Stop" /></td>
       </tr>
     <% end %>
-
-    <!--
-    <tr class="stopped">
-      <td class="name">Project Name</td>
-      <td><a href="#">http://localhost:3001</a></td>
-      <td><a href="#">http://legion:3001</a></td>
-      <td>/Users/rob/Sites/project</td>
-      <td>Mongrel 1.1</td>
-      <td>
-        <select>
-          <option>Dev</option>
-          <option>Test</option>
-          <option>Prod</option>
-        </select>
-        (<a href="#">log</a>)</td>
-      <td>Today, 3:32pm</td>
-      <td class="button"><input type="button" value="Start" /></td>
-    </tr>
-    <tr class="starting">
-      <td class="name">Project Name</td>
-      <td><a href="#">http://localhost:3001</a></td>
-      <td><a href="#">http://legion:3001</a></td>
-      <td>/Users/rob/Sites/project</td>
-      <td>Mongrel 1.1</td>
-      <td>Dev (<a href="#">log</a>)</td>
-      <td>Today, 3:32pm</td>
-      <td class="button"><input type="button" value="Starting..." disabled="disabled" /></td>
-    </tr>
-    <tr class="error">
-      <td class="name">Project Name</td>
-      <td><a href="#">http://localhost:3001</a></td>
-      <td><a href="#">http://legion:3001</a></td>
-      <td>/Users/rob/Sites/project</td>
-      <td>Mongrel 1.1</td>
-      <td>
-        <select>
-          <option>Dev</option>
-          <option>Test</option>
-          <option>Prod</option>
-        </select>
-        (<a href="#">log</a>)</td>
-      <td>Today, 3:32pm</td>
-      <td class="button"><input type="button" value="Start" /></td>
-    </tr>
-    -->
   </tbody>
+  
 </table>

@@ -22,3 +22,19 @@ var project_blocks = {
 	}
 
 }
+
+var settings_blocks = {
+	
+	// get the server's hostname
+	get_hostname:function(obj) {
+		new Ajax.Request(	'/utility/hostname',
+											{ asynchronous:true,
+												onSuccess:function(response) {
+													$(obj).value = response.responseText
+												},
+												onFailure:function(response) {
+													$(obj).value = 'unknown'
+												}
+											});
+	}
+}

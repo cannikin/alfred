@@ -1,6 +1,29 @@
+<h1>Settings</h1>
+
+<%= error_messages_for 'system' %>
+
 <% form_for :system do |form| %>
-  <label for="system_local_hostname">Local Hostname</label>
-  <%= form.text_field :local_hostname %>
-  <label for="system_remote_hostname">Remote Hostname</label>
-  <%= form.text_field :remote_hostname %>
+  <div class="input">
+    <label for="system_local_hostname">Local Hostname</label>
+    <%= form.text_field :local_hostname %>
+    <span>The local URL to access your apps (usually 'localhost' or '127.0.0.1'</span>
+  </div>
+  <div class="input">
+    <label for="system_remote_hostname">Remote Hostname</label>
+    <%= form.text_field :remote_hostname %>
+    <span>The remote URL to access your apps. This is the URL others will need to see your apps (I can get <a href="#" onclick="settings_blocks.get_hostname('system_remote_hostname'); return false;">this server's hostname</a>, if you'd like)</span>
+  </div>
+  <div class="input">
+    <label for="system_port">Alfred's Port</label>
+    <%= form.text_field :port %>
+    <span>The port that I'm running on (so I don't try and give it to any other apps)</span>
+  </div>
+  <div class="input">
+    <label for="system_remote_hostname">Polling Interval</label>
+    <%= form.text_field :poll_interval %>
+    <span>How often I should ask apps about their status (in seconds)</span>
+  </div>
+  <div id="save">
+    <%= submit_tag 'Save Settings' %> or <%= link_to 'Cancel', :controller => 'dashboard' %>
+  </div>
 <% end %>

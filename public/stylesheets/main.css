@@ -5,6 +5,10 @@ body {
 	margin: 10px;
 }
 
+h1, h2, h3, h4, h5, h6 {
+	font-family: Georgia, Times New Roman, serif;
+}
+
 a {
 	color: #416ab5;
 }
@@ -13,6 +17,10 @@ a:hover {
 	background-color: #DFEBFF;
 	text-decoration: none;
 }
+
+th {
+		border-bottom: 3px double #cccccc;
+	}
 
 #header {
 	width: 970px;
@@ -75,3 +83,39 @@ ul#tabs {
 	background-color: #ffffff;
 	clear: both;
 }
+	
+#save {
+	border-top: 2px dotted #cccccc;
+	margin: 1em 0 0;
+	padding: 1em 0 0;
+	text-align: center;
+	font-size: 90%;
+	clear: both;
+}
+
+#errorExplanation {
+	margin: 1em;
+	padding: 1em;
+	background-color: #990000;
+	color: #ffffff;
+	font-size: 90%;
+}
+
+	#errorExplanation h2 {
+		margin: 0 0 1em 0;
+		font-size: 120%;
+		text-align: center;
+	}
+	
+	#errorExplanation ul {
+		list-style-type: square;
+		padding: 1em 1em 0;
+	}
+
+/*
+<div class="errorExplanation" id="errorExplanation">
+	<h2>1 error prohibited this system from being saved</h2>
+	<p>There were problems with the following fields:</p>
+	<ul><li>Port is not a number</li></ul>
+</div>
+*/

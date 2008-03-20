@@ -15,6 +15,7 @@
 		margin: 0 0 .5em;
 		padding: 0;
 		font-size: 120%;
+		font-weight: normal;
 	}
 	
 		.project h2 span {
@@ -25,6 +26,8 @@
 	
 	.project p {
 		font-size: 80%;
+		margin: 0 0 1em;
+		line-height: 1.2;
 	}
 
 	.project .stats {
@@ -81,31 +84,22 @@ table#summary {
 
 	table#summary th {
 		text-align: left;
+		padding: 3px;
+		font-size: 90%;
 	}
 	
 	table#summary td {
 		border-bottom: 1px solid #ffffff;
 		padding: 4px;
+		font-size: 85%;
+	}
+	
+	table#summary h2 {
+		font-size: 120%;
 	}
 	
 	table#summary td.name {
 		font-weight: bold;
-	}
-	
-	table#summary tr.running td.name {
-		color: #009900;
-	}
-
-	table#summary tr.stopped td.name {
-		color: #666666;
-	}
-	
-	table#summary tr.starting td.name {
-		color: #ffcc99;
-	}
-
-	table#summary tr.error td.name {
-		color: #990000;
 	}
 		
 	table#summary td.button {
@@ -118,15 +112,31 @@ table#summary {
 .running {
 	background-color: #e0ffb3;
 	}
+	
+	.running h2 {
+		color: #009900;
+	}
 
 .starting {
 	background-color: #ffffcc;
+	}
+	
+	.starting h2 {
+		color: #ffcc99;
 	}
 
 .stopped {
 	background-color: #eeeeee;
 	}
+	
+	.stopped h2 {
+		color: #666666;
+	}
 
 .error {
 	background-color: #ffdcda;
+	}
+	
+	.error h2 {
+		color: #990000;
 	}
