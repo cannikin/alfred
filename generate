@@ -521,4 +521,718 @@ Loading development environment (Rails 2.0.2)
 (in /var/www/alfred)
 "db/development.sqlite3 already exists"
 == 1 CreateProjects: migrating ================================================
--- create_ta
+-- create_table(:projects)
+   -> 0.0057s
+== 1 CreateProjects: migrated (0.0341s) =======================================
+
+== 2 CreateServers: migrating =================================================
+-- create_table(:servers)
+   -> 0.0034s
+== 2 CreateServers: migrated (0.0160s) ========================================
+
+== 3 CreateStates: migrating ==================================================
+-- create_table(:states)
+   -> 0.0037s
+== 3 CreateStates: migrated (0.0196s) =========================================
+
+== 4 CreateEnvironments: migrating ============================================
+-- create_table(:environments)
+   -> 0.0039s
+== 4 CreateEnvironments: migrated (0.0201s) ===================================
+
+== 5 CreateSystems: migrating =================================================
+-- create_table(:systems)
+   -> 0.0101s
+== 5 CreateSystems: migrated (0.0234s) ========================================
+
+]0;rob@ui: /var/www/alfredrob@ui:/var/www/alfred$ git add .
+]0;rob@ui: /var/www/alfredrob@ui:/var/www/alfred$ git status
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#	modified:   NOTES
+#	modified:   app/controllers/application.rb
+#	modified:   app/controllers/dashboard_controller.rb
+#	new file:   app/controllers/settings_controller.rb
+#	modified:   app/helpers/application_helper.rb
+#	new file:   app/helpers/settings_helper.rb
+#	modified:   app/models/environment.rb
+#	modified:   app/models/project.rb
+#	modified:   app/models/server.rb
+#	modified:   app/models/state.rb
+#	modified:   app/views/dashboard/compact.html.erb
+#	modified:   app/views/dashboard/extended.html.erb
+#	new file:   app/views/layouts/application.html.erb
+#	new file:   app/views/settings/index.html.erb
+#	modified:   config/routes.rb
+#	modified:   db/development.sqlite3
+#	modified:   db/migrate/001_create_projects.rb
+#	modified:   db/migrate/004_create_environments.rb
+#	modified:   db/migrate/005_create_systems.rb
+#	modified:   db/migrate/default_data/environments.yml
+#	new file:   db/migrate/default_data/projects.yml
+#	modified:   db/migrate/default_data/servers.yml
+#	modified:   db/migrate/default_data/states.yml
+#	new file:   db/migrate/default_data/systems.yml
+#	modified:   db/schema.rb
+#	new file:   generate
+#	new file:   public/javascripts/alfred.js
+#	new file:   public/javascripts/project.js
+#	modified:   public/stylesheets/dashboard.css
+#	modified:   public/stylesheets/main.css
+#	new file:   public/stylesheets/reset.css
+#	new file:   public/stylesheets/settings.css
+#	new file:   test/functional/settings_controller_test.rb
+#	new file:   tmp/pids/mongrel.pid
+#
+# Changed but not updated:
+#   (use "git add/rm <file>..." to update what will be committed)
+#
+#	deleted:    app/views/layouts/dashboard.html.erb
+#	modified:   log/mongrel.log
+#
+]0;rob@ui: /var/www/alfredrob@ui:/var/www/alfred$ git commit -m 'Pulling projects from database, added Settings controller'
+Created commit f0e56e6: Pulling projects from database, added Settings controller
+ 33 files changed, 975 insertions(+), 287 deletions(-)
+ create mode 100644 app/controllers/settings_controller.rb
+ create mode 100644 app/helpers/settings_helper.rb
+ create mode 100644 app/views/layouts/application.html.erb
+ create mode 100644 app/views/settings/index.html.erb
+ create mode 100644 db/migrate/default_data/projects.yml
+ create mode 100644 db/migrate/default_data/systems.yml
+ create mode 100644 generate
+ create mode 100644 public/javascripts/alfred.js
+ create mode 100644 public/javascripts/project.js
+ create mode 100644 public/stylesheets/reset.css
+ create mode 100644 public/stylesheets/settings.css
+ create mode 100644 test/functional/settings_controller_test.rb
+ create mode 100644 tmp/pids/mongrel.pid
+]0;rob@ui: /var/www/alfredrob@ui:/var/www/alfred$ git push
+Enter passphrase for key '/home/rob/.ssh/id_rsa': 
+updating 'refs/heads/master'
+  from e3ae5c7d9741351cf023368f3ef01f5cb9aed02a
+  to   f0e56e6cd38f321eaf4f181a7e0160f98738f7bb
+ Also local refs/remotes/origin/master
+Generating pack...
+Done counting 54 objects.
+Deltifying 54 objects...
+   1% (1/54) done   3% (2/54) done   5% (3/54) done   7% (4/54) done   9% (5/54) done  11% (6/54) done  12% (7/54) done  14% (8/54) done  16% (9/54) done  18% (10/54) done  20% (11/54) done  22% (12/54) done  24% (13/54) done  25% (14/54) done  27% (15/54) done  29% (16/54) done  31% (17/54) done  33% (18/54) done  35% (19/54) done  37% (20/54) done  38% (21/54) done  40% (22/54) done  42% (23/54) done  44% (24/54) done  46% (25/54) done  48% (26/54) done  50% (27/54) done  51% (28/54) done  53% (29/54) done  55% (30/54) done  57% (31/54) done  59% (32/54) done  61% (33/54) done  62% (34/54) done  64% (35/54) done  66% (36/54) done  68% (37/54) done  70% (38/54) done  72% (39/54) done  74% (40/54) done  75% (41/54) done  77% (42/54) done  79% (43/54) done  81% (44/54) done  83% (45/54) done  85% (46/54) done  87% (47/54) done  88% (48/54) done  90% (49/54) done  92% (50/54) done  94% (51/54) done  96% (52/54) done  98% (53/54) done 100% (54/54) done
+Writing 54 objects...
+   1% (1/54) done   3% (2/54) done   5% (3/54) done   7% (4/54) done   9% (5/54) done  11% (6/54) done  12% (7/54) done  14% (8/54) done  16% (9/54) done  18% (10/54) done  20% (11/54) done  22% (12/54) done  24% (13/54) done  25% (14/54) done  27% (15/54) done  29% (16/54) done  31% (17/54) done  33% (18/54) done  35% (19/54) done  37% (20/54) done  38% (21/54) done  40% (22/54) done  42% (23/54) done  44% (24/54) done  46% (25/54) done  48% (26/54) done  50% (27/54) done  51% (28/54) done  53% (29/54) done  55% (30/54) done  57% (31/54) done  59% (32/54) done  61% (33/54) done  62% (34/54) done  64% (35/54) done  66% (36/54) done  68% (37/54) done  70% (38/54) done  72% (39/54) done  74% (40/54) done  75% (41/54) done  77% (42/54) done  79% (43/54) done  81% (44/54) done  83% (45/54) done  85% (46/54) done  87% (47/54) done  88% (48/54) done  90% (49/54) done  92% (50/54) done  94% (51/54) done  96% (52/54) done  98% (53/54) done 100% (54/54) done
+Total 54 (delta 1), reused 0 (delta 0)
+refs/heads/master: e3ae5c7d9741351cf023368f3ef01f5cb9aed02a -> f0e56e6cd38f321eaf4f181a7e0160f98738f7bb
+]0;rob@ui: /var/www/alfredrob@ui:/var/www/alfred$ fit [K[K[K[Kgit pull
+Enter passphrase for key '/home/rob/.ssh/id_rsa': 
+Enter passphrase for key '/home/rob/.ssh/id_rsa': 
+remote: Generating pack...
+remote: Done counting 77 objects.
+remote: Result has 42 objects.
+remote: Deltifying 42 objects...
+remote:    0% (0/42) doneremote:    2% (1/42) doneremote:    4% (2/42) doneremote:    7% (3/42) doneremote:    9% (4/42) doneremote:   11% (5/42) doneremote:   14% (6/42) doneremote:   16% (7/42) doneremote:   19% (8/42) doneremote:   21% (9/42) doneremote:   23% (10/42) doneremote:   26% (11/42) doneremote:   28% (12/42) doneremote:   30% (13/42) doneremote:   33% (14/42) doneremote:   35% (15/42) doneremote:   38% (16/42) doneremote:   40% (17/42) doneremote:   42% (18/42) doneremote:   45% (19/42) doneremote:   47% (20/42) doneremote:   50% (21/42) doneremote:   52% (22/42) doneremote:   54% (23/42) doneremote:   57% (24/42) doneremote:   59% (25/42) doneremote:   61% (26/42) doneremote:   64% (27/42) doneremote:   66% (28/42) doneremote:   69% (29/42) doneremote:   71% (30/42) doneremote:   73% (31/42) doneremote:   76% (32/42) doneremote:   78% (33/42) doneremote:   80% (34/42) doneremote:   83% (35/42) doneremote:   85% (36/42) doneremote:   88% (37/42) doneremote:   90% (38/42) doneremote:   92% (39/42) doneremote:   95% (40/42) doneremote:   97% (41/42) doneremote:  100% (42/42) doneremote: 
+remote: Total 42 (delta 22), reused 0 (delta 0)
+Unpacking 42 objects...
+   2% (1/42) done   4% (2/42) done   7% (3/42) done   9% (4/42) done  11% (5/42) done  14% (6/42) done  16% (7/42) done  19% (8/42) done  21% (9/42) done  23% (10/42) done  26% (11/42) done  28% (12/42) done  30% (13/42) done  33% (14/42) done  35% (15/42) done  38% (16/42) done  40% (17/42) done  42% (18/42) done  45% (19/42) done  47% (20/42) done  50% (21/42) done  52% (22/42) done  54% (23/42) done  57% (24/42) done  59% (25/42) done  61% (26/42) done  64% (27/42) done  66% (28/42) done  69% (29/42) done  71% (30/42) done  73% (31/42) done  76% (32/42) done  78% (33/42) done  80% (34/42) done  83% (35/42) done  85% (36/42) done  88% (37/42) done  90% (38/42) done  92% (39/42) done  95% (40/42) done  97% (41/42) done 100% (42/42) done
+* refs/remotes/origin/master: fast forward to branch 'master' of git@github.com:cannikin/alfred
+  old..new: f0e56e6..69f7917
+warning: unable to read /etc/mailname: No such file or directory
+
+You asked me to pull without telling me which branch you
+want to merge with, and 'branch.master.merge' in
+your configuration file does not tell me either.  Please
+name which branch you want to merge on the command line and
+try again (e.g. 'git pull <repository> <refspec>').
+See git-pull(1) for details on the refspec.
+
+If you often merge with the same branch, you may want to
+configure the following variables in your configuration
+file:
+
+    branch.master.remote = <nickname>
+    branch.master.merge = <remote-ref>
+    remote.<nickname>.url = <url>
+    remote.<nickname>.fetch = <refspec>
+
+See git-config(1) for details.
+]0;rob@ui: /var/www/alfredrob@ui:/var/www/alfred$ git pull origin master
+Enter passphrase for key '/home/rob/.ssh/id_rsa': 
+Enter passphrase for key '/home/rob/.ssh/id_rsa': 
+Updating f0e56e6..69f7917
+app/views/layouts/dashboard.html.erb: needs update
+generate: needs update
+log/mongrel.log: needs update
+Fast forward
+ alfred.tmproj                              |   27 ++++++
+ app/controllers/application.rb             |    2 +-
+ app/controllers/dashboard_controller.rb    |    4 -
+ app/controllers/settings_controller.rb     |    6 +
+ app/controllers/utility_controller.rb      |   13 +++
+ app/helpers/utility_helper.rb              |    2 +
+ app/models/system.rb                       |    4 +
+ app/views/dashboard/compact.html.erb       |   48 +---------
+ app/views/dashboard/extended.html.erb      |    4 +-
+ app/views/dashboard/index.html.erb         |  139 ----------------------------
+ app/views/layouts/dashboard.html.erb       |   22 -----
+ app/views/settings/index.html.erb          |   31 ++++++-
+ app/views/utility/hostname.html.erb        |    1 +
+ config/environment.rb                      |    2 +-
+ db/development.sqlite3                     |  Bin 10240 -> 13312 bytes
+ db/migrate/005_create_systems.rb           |    1 +
+ db/migrate/default_data/projects.yml       |    5 +-
+ db/migrate/default_data/systems.yml        |    3 +-
+ db/schema.rb                               |   47 +++++-----
+ public/javascripts/alfred.js               |   16 +++
+ public/stylesheets/dashboard.css           |   42 +++++---
+ public/stylesheets/main.css                |   46 +++++++++-
+ public/stylesheets/settings.css            |   53 +++++++++++
+ test/functional/utility_controller_test.rb |    8 ++
+ 24 files changed, 265 insertions(+), 261 deletions(-)
+ create mode 100644 alfred.tmproj
+ create mode 100644 app/controllers/utility_controller.rb
+ create mode 100644 app/helpers/utility_helper.rb
+ delete mode 100644 app/views/dashboard/index.html.erb
+ delete mode 100644 app/views/layouts/dashboard.html.erb
+ create mode 100644 app/views/utility/hostname.html.erb
+ create mode 100644 test/functional/utility_controller_test.rb
+]0;rob@ui: /var/www/alfredrob@ui:/var/www/alfred$ s[Kps aux
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.0  0.1   2948  1856 ?        Ss   Feb15   0:01 /sbin/init
+root         2  0.0  0.0      0     0 ?        S<   Feb15   0:00 [kthreadd]
+root         3  0.0  0.0      0     0 ?        S<   Feb15   0:00 [migration/0]
+root         4  0.0  0.0      0     0 ?        SN   Feb15   0:00 [ksoftirqd/0]
+root         5  0.0  0.0      0     0 ?        S<   Feb15   0:00 [watchdog/0]
+root         6  0.0  0.0      0     0 ?        S<   Feb15   0:00 [migration/1]
+root         7  0.0  0.0      0     0 ?        SN   Feb15   0:00 [ksoftirqd/1]
+root         8  0.0  0.0      0     0 ?        S<   Feb15   0:00 [watchdog/1]
+root         9  0.0  0.0      0     0 ?        S<   Feb15   0:00 [events/0]
+root        10  0.0  0.0      0     0 ?        S<   Feb15   0:00 [events/1]
+root        11  0.0  0.0      0     0 ?        S<   Feb15   0:00 [khelper]
+root        31  0.0  0.0      0     0 ?        S<   Feb15   0:00 [kblockd/0]
+root        32  0.0  0.0      0     0 ?        S<   Feb15   0:00 [kblockd/1]
+root        33  0.0  0.0      0     0 ?        S<   Feb15   0:00 [kacpid]
+root        34  0.0  0.0      0     0 ?        S<   Feb15   0:00 [kacpi_notify]
+root       141  0.0  0.0      0     0 ?        S<   Feb15   0:00 [kseriod]
+root       160  0.0  0.0      0     0 ?        S    Feb15   0:00 [pdflush]
+root       161  0.0  0.0      0     0 ?        S    Feb15   0:00 [pdflush]
+root       162  0.0  0.0      0     0 ?        S<   Feb15   0:00 [kswapd0]
+root       213  0.0  0.0      0     0 ?        S<   Feb15   0:00 [aio/0]
+root       214  0.0  0.0      0     0 ?        S<   Feb15   0:00 [aio/1]
+root      2080  0.0  0.0      0     0 ?        S<   Feb15   0:00 [ksuspend_usbd]
+root      2081  0.0  0.0      0     0 ?        S<   Feb15   0:00 [khubd]
+root      2129  0.0  0.0      0     0 ?        S<   Feb15   0:00 [ata/0]
+root      2130  0.0  0.0      0     0 ?        S<   Feb15   0:00 [ata/1]
+root      2131  0.0  0.0      0     0 ?        S<   Feb15   0:00 [ata_aux]
+root      2226  0.0  0.0      0     0 ?        S<   Feb15   0:00 [scsi_eh_0]
+root      2227  0.0  0.0      0     0 ?        S<   Feb15   0:00 [scsi_eh_1]
+root      2260  0.0  0.0      0     0 ?        S<   Feb15   0:00 [scsi_eh_2]
+root      2261  0.0  0.0      0     0 ?        S<   Feb15   0:00 [scsi_eh_3]
+root      2467  0.0  0.0      0     0 ?        S<   Feb15   0:04 [kjournald]
+root      2672  0.0  0.0   3032  1472 ?        S<s  Feb15   0:00 /sbin/udevd --daemon
+root      3674  0.0  0.0      0     0 ?        S<   Feb15   0:00 [kpsmoused]
+root      4311  0.0  0.0   1692   516 tty4     Ss+  Feb15   0:00 /sbin/getty 38400 tty4
+root      4312  0.0  0.0   1692   516 tty5     Ss+  Feb15   0:00 /sbin/getty 38400 tty5
+root      4314  0.0  0.0   1696   520 tty2     Ss+  Feb15   0:00 /sbin/getty 38400 tty2
+root      4316  0.0  0.0   1692   516 tty3     Ss+  Feb15   0:00 /sbin/getty 38400 tty3
+root      4318  0.0  0.0   1696   520 tty1     Ss+  Feb15   0:00 /sbin/getty 38400 tty1
+root      4319  0.0  0.0   1696   520 tty6     Ss+  Feb15   0:00 /sbin/getty 38400 tty6
+root      4502  0.0  0.0   2432  1324 ?        Ss   Feb15   0:00 /usr/sbin/acpid -c /etc/acpi/events -s /var/run/acpid.soc
+root      4545  0.0  0.0      0     0 ?        S<   Feb15   0:00 [kondemand/0]
+root      4546  0.0  0.0      0     0 ?        S<   Feb15   0:00 [kondemand/1]
+syslog    4627  0.0  0.0   1912   728 ?        Ss   Feb15   0:02 /sbin/syslogd -u syslog
+root      4683  0.0  0.0   1836   536 ?        S    Feb15   0:00 /bin/dd bs 1 if /proc/kmsg of /var/run/klogd/kmsg
+klog      4685  0.0  0.0   2496  1400 ?        Ss   Feb15   0:00 /sbin/klogd -P /var/run/klogd/kmsg
+103       4706  0.0  0.0   3032  1268 ?        Ss   Feb15   0:00 /usr/bin/dbus-daemon --system
+root      4722  0.0  0.1  13588  2068 ?        Ssl  Feb15   0:00 /usr/sbin/NetworkManager --pid-file /var/run/NetworkManag
+root      4736  0.0  0.0   3276  1276 ?        Ss   Feb15   0:00 /usr/sbin/NetworkManagerDispatcher --pid-file /var/run/Ne
+root      4749  0.0  0.0   3088   836 ?        Ss   Feb15   0:00 /usr/bin/system-tools-backends
+root      4750  0.0  0.0   2776  1340 ?        S    Feb15   0:00 dbus-daemon --session --print-address --nofork
+107       4769  0.0  0.2   5664  3764 ?        Ss   Feb15   0:00 /usr/sbin/hald
+root      4770  0.0  0.0   3096  1036 ?        S    Feb15   0:00 hald-runner
+root      4847  0.0  0.1   5808  2192 ?        Ss   Feb15   0:00 /usr/sbin/cupsd
+107       4848  0.0  0.0   2164   900 ?        S    Feb15   0:00 hald-addon-keyboard: listening on /dev/input/event1
+107       4849  0.0  0.0   2160   892 ?        S    Feb15   0:00 hald-addon-keyboard: listening on /dev/input/event4
+107       4850  0.0  0.0   2160   892 ?        S    Feb15   0:00 hald-addon-keyboard: listening on /dev/input/event5
+107       4855  0.0  0.0   2164   884 ?        S    Feb15   0:00 hald-addon-acpi: listening on acpid socket /var/run/acpid
+107       4949  0.0  0.0   3264  1228 ?        S    Feb15   0:00 hald-addon-storage: polling /dev/scd0 (every 2 sec)
+root      4952  0.0  0.1   7500  2132 ?        Ssl  Feb15   0:00 /usr/sbin/console-kit-daemon
+avahi     5053  0.0  0.0   2832  1456 ?        Ss   Feb15   0:02 avahi-daemon: running [ui.local]
+avahi     5054  0.0  0.0   2736   584 ?        Ss   Feb15   0:00 avahi-daemon: chroot helper
+root      5068  0.0  0.0   2248  1172 ?        Ss   Feb15   0:00 /usr/sbin/dhcdbd --system
+root      5088  0.0  0.0   2924  1184 ?        Ss   Feb15   0:00 /usr/sbin/hcid -x -s
+root      5100  0.0  0.0   2772   980 ?        S    Feb15   0:00 /usr/lib/bluetooth/bluetoothd-service-input
+root      5101  0.0  0.0   2840  1208 ?        S    Feb15   0:00 /usr/lib/bluetooth/bluetoothd-service-audio
+root      5108  0.0  0.0      0     0 ?        S<   Feb15   0:00 [krfcommd]
+root      5142  0.0  0.1  13104  1612 ?        Ss   Feb15   0:00 /usr/sbin/gdm
+root      5145  0.0  0.1  13544  2908 ?        S    Feb15   0:00 /usr/sbin/gdm
+root      5148  0.0  5.1  98216 79548 tty7     Ss+  Feb15   1:24 /usr/bin/X :0 -br -audit 0 -auth /var/lib/gdm/:0.Xauth -n
+daemon    5211  0.0  0.0   1960   424 ?        Ss   Feb15   0:00 /usr/sbin/atd
+root      5231  0.0  0.0   2336   908 ?        Ss   Feb15   0:01 /usr/sbin/cron
+rob       5404  0.0  0.1  13268  1736 ?        SL   Feb15   0:00 /usr/bin/gnome-keyring-daemon -d
+rob       5409  0.0  0.4  27684  7328 ?        Ssl  Feb15   0:00 x-session-manager
+rob       5444  0.0  0.0   4436   544 ?        Ss   Feb15   0:04 /usr/bin/ssh-agent x-session-manager
+rob       5446  0.0  0.2   6728  3976 ?        S    Feb15   0:00 /usr/lib/libgconf2-4/gconfd-2 6
+rob       5450  0.0  0.0   2904  1156 ?        Ss   Feb15   0:00 dbus-daemon --fork --print-address 17 --print-pid 19 --se
+rob       5452  0.0  0.6  38256  9924 ?        Sl   Feb15   0:01 /usr/lib/gnome-control-center/gnome-settings-daemon
+rob       5458  0.0  0.0   1752   536 ?        S    Feb15   0:00 /bin/sh /usr/bin/compiz --sm-client-id default0
+rob       5460  0.0  1.2  46348 19596 ?        S    Feb15   0:11 gnome-panel --sm-client-id default1
+rob       5465  0.0  1.7  86812 27552 ?        S    Feb15   0:03 nautilus --no-default-window --sm-client-id default2
+rob       5472  0.0  0.3  19464  5024 ?        Ss   Feb15   0:00 gnome-volume-manager --sm-client-id default4
+rob       5497  0.0  0.2  40932  3152 ?        Ssl  Feb15   0:00 /usr/lib/bonobo-activation/bonobo-activation-server --ac-
+rob       5548  0.0  0.2   8804  3488 ?        S    Feb15   0:00 /usr/lib/gnome-vfs-2.0/gnome-vfs-daemon
+rob       5549  0.0  0.6  18188 10348 ?        S    Feb15   0:07 /usr/bin/gtk-window-decorator --replace
+rob       5550  0.0  0.9  20268 14084 ?        S    Feb15   0:08 /usr/bin/compiz.real --ignore-desktop-hints --replace --i
+rob       5553  0.0  0.4  19212  6788 ?        S    Feb15   0:00 vino-session --sm-client-id default5
+rob       5554  0.0  0.3  13268  5432 ?        S    Feb15   0:00 bluetooth-applet
+rob       5558  0.0  0.8  36692 12472 ?        S    Feb15   0:00 update-notifier
+rob       5564  0.0  0.6  36032  9416 ?        Sl   Feb15   0:00 /usr/lib/evolution/2.12/evolution-alarm-notify
+rob       5566  0.0  0.5  28308  7816 ?        SNl  Feb15   0:01 trackerd
+rob       5569  0.0  0.7  22880 11932 ?        S    Feb15   0:00 python /usr/share/system-config-printer/applet.py
+rob       5571  0.0  0.7  44156 11676 ?        S    Feb15   0:01 nm-applet --sm-disable
+rob       5574  0.0  0.4  22076  7680 ?        Ss   Feb15   0:00 gnome-power-manager
+rob       5587  0.0  0.5  65916  8996 ?        S    Feb15   0:00 /usr/lib/gnome-applets/trashapplet --oaf-activate-iid=OAF
+rob       5599  0.0  0.0   2664   896 ?        S    Feb15   0:00 /usr/lib/nautilus-cd-burner/mapping-daemon
+rob       5614  0.0  0.8  52208 12568 ?        Sl   Feb15   0:00 /usr/lib/gnome-applets/mixer_applet2 --oaf-activate-iid=O
+rob       5624  0.0  1.7  62740 27816 ?        S    Feb15   0:01 /usr/bin/python /usr/lib/deskbar-applet/deskbar-applet --
+rob       5626  0.0  0.7  41980 11496 ?        S    Feb15   0:00 /usr/lib/fast-user-switch-applet/fast-user-switch-applet
+rob       5655  0.0  0.3  16564  4940 ?        Ss   Feb15   0:04 gnome-screensaver
+rob       9881  0.0  0.0   2912   688 pts/1    S+   Mar19   0:00 script generate controller Settings index
+rob       9882  0.0  0.0   2916   444 pts/1    S+   Mar19   0:00 script generate controller Settings index
+rob       9883  0.0  0.2   5876  3272 pts/2    Ss   Mar19   0:00 bash -i
+rob       9913  0.0  1.7  54020 26800 ?        Sl   Mar19   0:34 /usr/bin/ruby1.8 /usr/bin/mongrel_rails start -p 3100 -a
+root     10123  0.0  0.1   8044  2420 ?        Ss   Mar19   0:00 sshd: rob [priv] 
+rob      10125  0.0  0.1   8044  1672 ?        S    Mar19   0:00 sshd: rob@pts/3  
+rob      10126  0.0  0.2   5892  3312 pts/3    Ss+  Mar19   0:00 -bash
+rob      10822  0.0  0.0   2620   996 pts/2    R+   09:35   0:00 ps aux
+rob      13161  0.0  0.0   1756   528 ?        S    Feb15   0:00 /bin/sh /usr/bin/firefox
+rob      13173  0.0  0.0   1752   528 ?        S    Feb15   0:00 /bin/sh /usr/lib/firefox/run-mozilla.sh /usr/lib/firefox/
+rob      13177  0.0  3.9 175256 61024 ?        Sl   Feb15   7:32 /usr/lib/firefox/firefox-bin
+root     13790  0.0  0.0   5284   996 ?        Ss   Feb15   0:00 /usr/sbin/sshd
+rob      13799  0.0  0.6  30880 10252 ?        S    Feb15   0:00 /usr/lib/notification-daemon/notification-daemon
+rob      16001  0.0  4.0 161980 63392 ?        Sl   Feb15   0:40 yelp
+rob      16007  0.0  0.0      0     0 ?        Z    Feb15   0:00 [manpath] <defunct>
+rob      16052  0.0  0.3  13444  5036 ?        S    Feb15   0:00 gksu shares-admin
+rob      16053  0.0  0.7  34204 11356 ?        Ss   Feb15   0:00 shares-admin
+rob      16457  0.0  0.3  13440  5032 ?        S    Feb15   0:00 gksu shares-admin
+rob      16458  0.0  0.7  34224 11356 ?        Ss   Feb15   0:00 shares-admin
+rob      16544  0.0  0.3  13440  5028 ?        S    Feb15   0:00 gksu -- shares-admin --add-share=/var/www
+rob      16545  0.0  0.7  34220 11352 ?        Ss   Feb15   0:00 shares-admin --add-share=/var/www
+rob      16728  0.0  1.2  62104 19036 ?        Sl   Feb15   0:00 gnome-terminal
+rob      16731  0.0  0.0   2668   744 ?        S    Feb15   0:00 gnome-pty-helper
+rob      16732  0.0  0.2   5836  3228 pts/0    Ss+  Feb15   0:00 bash
+root     19166  0.0  0.1  10420  2648 ?        Ss   Feb18   0:00 /usr/sbin/smbd -D
+root     19168  0.0  0.0  10420  1036 ?        S    Feb18   0:00 /usr/sbin/smbd -D
+rob      22296  0.0  1.8  56200 28900 ?        Sl   Feb25  11:26 /usr/bin/ruby1.8 /usr/bin/mongrel_rails start -p 3000 -a
+rob      28663  0.0  1.5  34072 23300 ?        Sl   Mar07   5:04 /usr/bin/ruby1.8 /usr/bin/mongrel_rails start -p 3001 -a
+rob      30063  0.0  1.7  54260 27160 ?        Sl   Mar10   5:19 /usr/bin/ruby1.8 /usr/bin/mongrel_rails start -p 3002 -a
+dhcp     31706  0.0  0.0   2416  1188 ?        S    Mar11   0:00 /sbin/dhclient -1 -lf /var/lib/dhcp3/dhclient.eth0.leases
+root     32589  0.0  0.1   8048  2424 ?        Ss   Mar13   0:03 sshd: rob [priv] 
+rob      32592  0.0  0.1   8196  1700 ?        S    Mar13   0:04 sshd: rob@pts/1  
+rob      32593  0.0  0.2   5884  3300 pts/1    Ss   Mar13   0:00 -bash
+]0;rob@ui: /var/www/alfredrob@ui:/var/www/alfred$ kill[K[K[K[Kpa [K[Ks aux | grep 3100
+rob       9913  0.0  1.7  54020 26800 ?        Sl   Mar19   0:34 /usr/bin/ruby1.8 /usr/bin/mongrel_rails start -p 3100 -a 0.0.0.0 -e development -P /var/www/alfred/tmp/pids/mongrel.pid -d
+rob      10824  0.0  0.0   2980   772 pts/2    S+   09:35   0:00 grep 3100
+]0;rob@ui: /var/www/alfredrob@ui:/var/www/alfred$ kill 9913
+]0;rob@ui: /var/www/alfredrob@ui:/var/www/alfred$ kill 9913ps aux | grep 3100
+rob      10826  0.0  0.0   2976   760 pts/2    S+   09:35   0:00 grep 3100
+]0;rob@ui: /var/www/alfredrob@ui:/var/www/alfred$ script/server -p 3100 -d
+=> Booting Mongrel (use 'script/server webrick' to force WEBrick)
+=> Rails application starting on http://0.0.0.0:3100
+]0;rob@ui: /var/www/alfredrob@ui:/var/www/alfred$ cd ../active_classified/
+]0;rob@ui: /var/www/active_classifiedrob@ui:/var/www/active_classified$ rake db;m[K[K:mgirate:[K[K[K[K[K[K[Kigrate:reset
+(in /var/www/active_classified)
+"db/development.sqlite3 already exists"
+== 1 CreateAds: migrating =====================================================
+-- create_table(:ads)
+   -> 0.0146s
+== 1 CreateAds: migrated (0.0481s) ============================================
+
+== 2 CreateCategories: migrating ==============================================
+-- create_table(:categories)
+   -> 0.0229s
+== 2 CreateCategories: migrated (0.1211s) =====================================
+
+== 3 CreateUsers: migrating ===================================================
+-- create_table(:users)
+   -> 0.0038s
+== 3 CreateUsers: migrated (0.0339s) ==========================================
+
+== 4 CreateImages: migrating ==================================================
+-- create_table(:images)
+   -> 0.0039s
+== 4 CreateImages: migrated (0.0176s) =========================================
+
+]0;rob@ui: /var/www/active_classifiedrob@ui:/var/www/active_classified$ rake db:migrate:reset
+(in /var/www/active_classified)
+"db/development.sqlite3 already exists"
+== 1 CreateAds: migrating =====================================================
+-- create_table(:ads)
+   -> 0.0225s
+== 1 CreateAds: migrated (0.0559s) ============================================
+
+== 2 CreateCategories: migrating ==============================================
+-- create_table(:categories)
+   -> 0.0235s
+== 2 CreateCategories: migrated (0.1228s) =====================================
+
+== 3 CreateUsers: migrating ===================================================
+-- create_table(:users)
+   -> 0.0037s
+== 3 CreateUsers: migrated (0.0187s) ==========================================
+
+== 4 CreateImages: migrating ==================================================
+-- create_table(:images)
+   -> 0.0044s
+== 4 CreateImages: migrated (0.0188s) =========================================
+
+]0;rob@ui: /var/www/active_classifiedrob@ui:/var/www/active_classified$ rake db:migrate:reset
+(in /var/www/active_classified)
+"db/development.sqlite3 already exists"
+== 1 CreateAds: migrating =====================================================
+-- create_table(:ads)
+   -> 0.0220s
+== 1 CreateAds: migrated (0.0510s) ============================================
+
+== 2 CreateCategories: migrating ==============================================
+-- create_table(:categories)
+   -> 0.0203s
+== 2 CreateCategories: migrated (0.1193s) =====================================
+
+== 3 CreateUsers: migrating ===================================================
+-- create_table(:users)
+   -> 0.0038s
+== 3 CreateUsers: migrated (0.0340s) ==========================================
+
+== 4 CreateImages: migrating ==================================================
+-- create_table(:images)
+   -> 0.0039s
+== 4 CreateImages: migrated (0.0179s) =========================================
+
+]0;rob@ui: /var/www/active_classifiedrob@ui:/var/www/active_classified$ rake db:migrate:reset
+(in /var/www/active_classified)
+"db/development.sqlite3 already exists"
+== 1 CreateAds: migrating =====================================================
+-- create_table(:ads)
+   -> 0.0120s
+== 1 CreateAds: migrated (0.0376s) ============================================
+
+== 2 CreateCategories: migrating ==============================================
+-- create_table(:categories)
+   -> 0.0251s
+== 2 CreateCategories: migrated (0.1231s) =====================================
+
+== 3 CreateUsers: migrating ===================================================
+-- create_table(:users)
+   -> 0.0038s
+== 3 CreateUsers: migrated (0.0188s) ==========================================
+
+== 4 CreateImages: migrating ==================================================
+-- create_table(:images)
+   -> 0.0043s
+== 4 CreateImages: migrated (0.0176s) =========================================
+
+]0;rob@ui: /var/www/active_classifiedrob@ui:/var/www/active_classified$ rake db:migrate:reset
+(in /var/www/active_classified)
+"db/development.sqlite3 already exists"
+== 1 CreateAds: migrating =====================================================
+-- create_table(:ads)
+   -> 0.0050s
+== 1 CreateAds: migrated (0.0581s) ============================================
+
+== 2 CreateCategories: migrating ==============================================
+-- create_table(:categories)
+   -> 0.0039s
+== 2 CreateCategories: migrated (0.1032s) =====================================
+
+== 3 CreateUsers: migrating ===================================================
+-- create_table(:users)
+   -> 0.0038s
+== 3 CreateUsers: migrated (0.0186s) ==========================================
+
+== 4 CreateImages: migrating ==================================================
+-- create_table(:images)
+   -> 0.0041s
+== 4 CreateImages: migrated (0.0176s) =========================================
+
+]0;rob@ui: /var/www/active_classifiedrob@ui:/var/www/active_classified$ ps aux | grep ruby.*3001
+rob      10896  0.0  0.0   2972   760 pts/2    S+   15:22   0:00 grep ruby.*3001
+rob      28663  0.0  1.5  34072 23300 ?        Sl   Mar07   5:11 /usr/bin/ruby1.8 /usr/bin/mongrel_rails start -p 3001 -a 0.0.0.0 -e development -P /var/www/myactive/tmp/pids/mongrel.pid -d
+]0;rob@ui: /var/www/active_classifiedrob@ui:/var/www/active_classified$ ps aux
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.0  0.1   2948  1856 ?        Ss   Feb15   0:01 /sbin/init
+root         2  0.0  0.0      0     0 ?        S<   Feb15   0:00 [kthreadd]
+root         3  0.0  0.0      0     0 ?        S<   Feb15   0:00 [migration/0]
+root         4  0.0  0.0      0     0 ?        SN   Feb15   0:00 [ksoftirqd/0]
+root         5  0.0  0.0      0     0 ?        S<   Feb15   0:00 [watchdog/0]
+root         6  0.0  0.0      0     0 ?        S<   Feb15   0:00 [migration/1]
+root         7  0.0  0.0      0     0 ?        SN   Feb15   0:00 [ksoftirqd/1]
+root         8  0.0  0.0      0     0 ?        S<   Feb15   0:00 [watchdog/1]
+root         9  0.0  0.0      0     0 ?        S<   Feb15   0:00 [events/0]
+root        10  0.0  0.0      0     0 ?        S<   Feb15   0:00 [events/1]
+root        11  0.0  0.0      0     0 ?        S<   Feb15   0:00 [khelper]
+root        31  0.0  0.0      0     0 ?        S<   Feb15   0:00 [kblockd/0]
+root        32  0.0  0.0      0     0 ?        S<   Feb15   0:00 [kblockd/1]
+root        33  0.0  0.0      0     0 ?        S<   Feb15   0:00 [kacpid]
+root        34  0.0  0.0      0     0 ?        S<   Feb15   0:00 [kacpi_notify]
+root       141  0.0  0.0      0     0 ?        S<   Feb15   0:00 [kseriod]
+root       160  0.0  0.0      0     0 ?        S    Feb15   0:00 [pdflush]
+root       161  0.0  0.0      0     0 ?        S    Feb15   0:00 [pdflush]
+root       162  0.0  0.0      0     0 ?        S<   Feb15   0:00 [kswapd0]
+root       213  0.0  0.0      0     0 ?        S<   Feb15   0:00 [aio/0]
+root       214  0.0  0.0      0     0 ?        S<   Feb15   0:00 [aio/1]
+root      2080  0.0  0.0      0     0 ?        S<   Feb15   0:00 [ksuspend_usbd]
+root      2081  0.0  0.0      0     0 ?        S<   Feb15   0:00 [khubd]
+root      2129  0.0  0.0      0     0 ?        S<   Feb15   0:00 [ata/0]
+root      2130  0.0  0.0      0     0 ?        S<   Feb15   0:00 [ata/1]
+root      2131  0.0  0.0      0     0 ?        S<   Feb15   0:00 [ata_aux]
+root      2226  0.0  0.0      0     0 ?        S<   Feb15   0:00 [scsi_eh_0]
+root      2227  0.0  0.0      0     0 ?        S<   Feb15   0:00 [scsi_eh_1]
+root      2260  0.0  0.0      0     0 ?        S<   Feb15   0:00 [scsi_eh_2]
+root      2261  0.0  0.0      0     0 ?        S<   Feb15   0:00 [scsi_eh_3]
+root      2467  0.0  0.0      0     0 ?        S<   Feb15   0:04 [kjournald]
+root      2672  0.0  0.0   3032  1472 ?        S<s  Feb15   0:00 /sbin/udevd --daemon
+root      3674  0.0  0.0      0     0 ?        S<   Feb15   0:00 [kpsmoused]
+root      4311  0.0  0.0   1692   516 tty4     Ss+  Feb15   0:00 /sbin/getty 38400 tty4
+root      4312  0.0  0.0   1692   516 tty5     Ss+  Feb15   0:00 /sbin/getty 38400 tty5
+root      4314  0.0  0.0   1696   520 tty2     Ss+  Feb15   0:00 /sbin/getty 38400 tty2
+root      4316  0.0  0.0   1692   516 tty3     Ss+  Feb15   0:00 /sbin/getty 38400 tty3
+root      4318  0.0  0.0   1696   520 tty1     Ss+  Feb15   0:00 /sbin/getty 38400 tty1
+root      4319  0.0  0.0   1696   520 tty6     Ss+  Feb15   0:00 /sbin/getty 38400 tty6
+root      4502  0.0  0.0   2432  1324 ?        Ss   Feb15   0:00 /usr/sbin/acpid -c /etc/acpi/events -s /var/run/acpid.soc
+root      4545  0.0  0.0      0     0 ?        S<   Feb15   0:00 [kondemand/0]
+root      4546  0.0  0.0      0     0 ?        S<   Feb15   0:00 [kondemand/1]
+syslog    4627  0.0  0.0   1912   728 ?        Ss   Feb15   0:02 /sbin/syslogd -u syslog
+root      4683  0.0  0.0   1836   536 ?        S    Feb15   0:00 /bin/dd bs 1 if /proc/kmsg of /var/run/klogd/kmsg
+klog      4685  0.0  0.0   2496  1400 ?        Ss   Feb15   0:00 /sbin/klogd -P /var/run/klogd/kmsg
+103       4706  0.0  0.0   3032  1268 ?        Ss   Feb15   0:00 /usr/bin/dbus-daemon --system
+root      4722  0.0  0.1  13588  2068 ?        Ssl  Feb15   0:00 /usr/sbin/NetworkManager --pid-file /var/run/NetworkManag
+root      4736  0.0  0.0   3276  1276 ?        Ss   Feb15   0:00 /usr/sbin/NetworkManagerDispatcher --pid-file /var/run/Ne
+root      4749  0.0  0.0   3088   836 ?        Ss   Feb15   0:00 /usr/bin/system-tools-backends
+root      4750  0.0  0.0   2776  1340 ?        S    Feb15   0:00 dbus-daemon --session --print-address --nofork
+107       4769  0.0  0.2   5664  3764 ?        Ss   Feb15   0:00 /usr/sbin/hald
+root      4770  0.0  0.0   3096  1036 ?        S    Feb15   0:00 hald-runner
+root      4847  0.0  0.1   5808  2192 ?        Ss   Feb15   0:00 /usr/sbin/cupsd
+107       4848  0.0  0.0   2164   900 ?        S    Feb15   0:00 hald-addon-keyboard: listening on /dev/input/event1
+107       4849  0.0  0.0   2160   892 ?        S    Feb15   0:00 hald-addon-keyboard: listening on /dev/input/event4
+107       4850  0.0  0.0   2160   892 ?        S    Feb15   0:00 hald-addon-keyboard: listening on /dev/input/event5
+107       4855  0.0  0.0   2164   884 ?        S    Feb15   0:00 hald-addon-acpi: listening on acpid socket /var/run/acpid
+107       4949  0.0  0.0   3264  1228 ?        S    Feb15   0:00 hald-addon-storage: polling /dev/scd0 (every 2 sec)
+root      4952  0.0  0.1   7500  2132 ?        Ssl  Feb15   0:00 /usr/sbin/console-kit-daemon
+avahi     5053  0.0  0.0   2832  1456 ?        Ss   Feb15   0:03 avahi-daemon: running [ui.local]
+avahi     5054  0.0  0.0   2736   584 ?        Ss   Feb15   0:00 avahi-daemon: chroot helper
+root      5068  0.0  0.0   2248  1172 ?        Ss   Feb15   0:00 /usr/sbin/dhcdbd --system
+root      5088  0.0  0.0   2924  1184 ?        Ss   Feb15   0:00 /usr/sbin/hcid -x -s
+root      5100  0.0  0.0   2772   980 ?        S    Feb15   0:00 /usr/lib/bluetooth/bluetoothd-service-input
+root      5101  0.0  0.0   2840  1208 ?        S    Feb15   0:00 /usr/lib/bluetooth/bluetoothd-service-audio
+root      5108  0.0  0.0      0     0 ?        S<   Feb15   0:00 [krfcommd]
+root      5142  0.0  0.1  13104  1612 ?        Ss   Feb15   0:00 /usr/sbin/gdm
+root      5145  0.0  0.1  13544  2908 ?        S    Feb15   0:00 /usr/sbin/gdm
+root      5148  0.0  5.1  98216 79548 tty7     Ss+  Feb15   1:24 /usr/bin/X :0 -br -audit 0 -auth /var/lib/gdm/:0.Xauth -n
+daemon    5211  0.0  0.0   1960   424 ?        Ss   Feb15   0:00 /usr/sbin/atd
+root      5231  0.0  0.0   2336   908 ?        Ss   Feb15   0:01 /usr/sbin/cron
+rob       5404  0.0  0.1  13268  1736 ?        SL   Feb15   0:00 /usr/bin/gnome-keyring-daemon -d
+rob       5409  0.0  0.4  27684  7328 ?        Ssl  Feb15   0:00 x-session-manager
+rob       5444  0.0  0.0   4436   544 ?        Ss   Feb15   0:04 /usr/bin/ssh-agent x-session-manager
+rob       5446  0.0  0.2   6728  3976 ?        S    Feb15   0:00 /usr/lib/libgconf2-4/gconfd-2 6
+rob       5450  0.0  0.0   2904  1156 ?        Ss   Feb15   0:00 dbus-daemon --fork --print-address 17 --print-pid 19 --se
+rob       5452  0.0  0.6  38256  9924 ?        Sl   Feb15   0:01 /usr/lib/gnome-control-center/gnome-settings-daemon
+rob       5458  0.0  0.0   1752   536 ?        S    Feb15   0:00 /bin/sh /usr/bin/compiz --sm-client-id default0
+rob       5460  0.0  1.2  46348 19596 ?        S    Feb15   0:11 gnome-panel --sm-client-id default1
+rob       5465  0.0  1.7  86812 27552 ?        S    Feb15   0:03 nautilus --no-default-window --sm-client-id default2
+rob       5472  0.0  0.3  19464  5024 ?        Ss   Feb15   0:00 gnome-volume-manager --sm-client-id default4
+rob       5497  0.0  0.2  40932  3152 ?        Ssl  Feb15   0:00 /usr/lib/bonobo-activation/bonobo-activation-server --ac-
+rob       5548  0.0  0.2   8804  3488 ?        S    Feb15   0:00 /usr/lib/gnome-vfs-2.0/gnome-vfs-daemon
+rob       5549  0.0  0.6  18188 10348 ?        S    Feb15   0:07 /usr/bin/gtk-window-decorator --replace
+rob       5550  0.0  0.9  20268 14084 ?        S    Feb15   0:08 /usr/bin/compiz.real --ignore-desktop-hints --replace --i
+rob       5553  0.0  0.4  19212  6788 ?        S    Feb15   0:00 vino-session --sm-client-id default5
+rob       5554  0.0  0.3  13268  5432 ?        S    Feb15   0:00 bluetooth-applet
+rob       5558  0.0  0.8  36692 12472 ?        S    Feb15   0:00 update-notifier
+rob       5564  0.0  0.6  36032  9416 ?        Sl   Feb15   0:00 /usr/lib/evolution/2.12/evolution-alarm-notify
+rob       5566  0.0  0.5  28308  7816 ?        SNl  Feb15   0:01 trackerd
+rob       5569  0.0  0.7  22880 11932 ?        S    Feb15   0:00 python /usr/share/system-config-printer/applet.py
+rob       5571  0.0  0.7  44156 11676 ?        S    Feb15   0:01 nm-applet --sm-disable
+rob       5574  0.0  0.4  22076  7680 ?        Ss   Feb15   0:00 gnome-power-manager
+rob       5587  0.0  0.5  65916  8996 ?        S    Feb15   0:00 /usr/lib/gnome-applets/trashapplet --oaf-activate-iid=OAF
+rob       5599  0.0  0.0   2664   896 ?        S    Feb15   0:00 /usr/lib/nautilus-cd-burner/mapping-daemon
+rob       5614  0.0  0.8  52208 12568 ?        Sl   Feb15   0:00 /usr/lib/gnome-applets/mixer_applet2 --oaf-activate-iid=O
+rob       5624  0.0  1.7  62740 27816 ?        S    Feb15   0:01 /usr/bin/python /usr/lib/deskbar-applet/deskbar-applet --
+rob       5626  0.0  0.7  41980 11496 ?        S    Feb15   0:00 /usr/lib/fast-user-switch-applet/fast-user-switch-applet
+rob       5655  0.0  0.3  16564  4940 ?        Ss   Feb15   0:04 gnome-screensaver
+rob       9881  0.0  0.0   2912   688 pts/1    S+   Mar19   0:00 script generate controller Settings index
+rob       9882  0.0  0.0   2916   444 pts/1    R+   Mar19   0:00 script generate controller Settings index
+rob       9883  0.0  0.2   5876  3296 pts/2    Ss   Mar19   0:00 bash -i
+root     10123  0.0  0.1   8044  2420 ?        Ss   Mar19   0:00 sshd: rob [priv] 
+rob      10125  0.0  0.1   8044  1672 ?        S    Mar19   0:00 sshd: rob@pts/3  
+rob      10126  0.0  0.2   5892  3312 pts/3    Ss+  Mar19   0:00 -bash
+rob      10830  0.0  1.5  51452 24248 ?        Sl   09:35   0:07 /usr/bin/ruby1.8 /usr/bin/mongrel_rails start -p 3100 -a
+rob      10844  0.0  0.2  11016  3440 ?        S    09:42   0:00 /usr/sbin/smbd -D
+rob      10897  0.0  0.0   2620  1000 pts/2    R+   15:23   0:00 ps aux
+rob      13161  0.0  0.0   1756   528 ?        S    Feb15   0:00 /bin/sh /usr/bin/firefox
+rob      13173  0.0  0.0   1752   528 ?        S    Feb15   0:00 /bin/sh /usr/lib/firefox/run-mozilla.sh /usr/lib/firefox/
+rob      13177  0.0  3.9 175256 61040 ?        Sl   Feb15   7:40 /usr/lib/firefox/firefox-bin
+root     13790  0.0  0.0   5284   996 ?        Ss   Feb15   0:00 /usr/sbin/sshd
+rob      13799  0.0  0.6  30880 10252 ?        S    Feb15   0:00 /usr/lib/notification-daemon/notification-daemon
+rob      16001  0.0  4.0 161980 63392 ?        Sl   Feb15   0:40 yelp
+rob      16007  0.0  0.0      0     0 ?        Z    Feb15   0:00 [manpath] <defunct>
+rob      16052  0.0  0.3  13444  5036 ?        S    Feb15   0:00 gksu shares-admin
+rob      16053  0.0  0.7  34204 11356 ?        Ss   Feb15   0:00 shares-admin
+rob      16457  0.0  0.3  13440  5032 ?        S    Feb15   0:00 gksu shares-admin
+rob      16458  0.0  0.7  34224 11356 ?        Ss   Feb15   0:00 shares-admin
+rob      16544  0.0  0.3  13440  5028 ?        S    Feb15   0:00 gksu -- shares-admin --add-share=/var/www
+rob      16545  0.0  0.7  34220 11352 ?        Ss   Feb15   0:00 shares-admin --add-share=/var/www
+rob      16728  0.0  1.2  62104 19036 ?        Sl   Feb15   0:00 gnome-terminal
+rob      16731  0.0  0.0   2668   744 ?        S    Feb15   0:00 gnome-pty-helper
+rob      16732  0.0  0.2   5836  3228 pts/0    Ss+  Feb15   0:00 bash
+root     19166  0.0  0.1  10420  2648 ?        Ss   Feb18   0:00 /usr/sbin/smbd -D
+root     19168  0.0  0.0  10420  1036 ?        S    Feb18   0:00 /usr/sbin/smbd -D
+rob      22296  0.0  1.8  56200 29068 ?        Sl   Feb25  11:32 /usr/bin/ruby1.8 /usr/bin/mongrel_rails start -p 3000 -a
+rob      28663  0.0  1.5  34072 23300 ?        Sl   Mar07   5:11 /usr/bin/ruby1.8 /usr/bin/mongrel_rails start -p 3001 -a
+rob      30063  0.0  1.7  54260 27160 ?        Sl   Mar10   5:29 /usr/bin/ruby1.8 /usr/bin/mongrel_rails start -p 3002 -a
+dhcp     31706  0.0  0.0   2416  1188 ?        S    Mar11   0:00 /sbin/dhclient -1 -lf /var/lib/dhcp3/dhclient.eth0.leases
+root     32589  0.0  0.1   8048  2424 ?        Ss   Mar13   0:03 sshd: rob [priv] 
+rob      32592  0.0  0.1   8196  1700 ?        S    Mar13   0:04 sshd: rob@pts/1  
+rob      32593  0.0  0.2   5884  3300 pts/1    Ss   Mar13   0:00 -bash
+]0;rob@ui: /var/www/active_classifiedrob@ui:/var/www/active_classified$ svn [K[K[K[Kkill 30063
+]0;rob@ui: /var/www/active_classifiedrob@ui:/var/www/active_classified$ cd[K[Kscript/server -p 3002[K[K[K[K[K[K[Kwebb[Krick -p300[K[K[K 3002
+=> Booting WEBrick...
+=> Rails application started on http://0.0.0.0:3002
+=> Ctrl-C to shutdown server; call with --help for options
+[2008-03-20 15:24:08] INFO  WEBrick 1.3.1
+[2008-03-20 15:24:08] INFO  ruby 1.8.6 (2007-06-07) [i486-linux]
+[2008-03-20 15:24:08] INFO  WEBrick::HTTPServer#start: pid=10898 port=3002
+[2008-03-20 16:02:31] INFO  going to shutdown ...
+[2008-03-20 16:02:31] INFO  WEBrick::HTTPServer#start done.
+]0;rob@ui: /var/www/active_classifiedrob@ui:/var/www/active_classified$ irb
+irb(main):001:0> @proc[K[K[K[K[Kproccc[K[Kesses[K[K[K[K[K[K[K[K[Kps = [K[K[K[K[Klist = `ps aux | G[Kgrep ruby.*3001`
+=> "rob      11036  0.0  0.0   1756   484 pts/2    S+   16:16   0:00 sh -c ps aux | grep ruby.*3001\nrob      11038  0.0  0.0   2976   760 pts/2    S+   16:16   0:00 grep ruby.*3001\nrob      28663  0.0  1.5  34072 23300 ?        Sl   Mar07   5:11 /usr/bin/ruby1.8 /usr/bin/mongrel_rails start -p 3001 -a\n"
+irb(main):002:0> list.split(/n[K\n/)
+=> ["rob      11036  0.0  0.0   1756   484 pts/2    S+   16:16   0:00 sh -c ps aux | grep ruby.*3001", "rob      11038  0.0  0.0   2976   760 pts/2    S+   16:16   0:00 grep ruby.*3001", "rob      28663  0.0  1.5  34072 23300 ?        Sl   Mar07   5:11 /usr/bin/ruby1.8 /usr/bin/mongrel_rails start -p 3001 -a"]
+irb(main):003:0> list.el[K[Klength
+=> 299
+irb(main):004:0> list[1]
+=> 111
+irb(main):005:0> list [K1[Kp1[K[K[0]
+=> 114
+irb(main):006:0> list.first
+NoMethodError: undefined method `first' for #<String:0xb7d0f838>
+	from (irb):6
+	from :0
+irb(main):007:0> list = list.p[Ksplit(\/n[K[K[K[K![K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Klist.split!(/\n.[K/)
+NoMethodError: undefined method `split!' for #<String:0xb7d0f838>
+	from (irb):7
+	from :0
+irb(main):008:0> list = list.split!(/\[K\n/)
+NoMethodError: undefined method `split!' for #<String:0xb7d0f838>
+	from (irb):8
+	from :0
+irb(main):009:0> list = list.split!(/\n/)[C[1P(/\n/)
+=> ["rob      11036  0.0  0.0   1756   484 pts/2    S+   16:16   0:00 sh -c ps aux | grep ruby.*3001", "rob      11038  0.0  0.0   2976   760 pts/2    S+   16:16   0:00 grep ruby.*3001", "rob      28663  0.0  1.5  34072 23300 ?        Sl   Mar07   5:11 /usr/bin/ruby1.8 /usr/bin/mongrel_rails start -p 3001 -a"]
+irb(main):010:0> list[1]
+=> "rob      11038  0.0  0.0   2976   760 pts/2    S+   16:16   0:00 grep ruby.*3001"
+irb(main):011:0> list.each[K[K[K[Kfind { |line| line.match(/grep/) |[K}
+=> "rob      11036  0.0  0.0   1756   484 pts/2    S+   16:16   0:00 sh -c ps aux | grep ruby.*3001"
+irb(main):012:0> list.find { |line| line.match(/grep/) }[1@^[1@([C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Klist.find { |line| line.match(/^(grep/) }[1@)
+=> nil
+irb(main):013:0> list.find { |line| line.match(/^(grep)/) }[1P[1P[1P[1P[1P[1P[1P[1@r[1@u[1@b[1@y[1@.[1@*[1@g[1@r[1@e[1@p
+=> nil
+irb(main):014:0> list.find { |line| line.match(/ruby.*grep/) }[1P[1P[1P[1P[1P[1P
+=> "rob      11036  0.0  0.0   1756   484 pts/2    S+   16:16   0:00 sh -c ps aux | grep ruby.*3001"
+irb(main):015:0> list.find { |line| line.match(/grep/) }[1P[1P[1P[1P[1@r[1@e[1@j[1@e[1@t[1P[1@c[1@t
+=> ["rob      28663  0.0  1.5  34072 23300 ?        Sl   Mar07   5:11 /usr/bin/ruby1.8 /usr/bin/mongrel_rails start -p 3001 -a"]
+irb(main):016:0> list.reject { |line| line.match(/grep/) }[1P[1P[1P[1P[1@a
+=> ["rob      11038  0.0  0.0   2976   760 pts/2    S+   16:16   0:00 grep ruby.*3001"]
+irb(main):017:0> list.reject { |line| line.match(/a/) }[1P[1@ 
+=> []
+irb(main):018:0> e[Kexit
+]0;rob@ui: /var/www/active_classifiedrob@ui:/var/www/active_classified$ script/server
+=> Booting Mongrel (use 'script/server webrick' to force WEBrick)
+=> Rails application starting on http://0.0.0.0:3000
+=> Call with -d to detach
+=> Ctrl-C to shutdown server
+** Starting Mongrel listening at 0.0.0.0:3000
+Exiting
+/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel/tcphack.rb:12:in `initialize_without_backlog': Address already in use - bind(2) (Errno::EADDRINUSE)
+	from /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel/tcphack.rb:12:in `initialize'
+	from /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel.rb:93:in `new'
+	from /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel.rb:93:in `initialize'
+	from /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel/configurator.rb:139:in `new'
+	from /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel/configurator.rb:139:in `listener'
+	from /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/bin/mongrel_rails:99:in `cloaker_'
+	from /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel/configurator.rb:50:in `call'
+	from /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel/configurator.rb:50:in `initialize'
+	 ... 14 levels...
+	from /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+	from /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+	from /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+	from script/server:3
+]0;rob@ui: /var/www/active_classifiedrob@ui:/var/www/active_classified$ script/server -p 3002
+=> Booting Mongrel (use 'script/server webrick' to force WEBrick)
+=> Rails application starting on http://0.0.0.0:3002
+=> Call with -d to detach
+=> Ctrl-C to shutdown server
+** Starting Mongrel listening at 0.0.0.0:3002
+** Starting Rails with development environment...
+** Rails loaded.
+** Loading any Rails specific GemPlugins
+** Signals ready.  TERM => stop.  USR2 => restart.  INT => stop (no restart).
+** Rails signals registered.  HUP => reload (without restart).  It might not work well.
+** Mongrel 1.1.3 available at 0.0.0.0:3002
+** Use CTRL-C to stop.
+** INT signal received.
+Exiting
+]0;rob@ui: /var/www/active_classifiedrob@ui:/var/www/active_classified$ script/server
+=> Booting Mongrel (use 'script/server webrick' to force WEBrick)
+=> Rails application starting on http://0.0.0.0:3000
+=> Call with -d to detach
+=> Ctrl-C to shutdown server
+** Starting Mongrel listening at 0.0.0.0:3000
+Exiting
+/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel/tcphack.rb:12:in `initialize_without_backlog': Address already in use - bind(2) (Errno::EADDRINUSE)
+	from /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel/tcphack.rb:12:in `initialize'
+	from /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel.rb:93:in `new'
+	from /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel.rb:93:in `initialize'
+	from /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel/configurator.rb:139:in `new'
+	from /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel/configurator.rb:139:in `listener'
+	from /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/bin/mongrel_rails:99:in `cloaker_'
+	from /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel/configurator.rb:50:in `call'
+	from /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel/configurator.rb:50:in `initialize'
+	 ... 14 levels...
+	from /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+	from /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+	from /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+	from script/server:3
+]0;rob@ui: /var/www/active_classifiedrob@ui:/var/www/active_classified$ script/server =[[K[K-p 20[K[K3002
+=> Booting Mongrel (use 'script/server webrick' to force WEBrick)
+=> Rails application starting on http://0.0.0.0:3002
+=> Call with -d to detach
+=> Ctrl-C to shutdown server
+** Starting Mongrel listening at 0.0.0.0:3002
+** Starting Rails with development environment...
+** Rails loaded.
+** Loading any Rails specific GemPlugins
+** Signals ready.  TERM => stop.  USR2 => restart.  INT => stop (no restart).
+** Rails signals registered.  HUP => reload (without restart).  It might not work well.
+** Mongrel 1.1.3 available at 0.0.0.0:3002
+** Use CTRL-C to stop.
+** INT signal received.
+Exiting
+]0;rob@ui: /var/www/active_classifiedrob@ui:/var/www/active_classified$ ps aux | grep ruby.*3002
+rob      11275  0.0  0.0   2972   760 pts/2    S+   17:00   0:00 grep ruby.*3002
+]0;rob@ui: /var/www/active_classifiedrob@ui:/var/www/active_classified$ ps aux | grep ruby.*3002[K1
+rob      11277  0.0  0.0   2972   760 pts/2    S+   17:00   0:00 grep ruby.*3001
+rob      28663  0.0  1.5  34072 23300 ?        Sl   Mar07   5:12 /usr/bin/ruby1.8 /usr/bin/mongrel_rails start -p 3001 -a 0.0.0.0 -e development -P /var/www/myactive/tmp/pids/mongrel.pid -d
+]0;rob@ui: /var/www/active_classifiedrob@ui:/var/www/active_classified$ ps aux | grep ruby.*30012[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kscript/server
+=> Booting Mongrel (use 'script/server webrick' to force WEBrick)
+=> Rails application starting on http://0.0.0.0:3000
+=> Call with -d to detach
+=> Ctrl-C to shutdown server
+** Starting Mongrel listening at 0.0.0.0:3000
+Exiting
+/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel/tcphack.rb:12:in `initialize_without_backlog': Address already in use - bind(2) (Errno::EADDRINUSE)
+	from /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel/tcphack.rb:12:in `initialize'
+	from /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel.rb:93:in `new'
+	from /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel.rb:93:in `initialize'
+	from /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel/configurator.rb:139:in `new'
+	from /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel/configurator.rb:139:in `listener'
+	from /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/bin/mongrel_rails:99:in `cloaker_'
+	from /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel/configurator.rb:50:in `call'
+	from /usr/lib/ruby/gems/1.8/gems

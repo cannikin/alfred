@@ -1,47 +1,17 @@
-
-  <% @projects.each_with_index do |project,index| %>
-    <% if index % 2 == 0 %>
-      <div class="row">
-    <% end %>
-
-    <div id="project_<%= project.id %>" class="project <%= cssify(project.state.name) %>">
-      <h2><%= h project.name %> <span>(<a href="#" onclick="project_blocks.toggle_description(<%= project.id %>); return false;">more</a>)</span></h2>
-      <p id="project_<%= project.id %>_description" style="display:none;"><%= h project.description %></p>
-      <div class="stats">
-        <table cellspacing="0" class="stats">
-          <tr>
-            <td class="label">Local URL</td>
-            <td><a href="http://<%= @system.local_hostname %>:<%= project.port %>" target="_blank">http://<%= @system.local_hostname %>:<%= project.port %></a></td>
-          </tr>
-          <tr>
-            <td class="label">Remote URL</td>
-            <td><a href="http://<%= @system.remote_hostname %>:<%= project.port %>" target="_blank">http://<%= @system.remote_hostname %>:<%= project.port %></a></td>
-          </tr>
-          <tr>
-            <td class="label">Rails Root</td>
-            <td><%= h project.rails_root %></td>
-          </tr>
-          <tr>
-            <td class="label">Web Server</td>
-            <td><%= project.server.name %></td>
-          </tr>
-          <tr>
-            <td class="label">Environment</td>
-            <td><%= project.environment.name %> (<a href="#">log</a>)</td>
-          </tr>
-          <tr class="last">
-            <td class="label">Last Started</td>
-            <td>
-              <%= project.last_started_at.nil? ? 'Never' : distance_of_time_in_words(project.last_started_at) %></td>
-          </tr>
-        </table>
-      </div>
-      <form>
-        <input type="button" value="Stop" />
-      </form>
-    </div>
-
-    <% if index % 2 == 1 || project == @projects.last%>
-      </div>
-    <% end %>
+<% @projects.each_with_index do |project,index| %>
+  <% if index % 2 == 0 %>
+    <div class="row">
   <% end %>
+
+  <%= render :partial => 'extended_project', :locals => { :project => project } %>
+
+  <% if index % 2 == 1 || project == @projects.last%>
+    </div>
+  <% end %>
+<% end %>
+
+<script type="text/javascript">
+  <% @projects.each do |project| %>
+    project_blocks.get_status(<%= project.id %>);
+  <% end %>
+</script>
