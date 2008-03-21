@@ -31,12 +31,11 @@ class ApplicationController < ActionController::Base
 
     # update the project's status in the database
     if project_running
-      state = State.find_by_name('Running')
+      project.state = State.find(State::RUNNING)
     else
-      state = State.find_by_name('Stopped')
+      project.state = State.find(State::STOPPED)
     end
     
-    project.state = state
     project.save
 
     # only render the running-ness if this is an ajax request

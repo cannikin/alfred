@@ -1,5 +1,7 @@
 var project_blocks = {
 	
+	UPDATE_URL:'/utility/get_status',
+	
 	// toggle the element's description
 	toggle_description:function(id) {
 		var obj = this.elementize(id);
@@ -7,13 +9,11 @@ var project_blocks = {
 	},
 
 	// change the status of the project
-	update_status:function(obj,status) {
+	start_status_polling:function(id,interval,display) {
 		var obj = this.elementize(id);
-	},
-
-	// check on the status of the project
-	check_status:function(obj) {
-		var obj = this.elementize(id);
+		new Ajax.PeriodicalUpdater(	obj,
+																this.UPDATE_URL + '/' + id + '?display=' + display,
+																{ frequency:interval });
 	},
 
 	// turn an id into an element reference

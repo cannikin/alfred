@@ -1,1 +1,5 @@
-<%= render :partial => 'dashboard/extended_project', :locals => { :project => @project } %>
+<% if params[:display] == 'extended' %>
+  <%= render :partial => 'dashboard/extended_project', :locals => { :project => @project } %>
+<% elsif params[:display] == 'compact' %>
+  <%= render :partial => 'dashboard/compact_project', :locals => { :project => @project } %>
+<% end %>

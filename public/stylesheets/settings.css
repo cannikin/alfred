@@ -37,9 +37,10 @@ input[type="text"] {
 }
 
 span {
+	font-family: Georgia, Times New Roman, serif;
 	display: block;
 	padding: 0;
-	font-size: 80%;
+	font-size: 90%;
 	color: #999999;
 	line-height: 1.2;
 }
