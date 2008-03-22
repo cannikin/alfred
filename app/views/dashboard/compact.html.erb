@@ -13,16 +13,10 @@
   
   <tbody>
     <% @projects.each_with_index do |project,index| %>
-      <tr class="<%= cssify project.state.name %>">
-        <td class="name"><h2><%= project.name %></h2></td>
-        <td><a href="http://<%= @system.local_hostname %>:<%= project.port %>" target="_blank">http://<%= @system.local_hostname %>:<%= project.port %></a></td>
-        <td><a href="http://<%= @system.remote_hostname %>:<%= project.port %>" target="_blank">http://<%= @system.remote_hostname %>:<%= project.port %></a></td>
-        <td><%= project.rails_root %></td>
-        <td><%= project.environment.name[0..2] %> (<a href="#">log</a>)</td>
-        <td><%= project.last_started_at.nil? ? 'Never' : distance_of_time_in_words(project.last_started_at) %></td>
-        <td class="button"><input type="button" value="Stop" /></td>
-      </tr>
+      <%= render :partial => 'compact_project', :locals => { :project => project, :system => @system } %>
     <% end %>
   </tbody>
   
 </table>
+
+<%= render :partial => 'polling_script', :locals => { :projects => @projects, :system => @system } %>

@@ -5,7 +5,7 @@ class UtilityController < ApplicationController
   # query the shell to get the hostname for this computer
   def hostname
     begin
-      hostname = `hostname`
+      hostname = `hostname`.chomp
       render :text => hostname
     rescue
       render :text => 'unknown'

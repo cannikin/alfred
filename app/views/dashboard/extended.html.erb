@@ -3,17 +3,11 @@
     <div class="row">
   <% end %>
 
-  <div id="project_<%= project.id %>">
-    <%= render :partial => 'extended_project', :locals => { :project => project } %>
-  </div>
+  <%= render :partial => 'extended_project', :locals => { :project => project } %>
   
   <% if index % 2 == 1 || project == @projects.last%>
     </div>
   <% end %>
 <% end %>
 
-<script type="text/javascript">
-  <% @projects.each do |project| %>
-    project_blocks.start_status_polling(<%= project.id %>,<%= @system.poll_interval %>,'<%= params[:action] %>');
-  <% end %>
-</script>
+<%= render :partial => 'polling_script', :locals => { :projects => @projects, :system => @system } %>

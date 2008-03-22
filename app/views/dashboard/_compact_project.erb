@@ -1,0 +1,21 @@
+<tr id="project_<%= project.id %>" class="<%= cssify project.state.name %>">
+  <td class="name"><h2><%= project.name %></h2></td>
+  <td><a href="http://<%= @system.local_hostname %>:<%= project.port %>" target="_blank">http://<%= @system.local_hostname %>:<%= project.port %></a></td>
+  <td><a href="http://<%= @system.remote_hostname %>:<%= project.port %>" target="_blank">http://<%= @system.remote_hostname %>:<%= project.port %></a></td>
+  <td><%= project.rails_root %></td>
+  <td><%= project.environment.name[0..2] %> (<a href="#">log</a>)</td>
+  <td><%= project.last_started_at.nil? ? 'Never' : distance_of_time_in_words(project.last_started_at) %></td>
+  <td class="button">
+    <form>
+      <% if project.state.id == State::STOPPED %>
+        <input type="button" value="Start" onclick="project_blocks.start(<%= project.id %>); return false;" />
+      <% elsif project.state.id == State::RUNNING %>
+        <input type="button" value="Stop" onclick="project_blocks.stop(<%= project.id %>); return false;"  />
+      <% elsif project.state.id == State::ERROR %>
+        <input type="button" value="Restart" onclick="project_blocks.start(<%= project.id %>); return false;" />
+      <% elsif project.state.id == State::STARTING %>
+        <input type="button" value="Starting..." disabled="disabled" />
+      <% end %>
+    </form>
+  </td>
+</tr>
