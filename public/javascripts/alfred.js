@@ -1,6 +1,7 @@
 var project_blocks = {
 	
 	UPDATE_URL:'/utility/get_status',
+	STATES:['running','stopped','starting','error'],
 	
 	// toggle the element's description
 	toggle_description:function(id) {
@@ -11,9 +12,19 @@ var project_blocks = {
 	// change the status of the project
 	start_status_polling:function(id,interval,display) {
 		var obj = this.elementize(id);
-		new Ajax.PeriodicalUpdater(	obj,
+		new Ajax.PeriodicalUpdater(	'',
 																this.UPDATE_URL + '/' + id + '?display=' + display,
-																{ frequency:interval });
+																{ frequency:interval,
+																	onSuccess:function(response) {
+																		// remove any existing states from the classname
+																		STATES.each(function(state) {
+																			obj.removeClassName(state);
+																		});
+																		// add the new state's class
+																		obj.addClassName(response.responseText);
+																	}
+																}
+															);
 	},
 
 	// turn an id into an element reference

@@ -1,4 +1,4 @@
-<div class="project <%= cssify(project.state.name) %>">
+<div id="project_<%= project.id %>" class="project <%= cssify(project.state.name) %>">
   <h2><%= h project.name %> <span>(<a href="#" onclick="project_blocks.toggle_description(<%= project.id %>); return false;">more</a>)</span></h2>
   <p id="project_<%= project.id %>_description" style="display:none;"><%= h project.description %></p>
   <div class="stats">

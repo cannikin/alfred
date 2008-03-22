@@ -1,0 +1,5 @@
+<script type="text/javascript">
+  <% projects.each do |project| %>
+    project_blocks.start_status_polling(<%= project.id %>,<%= system.poll_interval %>,'<%= params[:action] %>');
+  <% end %>
+</script>
