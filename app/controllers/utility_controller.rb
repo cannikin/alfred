@@ -20,7 +20,14 @@ class UtilityController < ApplicationController
   
   # start a project
   def start_project
-    
+    project = Project.find(params[:id])
+    begin
+      output = `#{project.rails_root}/script/server -p #{project.port} -d`   #TODO: Add environment to this call, should come from params[:environment]
+    rescue
+      set_status(project,State::ERROR)
+    end
+    get_status
+    render :action => 'get_status'
   end
   
   # stop a project

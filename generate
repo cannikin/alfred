@@ -1235,4 +1235,134 @@ Exiting
 	from /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel/configurator.rb:139:in `listener'
 	from /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/bin/mongrel_rails:99:in `cloaker_'
 	from /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel/configurator.rb:50:in `call'
-	from /usr/lib/ruby/gems/1.8/gems
+	from /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel/configurator.rb:50:in `initialize'
+	 ... 14 levels...
+	from /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+	from /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+	from /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+	from script/server:3
+]0;rob@ui: /var/www/active_classifiedrob@ui:/var/www/active_classified$ script/server
+=> Booting Mongrel (use 'script/server webrick' to force WEBrick)
+=> Rails application starting on http://0.0.0.0:3000
+=> Call with -d to detach
+=> Ctrl-C to shutdown server
+** Starting Mongrel listening at 0.0.0.0:3000
+Exiting
+/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel/tcphack.rb:12:in `initialize_without_backlog': Address already in use - bind(2) (Errno::EADDRINUSE)
+	from /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel/tcphack.rb:12:in `initialize'
+	from /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel.rb:93:in `new'
+	from /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel.rb:93:in `initialize'
+	from /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel/configurator.rb:139:in `new'
+	from /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel/configurator.rb:139:in `listener'
+	from /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/bin/mongrel_rails:99:in `cloaker_'
+	from /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel/configurator.rb:50:in `call'
+	from /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.3/lib/mongrel/configurator.rb:50:in `initialize'
+	 ... 14 levels...
+	from /usr/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+	from /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+	from /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+	from script/server:3
+]0;rob@ui: /var/www/active_classifiedrob@ui:/var/www/active_classified$ script/serverps aux | grep ruby.*3001[11Pscript/server -p 3002
+=> Booting Mongrel (use 'script/server webrick' to force WEBrick)
+=> Rails application starting on http://0.0.0.0:3002
+=> Call with -d to detach
+=> Ctrl-C to shutdown server
+** Starting Mongrel listening at 0.0.0.0:3002
+** Starting Rails with development environment...
+** Rails loaded.
+** Loading any Rails specific GemPlugins
+** Signals ready.  TERM => stop.  USR2 => restart.  INT => stop (no restart).
+** Rails signals registered.  HUP => reload (without restart).  It might not work well.
+** Mongrel 1.1.3 available at 0.0.0.0:3002
+** Use CTRL-C to stop.
+** INT signal received.
+Exiting
+]0;rob@ui: /var/www/active_classifiedrob@ui:/var/www/active_classified$ script/server -p 3002
+=> Booting Mongrel (use 'script/server webrick' to force WEBrick)
+=> Rails application starting on http://0.0.0.0:3002
+=> Call with -d to detach
+=> Ctrl-C to shutdown server
+** Starting Mongrel listening at 0.0.0.0:3002
+** Starting Rails with development environment...
+** Rails loaded.
+** Loading any Rails specific GemPlugins
+** Signals ready.  TERM => stop.  USR2 => restart.  INT => stop (no restart).
+** Rails signals registered.  HUP => reload (without restart).  It might not work well.
+** Mongrel 1.1.3 available at 0.0.0.0:3002
+** Use CTRL-C to stop.
+** INT signal received.
+Exiting
+]0;rob@ui: /var/www/active_classifiedrob@ui:/var/www/active_classified$ git [K[K[K[Kcd .. [K/alfred/
+]0;rob@ui: /var/www/alfredrob@ui:/var/www/alfred$ git all[K[Kdd .
+]0;rob@ui: /var/www/alfredrob@ui:/var/www/alfred$ git status
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#	modified:   app/controllers/application.rb
+#	modified:   app/controllers/dashboard_controller.rb
+#	modified:   app/controllers/utility_controller.rb
+#	new file:   app/views/dashboard/_extended_project.html.erb
+#	modified:   app/views/dashboard/extended.html.erb
+#	new file:   app/views/utility/get_status.html.erb
+#	modified:   db/development.sqlite3
+#	modified:   generate
+#
+# Changed but not updated:
+#   (use "git add/rm <file>..." to update what will be committed)
+#
+#	modified:   log/mongrel.log
+#	deleted:    tmp/pids/mongrel.pid
+#
+]0;rob@ui: /var/www/alfredrob@ui:/var/www/alfred$ git commit -m 'Status for poejc[K[K[K[Krojects updaing on sta[K[K[K[K[K[K[K[K[K[K[Kating on start[K[K[K[K[K/dashboard display, started remote t[Kstatus update'
+Created commit 2f5f3fb: Status for projects updating on /dashboard display, started remote status update
+ 8 files changed, 813 insertions(+), 45 deletions(-)
+ create mode 100644 app/views/dashboard/_extended_project.html.erb
+ create mode 100644 app/views/utility/get_status.html.erb
+]0;rob@ui: /var/www/alfredrob@ui:/var/www/alfred$ git push
+Enter passphrase for key '/home/rob/.ssh/id_rsa': 
+updating 'refs/heads/master'
+  from 69f791768efc6886fc10ca3a0c69dccd5d924b47
+  to   2f5f3fb4e585ff9c7ac3c5f2b9cbf25dd8ba198d
+ Also local refs/remotes/origin/master
+Generating pack...
+Done counting 16 objects.
+Deltifying 16 objects...
+   6% (1/16) done  12% (2/16) done  18% (3/16) done  25% (4/16) done  31% (5/16) done  37% (6/16) done  43% (7/16) done  50% (8/16) done  56% (9/16) done  62% (10/16) done  68% (11/16) done  75% (12/16) done  81% (13/16) done  87% (14/16) done  93% (15/16) done 100% (16/16) done
+Writing 16 objects...
+   6% (1/16) done  12% (2/16) done  18% (3/16) done  25% (4/16) done  31% (5/16) done  37% (6/16) done  43% (7/16) done  50% (8/16) done  56% (9/16) done  62% (10/16) done  68% (11/16) done  75% (12/16) done  81% (13/16) done  87% (14/16) done  93% (15/16) done 100% (16/16) done
+Total 16 (delta 0), reused 0 (delta 0)
+refs/heads/master: 69f791768efc6886fc10ca3a0c69dccd5d924b47 -> 2f5f3fb4e585ff9c7ac3c5f2b9cbf25dd8ba198d
+]0;rob@ui: /var/www/alfredrob@ui:/var/www/alfred$ git pull
+Enter passphrase for key '/home/rob/.ssh/id_rsa': 
+Enter passphrase for key '/home/rob/.ssh/id_rsa': 
+remote: Generating pack...
+remote: Done counting 45 objects.
+remote: Result has 23 objects.
+remote: Deltifying 23 objects...
+remote:    0% (0/23) doneremote:    4% (1/23) doneremote:    8% (2/23) doneremote:   13% (3/23) doneremote:   17% (4/23) doneremote:   21% (5/23) doneremote:   26% (6/23) doneremote:   30% (7/23) doneremote:   34% (8/23) doneremote:   39% (9/23) doneremote:   43% (10/23) doneremote:   47% (11/23) doneremote:   52% (12/23) doneremote:   56% (13/23) doneremote:   60% (14/23) doneremote:   65% (15/23) doneremote:   69% (16/23) doneremote:   73% (17/23) doneremote:   78% (18/23) doneremote:   82% (19/23) doneremote:   86% (20/23) doneremote:   91% (21/23) doneremote:   95% (22/23) doneremote:  100% (23/23) doneremote: 
+remote: Total 23 (delta 14), reused 0 (delta 0)
+Unpacking 23 objects...
+   4% (1/23) done   8% (2/23) done  13% (3/23) done  17% (4/23) done  21% (5/23) done  26% (6/23) done  30% (7/23) done  34% (8/23) done  39% (9/23) done  43% (10/23) done  47% (11/23) done  52% (12/23) done  56% (13/23) done  60% (14/23) done  65% (15/23) done  69% (16/23) done  73% (17/23) done  78% (18/23) done  82% (19/23) done  86% (20/23) done  91% (21/23) done  95% (22/23) done 100% (23/23) done
+* refs/remotes/origin/master: fast forward to branch 'master' of git@github.com:cannikin/alfred
+  old..new: 2f5f3fb..eef0be0
+warning: unable to read /etc/mailname: No such file or directory
+
+You asked me to pull without telling me which branch you
+want to merge with, and 'branch.master.merge' in
+your configuration file does not tell me either.  Please
+name which branch you want to merge on the command line and
+try again (e.g. 'git pull <repository> <refspec>').
+See git-pull(1) for details on the refspec.
+
+If you often merge with the same branch, you may want to
+configure the following variables in your configuration
+file:
+
+    branch.master.remote = <nickname>
+    branch.master.merge = <remote-ref>
+    remote.<nickname>.url = <url>
+    remote.<nickname>.fetch = <refspec>
+
+See git-config(1) for details.
+]0;rob@ui: /var/www/alfredrob@ui:/v

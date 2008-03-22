@@ -14,7 +14,7 @@
     <ul id="tabs">
       <li <%= class_if_current :active, params, :controller => 'dashboard', :action => 'compact' %>><%= link_to_unless_current 'Compact', :controller => 'dashboard', :action => 'compact' %></li>
       <li <%= class_if_current :active, params, :controller => 'dashboard', :action => 'extended' %>><%= link_to_unless_current 'Extended', :controller => 'dashboard', :action => 'extended' %></li>
-      <li <%= class_if_current :active, params, :controller => 'settings', :action => 'index' %>><%= link_to_unless_current 'Settings', :controller => 'settings' %></li>
+      <li <%= class_if_current :active, params, :controller => 'settings', :action => 'index' %>><%= link_to_unless_current 'Settings', settings_path %></li>
     </ul>
   </div>
   

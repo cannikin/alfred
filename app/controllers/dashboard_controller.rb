@@ -1,7 +1,12 @@
 class DashboardController < ApplicationController
   
   before_filter :get_projects
-  
+
+  def index
+    extended
+    render :action => 'extended'
+  end
+
   def extended
 
   end
