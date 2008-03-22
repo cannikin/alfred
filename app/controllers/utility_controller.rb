@@ -5,7 +5,7 @@ class UtilityController < ApplicationController
   # query the shell to get the hostname for this computer
   def hostname
     begin
-      hostname = `hostname`
+      hostname = `hostname`.chomp
       render :text => hostname
     rescue
       render :text => 'unknown'
@@ -20,7 +20,14 @@ class UtilityController < ApplicationController
   
   # start a project
   def start_project
-    
+    project = Project.find(params[:id])
+    begin
+      output = `#{project.rails_root}/script/server -p #{project.port} -d`   #TODO: Add environment to this call, should come from params[:environment]
+    rescue
+      set_status(project,State::ERROR)
+    end
+    get_status
+    render :action => 'get_status'
   end
   
   # stop a project

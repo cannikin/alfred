@@ -1,5 +1,10 @@
 class DashboardController < ApplicationController
   
+  def index
+    extended
+    render :action => 'extended'
+  end
+
   def extended
     @projects = Project.find(:all)
     
