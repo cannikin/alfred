@@ -2,7 +2,7 @@ trainer:
   id: 1
   name: Trainer Search/Checkout
   description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  rails_root: /var/www/trainer
+  rails_root: /Users/rob/Sites/trainer
   port: 3000
   server_id: 2
   state_id: 1
@@ -12,7 +12,7 @@ myactive:
   id: 2
   name: MyActive 2.0
   description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  rails_root: /var/www/myactive
+  rails_root: /Users/rob/Sites/myactive
   port: 3001
   server_id: 2
   state_id: 2
@@ -22,8 +22,19 @@ classifieds:
   id: 3
   name: Active Classifieds
   description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  rails_root: /var/www/active_classified
+  rails_root: /Users/rob/Sites/active_classified
   port: 3002
+  server_id: 2
+  state_id: 3
+  environment_id: 1
+  last_started_at: <%= Time.now.to_s(:db) %>
+  
+activephotos:
+  id: 4
+  name: Tesla
+  description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  rails_root: /Users/rob/Sites/activephotos
+  port: 3003
   server_id: 2
   state_id: 3
   environment_id: 1
