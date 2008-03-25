@@ -9,6 +9,7 @@ class CreateProjects < ActiveRecord::Migration
       t.string :remote_url
       t.string :rails_root
       t.integer :port
+      t.integer :pid
       t.integer :server_id
       t.integer :state_id
       t.integer :environment_id

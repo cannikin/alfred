@@ -2,6 +2,8 @@ var project_blocks = {
 	
 	UPDATE_URL:'/utility/get_state',
 	START_URL:'/utility/start_project',
+	STOP_URL:'/utility/stop_project',
+	CLEAR_URL:'/utility/clear_project',
 	STATES:['running','stopped','starting','error'],
 	
 	// toggle the element's description
@@ -28,9 +30,21 @@ var project_blocks = {
 	start:function(id) {
 		var obj = this.elementize(id);
 		var self = this;
-		this.update_state(obj,'starting');
+		this.update_state(obj, {class:'starting',button:{value:'Starting...',disabled:'disabled'}});
 		
 		new Ajax.Request(	this.START_URL + '/' + id,
+							{	onSuccess:function(response) {
+									self.update_state(obj,response.responseText.evalJSON());
+								}
+							}
+						);
+	},
+
+	stop:function(id) {
+		var obj = this.elementize(id);
+		var self = this;
+		this.update_state(obj, {class:'starting',button:{value:'Stopping...',disabled:'disabled'}});
+		new Ajax.Request(	this.STOP_URL + '/' + id,
 							{	onSuccess:function(response) {
 									self.update_state(obj,response.responseText.evalJSON());
 								}
@@ -41,7 +55,18 @@ var project_blocks = {
 	restart:function(id) {
 		this.start(id);
 	},
-	
+
+	clear:function(id) {
+		var obj = this.elementize(id);
+		var self = this;
+		new Ajax.Request(	this.CLEAR_URL + '/' + id,
+							{	onSuccess:function(response) {
+									self.update_state(obj,response.responseText.evalJSON());
+								}
+							}
+						);
+	},
+		
 	update_state:function(obj,new_state) {
 		//alert(new_state);
 
@@ -61,7 +86,7 @@ var project_blocks = {
 
 		// add notes about current state, if any
 		if(new_state.notes) {
-			html += '<p>' + new_state.notes + '</p>';
+			html += '<p>' + new_state.notes + ' <a href="#" onclick="project_blocks.clear(' + id + '); return false;">clear</a></p>';
 		}
 
 		// update project

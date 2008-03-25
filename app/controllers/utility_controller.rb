@@ -25,14 +25,12 @@ class UtilityController < ApplicationController
   def start_project
     project = Project.find(params[:id])
     begin
-      output = `#{project.rails_root}/script/server -p #{project.port} -d`   #TODO: Add environment to this call, should come from params[:environment]
-      if output == ''
-        # okay, the output didn't return anything, that's bad. experiment and try to figure out why
-        raise NoSuchDirectory, "The directory #{project.rails_root} does not exist."    # if the output is blank then there was an error, most likely that the command wasn't found (wrong directory structure)
-      end
-      project.last_started_at = Time.now.to_s(:db)
+      output = `mongrel_rails start -c #{project.rails_root} -p #{project.port} -e #{project.environment.command} -d`
+      # project.pid = File.open("#{project.rails_root}/tmp/pids/mongrel.pid").read.chomp.to_i             # command should have created a mongrel.pid file, read that in and store the pid
+      # raise NoSuchDirectory, "The directory #{project.rails_root} does not exist."                    # if the output is blank then there was an error, most likely that the command wasn't found (wrong directory structure)
+      project.last_started_at = Time.now.to_s(:db)                                                      # timestap the last started time as right now
     rescue => e
-      project.state = State.find(State::STATES[:error][:id])
+      set_state(project, :error)
       project.notes = e.message
     end
     project.save
@@ -41,12 +39,29 @@ class UtilityController < ApplicationController
   
   # stop a project
   def stop_project
-    
+    project = Project.find(params[:id])
+    begin
+      #output = `kill #{get_pid(project)}`
+      `mongrel_rails stop -c #{project.rails_root}`
+    rescue => e
+      set_state(project, :error)
+      project.notes = e.message
+    end
+    project.save
+    get_state
+  end
+
+  # clear an error
+  def clear_project
+    project = Project.find(params[:id])
+    set_state(project, :stopped)
+    get_state
   end
   
   private
-  def set_state(project,state)
-    project.state
+  def set_state(project,new_state)
+    project.state = State.find(State::STATES[new_state][:id])
+    project.save
   end
 
 end

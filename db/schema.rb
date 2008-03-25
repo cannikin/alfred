@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(:version => 5) do
     t.string   "remote_url",      :default => "NULL"
     t.string   "rails_root",      :default => "NULL"
     t.integer  "port",            :default => 0
+    t.integer  "pid",             :default => 0
     t.integer  "server_id",       :default => 0
     t.integer  "state_id",        :default => 0
     t.integer  "environment_id",  :default => 0
