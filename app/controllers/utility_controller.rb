@@ -24,7 +24,7 @@ class UtilityController < ApplicationController
     begin
       output = `#{project.rails_root}/script/server -p #{project.port} -d`   #TODO: Add environment to this call, should come from params[:environment]
       if output == ''
-        raise 'InvalidCommand'
+        raise 'BadCommand'    # if the output is blank then there was an error, most likely that the command wasn't found (wrong directory structure)
       end
       project.last_started_at = Time.now.to_s(:db)
     rescue
