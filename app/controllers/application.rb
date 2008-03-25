@@ -10,12 +10,13 @@ class ApplicationController < ActionController::Base
   # determine the state of the project and update in the database
   private
   def update_state(project)
-    unless project.state.id == State::ERROR
+    unless project.state.id == State::STATES[:error][:id]
       if project_running?(project)
-        project.state = State.find(State::RUNNING)
+        project.state = State.find(State::STATES[:running][:id])
       else
-        project.state = State.find(State::STOPPED)
+        project.state = State.find(State::STATES[:stopped][:id])
       end
+      project.notes = nil
     end
     project.save
   end

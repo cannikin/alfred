@@ -75,6 +75,11 @@
 		text-align: center;
 		margin: 10px 0 0;
 	}
+
+	.project.error form p {
+		color: #990000;
+		margin: 1em 0 0;
+		}
 	
 table#summary {
 	font-size: 80%;

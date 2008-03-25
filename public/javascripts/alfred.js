@@ -16,13 +16,13 @@ var project_blocks = {
 		var self = this;
 		
 		new Ajax.PeriodicalUpdater(	'',
-																this.UPDATE_URL + '/' + id + '?display=' + display,
-																{ frequency:interval,
-																	onSuccess:function(response) {
-																		self.update_state(obj,response.responseText);
-																	}
-																}
-															);
+									this.UPDATE_URL + '/' + id + '?display=' + display,
+									{	frequency:interval,
+										onSuccess:function(response) {
+											self.update_state(obj,response.responseText.evalJSON());
+										}
+									}
+								);
 	},
 	
 	start:function(id) {
@@ -31,18 +31,50 @@ var project_blocks = {
 		this.update_state(obj,'starting');
 		
 		new Ajax.Request(	this.START_URL + '/' + id,
-											{ onSuccess:function(response) {
-													self.update_state(obj,response.responseText);
-												}
-											}
-										);
+							{	onSuccess:function(response) {
+									self.update_state(obj,response.responseText.evalJSON());
+								}
+							}
+						);
+	},
+
+	restart:function(id) {
+		this.start(id);
 	},
 	
 	update_state:function(obj,new_state) {
+		//alert(new_state);
+
+		// update class
 		this.STATES.each(function(state) {
 			obj.removeClassName(state);
 		});
-		obj.addClassName(new_state);
+		obj.addClassName(new_state.class);
+		
+		// update button
+		var id = obj.id.split('_').last();
+		var html = '<input type="button" ';
+		for(key in new_state.button) {
+			html += key + '="' + new_state.button[key].gsub(/__id__/,id) + '" ';
+		}
+		html += '/>';
+
+		// add notes about current state, if any
+		if(new_state.notes) {
+			html += '<p>' + new_state.notes + '</p>';
+		}
+
+		// update project
+		$('project_'+id+'_form').update(html);
+	},
+
+	update_button:function(id,properties) {
+		var output = '<input type="button" ';
+		for(key in properties) {
+			output += key + '="' + properties[key].gsub(/__id__/,id) + '" ';
+		}
+		output += '/>';
+		$('project_'+id+'_form').update(output);
 	},
 
 	// turn an id into an element reference

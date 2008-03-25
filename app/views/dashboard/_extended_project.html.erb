@@ -30,15 +30,7 @@
       </tr>
     </table>
   </div>
-  <form>
-    <% if project.state.id == State::STOPPED %>
-      <input type="button" value="Start" onclick="project_blocks.start(<%= project.id %>); return false;" />
-    <% elsif project.state.id == State::RUNNING %>
-      <input type="button" value="Stop" onclick="project_blocks.stop(<%= project.id %>); return false;"  />
-    <% elsif project.state.id == State::ERROR %>
-      <input type="button" value="Restart" onclick="project_blocks.start(<%= project.id %>); return false;" />
-    <% elsif project.state.id == State::STARTING %>
-      <input type="button" value="Starting..." disabled="disabled" />
-    <% end %>
+  <form id="project_<%= project.id %>_form">
+    <%# output_project_buttons project %>
   </form>
 </div>

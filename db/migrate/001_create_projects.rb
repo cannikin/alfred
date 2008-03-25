@@ -12,6 +12,7 @@ class CreateProjects < ActiveRecord::Migration
       t.integer :server_id
       t.integer :state_id
       t.integer :environment_id
+      t.text :notes
       t.datetime :last_started_at
 
       t.timestamps
