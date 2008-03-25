@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
   # query the state of an app
   private
   def project_running?(project)
-    output = `ps aux | grep ruby.*#{project.port.to_s}`.split(/\n/)
+    output = `ps -ef | grep ruby.*#{project.port.to_s}`.split(/\n/)
 
     !output.reject do |process|       # find every process for which 'grep' is not found -- is that array empty?
       process.match(/grep/)
