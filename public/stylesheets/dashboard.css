@@ -63,7 +63,7 @@
 		border-color: #cccccc;
 	}
 	
-	.project.starting {
+	.project.starting, .project.stopping {
 		border-color: #ffcc99;
 	}
 	
@@ -122,11 +122,11 @@ table#summary {
 		color: #009900;
 	}
 
-.starting {
+.starting, .stopping {
 	background-color: #ffffcc;
 	}
 	
-	.starting h2 {
+	.starting h2, .stopping h2 {
 		color: #ffcc99;
 	}
 

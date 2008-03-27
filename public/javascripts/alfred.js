@@ -4,7 +4,9 @@ var project_blocks = {
 	START_URL:'/utility/start_project',
 	STOP_URL:'/utility/stop_project',
 	CLEAR_URL:'/utility/clear_project',
-	STATES:['running','stopped','starting','error'],
+	STARTING_STATE:{'class':'starting','button':{'value':'Starting...','disabled':'disabled'}},
+	STOPPING_STATE:{'class':'stopping','button':{'value':'Stopping...','disabled':'disabled'}},
+	STATES:['running','stopped','starting','stopping','error'],
 	
 	// toggle the element's description
 	toggle_description:function(id) {
@@ -30,7 +32,7 @@ var project_blocks = {
 	start:function(id) {
 		var obj = this.elementize(id);
 		var self = this;
-		this.update_state(obj, {class:'starting',button:{value:'Starting...',disabled:'disabled'}});
+		this.update_state(obj, this.STARTING_STATE);
 		
 		new Ajax.Request(	this.START_URL + '/' + id,
 							{	onSuccess:function(response) {
@@ -43,7 +45,7 @@ var project_blocks = {
 	stop:function(id) {
 		var obj = this.elementize(id);
 		var self = this;
-		this.update_state(obj, {class:'starting',button:{value:'Stopping...',disabled:'disabled'}});
+		this.update_state(obj, this.STOPPING_STATE);
 		new Ajax.Request(	this.STOP_URL + '/' + id,
 							{	onSuccess:function(response) {
 									self.update_state(obj,response.responseText.evalJSON());
@@ -68,13 +70,11 @@ var project_blocks = {
 	},
 		
 	update_state:function(obj,new_state) {
-		//alert(new_state);
-
 		// update class
 		this.STATES.each(function(state) {
 			obj.removeClassName(state);
 		});
-		obj.addClassName(new_state.class);
+		obj.addClassName(new_state['class']);
 		
 		// update button
 		var id = obj.id.split('_').last();

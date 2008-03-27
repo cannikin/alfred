@@ -59,7 +59,6 @@ ul#tabs {
 	
 	ul#tabs li a {
 		text-decoration: none;
-		font-weight: normal;
 		color: #999999;
 	}
 	
@@ -72,6 +71,10 @@ ul#tabs {
 		background-color: #ffffff;
 		font-weight: bold;
 	}
+
+		ul#tabs li.active a {
+			color: #333333;
+			}
 
 #main {
 	width: 970px;

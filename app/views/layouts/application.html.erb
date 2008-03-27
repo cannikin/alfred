@@ -5,16 +5,16 @@
   <meta http-equiv="Content-type" content="text/html; charset=utf-8">
   <title>Alfred Dashboard</title>
   <%= stylesheet_link_tag 'reset', 'main', params[:controller] %>
-  <%= javascript_include_tag :defaults, 'alfred', 'project' %>
+  <%= javascript_include_tag 'prototype','effects','alfred' %>
 </head>
 <body id="<%= params[:controller] %>">
   
   <div id="header">
     <div id="logo"><img src="/images/logo.png" alt="Alfred" /></div>
     <ul id="tabs">
-      <li <%= class_if_current :active, params, :controller => 'dashboard', :action => 'compact' %>><%= link_to_unless_current 'Compact', :controller => 'dashboard', :action => 'compact' %></li>
-      <li <%= class_if_current :active, params, :controller => 'dashboard', :action => 'extended' %>><%= link_to_unless_current 'Extended', :controller => 'dashboard', :action => 'extended' %></li>
-      <li <%= class_if_current :active, params, :controller => 'settings', :action => 'index' %>><%= link_to_unless_current 'Settings', settings_path %></li>
+      <li <%= 'class="active"' if current_page?(:controller => 'dashboard', :action => 'compact') %>><%= link_to 'Compact', :controller => 'dashboard', :action => 'compact' %></li>
+      <li <%= 'class="active"' if current_page?(:controller => 'dashboard', :action => 'extended') %>><%= link_to 'Extended', :controller => 'dashboard', :action => 'extended' %></li>
+      <li <%= 'class="active"' if current_page?(:controller => 'settings') %>><%= link_to 'Settings', settings_path %></li>
     </ul>
   </div>
   
