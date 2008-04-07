@@ -2,10 +2,11 @@ var project_blocks = {
 	
 	UPDATE_URL:'/utility/get_state',
 	START_URL:'/utility/start_project',
+	RESTART_URL:'/utility/restart_project',
 	STOP_URL:'/utility/stop_project',
 	CLEAR_URL:'/utility/clear_project',
-	STARTING_STATE:{'class':'starting','button':{'value':'Starting...','disabled':'disabled'}},
-	STOPPING_STATE:{'class':'stopping','button':{'value':'Stopping...','disabled':'disabled'}},
+	STARTING_STATE:{'class':'starting','buttons':[{'value':'Starting...','disabled':'disabled'}]},
+	STOPPING_STATE:{'class':'stopping','buttons':[{'value':'Stopping...','disabled':'disabled'}]},
 	STATES:['running','stopped','starting','stopping','error'],
 	
 	// toggle the element's description
@@ -78,13 +79,14 @@ var project_blocks = {
 		
 		// update button
 		var id = obj.id.split('_').last();
-
-		var html = '<input type="button" ';
-		for(key in new_state.button) {
-			html += key + '="' + new_state.button[key].gsub(/__id__/,id) + '" ';
-		}
-		html += '/>';
-
+		var html = '';
+		new_state.buttons.each(function(button) {
+			html += '<input type="button" ';
+			for(key in button) {
+				html += key + '="' + button[key].gsub(/__id__/,id) + '" ';
+			}
+			html += '/>';
+		});
 		// add notes about current state, if any
 		if(new_state.notes) {
 			html += '<p>' + new_state.notes + ' <a href="#" onclick="project_blocks.clear(' + id + '); return false;">clear</a></p>';
