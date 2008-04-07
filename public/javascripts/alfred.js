@@ -78,6 +78,7 @@ var project_blocks = {
 		
 		// update button
 		var id = obj.id.split('_').last();
+
 		var html = '<input type="button" ';
 		for(key in new_state.button) {
 			html += key + '="' + new_state.button[key].gsub(/__id__/,id) + '" ';

@@ -15,7 +15,10 @@ class State < ActiveRecord::Base
                               :button => { :value => 'Restart', :onclick => "project_blocks.restart(__id__); return false;" }},
               :starting => {  :id => State.find_by_name('Starting').id,
                               :class => 'starting',
-                              :button => { :value => 'Starting...', :disabled => 'disabled' }}
+                              :button => { :value => 'Starting...', :disabled => 'disabled' }},
+              :restart => {   :id => State.find_by_name('Restart').id,
+                              :class => 'restart',
+                              :button => { :value => 'Restart', :onclick => "project_blocks.restart(__id__); return false;" }}
            }
 
 

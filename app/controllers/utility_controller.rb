@@ -16,8 +16,12 @@ class UtilityController < ApplicationController
     @project = Project.find(params[:id])
     update_state(@project)
     output = {  :class => @project.state.name.downcase,
-                :button => State::STATES[@project.state.name.downcase.to_sym][:button],
+                :buttons => [State::STATES[@project.state.name.downcase.to_sym][:button]],
                 :notes => @project.notes }
+    # if we're running, also show a restart button
+    if @project.state.id == State::STATES[:running][:id]
+      output[:buttons] << State::STATES[:restart][:button]
+    end
     render :text => output.to_json
   end
   
