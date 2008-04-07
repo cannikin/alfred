@@ -33,3 +33,15 @@ classifieds:
   server_id: 2
   state_id: 3
   environment_id: 1
+
+gasohol:
+  id: 4
+  name: Gasohol
+  description: A proof of concept of an Active search on a Google Appliance Server
+  rails_root: /var/www/gasohol
+  port: 3003
+  local_url: localhost
+  remote_url: ui
+  server_id: 2
+  state_id: 3
+  environment_id: 1

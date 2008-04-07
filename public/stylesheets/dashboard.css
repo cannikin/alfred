@@ -128,11 +128,11 @@ table#summary {
 		color: #009900;
 	}
 
-.starting, .stopping {
+.starting, .stopping, .restart {
 	background-color: #ffffcc;
 	}
 	
-	.starting h2, .stopping h2 {
+	.starting h2, .stopping h2, .restart h2 {
 		color: #ffcc99;
 	}
 
