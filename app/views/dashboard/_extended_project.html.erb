@@ -5,11 +5,11 @@
     <table cellspacing="0" class="stats">
       <tr>
         <td class="label">Local URL</td>
-        <td><a href="http://<%= @system.local_hostname %>:<%= project.port %>" target="_blank">http://<%= @system.local_hostname %>:<%= project.port %></a></td>
+        <td><a href="http://<%= project.local_url %>:<%= project.port %>" target="_blank">http://<%= project.local_url %>:<%= project.port %></a></td>
       </tr>
       <tr>
         <td class="label">Remote URL</td>
-        <td><a href="http://<%= @system.remote_hostname %>:<%= project.port %>" target="_blank">http://<%= @system.remote_hostname %>:<%= project.port %></a></td>
+        <td><a href="http://<%= project.remote_url %>:<%= project.port %>" target="_blank">http://<%= project.remote_url %>:<%= project.port %></a></td>
       </tr>
       <tr>
         <td class="label">Rails Root</td>

@@ -1,0 +1,54 @@
+<h1>New Project</h1>
+
+<%= error_messages_for :project %>
+
+<% form_for :project, :url => { :action => 'create' } do |form| %>
+  <%= form.hidden_field :state_id %>
+  
+  <div class="input">
+    <label for="project_name">Name</label>
+    <%= form.text_field :name %>
+  </div>
+  <div class="input">
+    <label for="project_description">Description</label>
+    <%= form.text_area :description %>
+  </div>
+  <div class="input">
+    <label for="project_local_url">Local URL</label>
+    <%= form.text_field :local_url %>
+    <span>The URL to access this app when browsing on the same machine the app is running from</span>
+  </div>
+  <div class="input">
+    <label for="project_remote_url">Remote URL</label>
+    <%= form.text_field :remote_url %>
+    <span>The URL to access this app from any other computer</span>
+  </div>
+  <div class="input">
+    <label for="project_rails_root">Rails Root</label>
+    <%= form.text_field :rails_root %>
+    <span>The directory that your app runs from</span>
+  </div>
+  <div class="input">
+    <label for="project_port">Port</label>
+    <%= form.text_field :port %>
+    <span>Which port to run your app on (recommended to leave at the default setting)</span>
+  </div>
+
+  <div class="input">
+    <label for="project_server_id">Server</label>
+    <%= form.select :server_id, @servers %>
+    <span>Which web server do you want to run this project?</span>
+  </div>
+
+  <div class="input">
+    <label for="project_environment">Environment</label>
+    <%= form.select :environment_id, @environments %>
+    <span>What default environment should this app run in?</span>
+  </div>
+
+  <div id="save">
+    <%= submit_tag 'Save Settings' %> or <%= link_to 'Cancel', :controller => 'dashboard' %>
+  </div>
+
+
+<% end %>

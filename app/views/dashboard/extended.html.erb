@@ -1,3 +1,7 @@
+<div id="add_project">
+  <img src="/images/icons/add.png" alt="" /> <%= link_to 'Add a Project', :controller => 'projects', :action => 'new' %>
+</div>
+
 <% @projects.each_with_index do |project,index| %>
   <% if index % 2 == 0 %>
     <div class="row">

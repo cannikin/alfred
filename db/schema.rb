@@ -20,16 +20,16 @@ ActiveRecord::Schema.define(:version => 5) do
   end
 
   create_table "projects", :force => true do |t|
-    t.string   "name",            :default => "NULL"
-    t.string   "description",     :default => "NULL"
-    t.string   "local_url",       :default => "NULL"
-    t.string   "remote_url",      :default => "NULL"
-    t.string   "rails_root",      :default => "NULL"
-    t.integer  "port",            :default => 0
+    t.string   "name",                                :null => false
+    t.string   "description",                         :null => false
+    t.string   "local_url",                           :null => false
+    t.string   "remote_url",                          :null => false
+    t.string   "rails_root",                          :null => false
+    t.integer  "port",                                :null => false
     t.integer  "pid",             :default => 0
-    t.integer  "server_id",       :default => 0
-    t.integer  "state_id",        :default => 0
-    t.integer  "environment_id",  :default => 0
+    t.integer  "server_id",                           :null => false
+    t.integer  "state_id",                            :null => false
+    t.integer  "environment_id",                      :null => false
     t.text     "notes",           :default => "NULL"
     t.datetime "last_started_at"
     t.datetime "created_at"
