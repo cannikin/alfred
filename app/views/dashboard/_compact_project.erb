@@ -1,5 +1,7 @@
 <tr id="project_<%= project.id %>" class="<%= cssify project.state.name %>">
-  <td class="name"><h2><%= project.name %></h2></td>
+  <td class="name">
+    <h2><%= project.name %></h2>
+  </td>
   <td><a href="http://<%= project.local_url %>:<%= project.port %>" target="_blank">http://<%= project.local_url %>:<%= project.port %></a></td>
   <td><a href="http://<%= project.remote_url %>:<%= project.port %>" target="_blank">http://<%= project.remote_url %>:<%= project.port %></a></td>
   <td><%= project.rails_root %></td>

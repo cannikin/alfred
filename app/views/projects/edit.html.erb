@@ -1,0 +1,13 @@
+<h1>Edit Project - <%= @project.name %></h1>
+
+<%= error_messages_for :project %>
+
+<% form_for :project, :url => { :action => 'update', :id => @project.id } do |form| %>
+
+  <%= render :partial => 'form', :locals => { :form => form, :project => @project } %>
+
+  <div id="save">
+    <%= submit_tag 'Save Settings' %> or <%= link_to 'Cancel', :controller => 'dashboard' %>
+  </div>
+
+<% end %>

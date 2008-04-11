@@ -14,11 +14,28 @@ class ProjectsController < ApplicationController
     @servers = Server.find(:all).map {|s| [s.name, s.id]}
     @environments = Environment.find(:all).map {|e| [e.name, e.id]}
   end
+
+  def edit
+    @project = Project.find(params[:id])
+    @servers = Server.find(:all).map {|s| [s.name, s.id]}
+    @environments = Environment.find(:all).map {|e| [e.name, e.id]}
+  end
   
   def create
     @project = Project.new(params[:project])
     if @project.save
       redirect_to :controller => 'dashboard', :action => 'extended'
+    else
+      render :action => 'new'
+    end
+  end
+
+  def update
+    @project = Project.find(params[:id])
+    if @project.update_attributes(params[:project])
+      redirect_to :controller => 'dashboard', :action => 'extended'
+    else
+      render :action => 'edit'
     end
   end
   
