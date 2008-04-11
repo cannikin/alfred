@@ -12,47 +12,47 @@
 ActiveRecord::Schema.define(:version => 5) do
 
   create_table "environments", :force => true do |t|
-    t.string "name"
-    t.string "short_name"
-    t.string "description"
-    t.string "command"
-    t.string "log"
+    t.string "name",        :default => "NULL"
+    t.string "short_name",  :default => "NULL"
+    t.string "description", :default => "NULL"
+    t.string "command",     :default => "NULL"
+    t.string "log",         :default => "NULL"
   end
 
   create_table "projects", :force => true do |t|
-    t.string   "name",            :null => false
-    t.string   "description",     :null => false
-    t.string   "local_url",       :null => false
-    t.string   "remote_url",      :null => false
-    t.string   "rails_root",      :null => false
-    t.integer  "port",            :null => false
-    t.integer  "pid"
-    t.integer  "server_id",       :null => false
-    t.integer  "state_id",        :null => false
-    t.integer  "environment_id",  :null => false
-    t.text     "notes"
+    t.string   "name",                                :null => false
+    t.string   "description",                         :null => false
+    t.string   "local_url",                           :null => false
+    t.string   "remote_url",                          :null => false
+    t.string   "rails_root",                          :null => false
+    t.integer  "port",                                :null => false
+    t.integer  "pid",             :default => 0
+    t.integer  "server_id",                           :null => false
+    t.integer  "state_id",                            :null => false
+    t.integer  "environment_id",                      :null => false
+    t.text     "notes",           :default => "NULL"
     t.datetime "last_started_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "servers", :force => true do |t|
-    t.string "name"
-    t.string "command"
+    t.string "name",    :default => "NULL"
+    t.string "command", :default => "NULL"
   end
 
   create_table "states", :force => true do |t|
-    t.string "name"
-    t.string "description"
-    t.string "color_1"
-    t.string "color_2"
+    t.string "name",        :default => "NULL"
+    t.string "description", :default => "NULL"
+    t.string "color_1",     :default => "NULL"
+    t.string "color_2",     :default => "NULL"
   end
 
   create_table "systems", :force => true do |t|
-    t.string   "local_hostname"
-    t.string   "remote_hostname"
-    t.integer  "port"
-    t.integer  "poll_interval"
+    t.string   "local_hostname",  :default => "NULL"
+    t.string   "remote_hostname", :default => "NULL"
+    t.integer  "port",            :default => 0
+    t.integer  "poll_interval",   :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -7,7 +7,8 @@ var project_blocks = {
 	CLEAR_URL:'/utility/clear_project',
 	STARTING_STATE:{'class':'starting','buttons':[{'value':'Starting...','disabled':'disabled'}]},
 	STOPPING_STATE:{'class':'stopping','buttons':[{'value':'Stopping...','disabled':'disabled'}]},
-	STATES:['running','stopped','starting','stopping','error'],
+	RESTART_STATE:{'class':'restart','buttons':[{'value':'Restarting...','disabled':'disabled'}]},
+	STATES:['running','stopped','starting','stopping','error','restart'],
 	
 	// toggle the element's description
 	toggle_description:function(id) {
@@ -30,25 +31,33 @@ var project_blocks = {
 								);
 	},
 	
-	start:function(id) {
+	start:function(id,wait) {
 		var obj = this.elementize(id);
 		var self = this;
+		// this says whether to wait for the call to complete before returning (non-asynchronous)
+		var wait = wait ? wait : false;
+
 		this.update_state(obj, this.STARTING_STATE);
 		
 		new Ajax.Request(	this.START_URL + '/' + id,
-							{	onSuccess:function(response) {
+							{	asynchronous:!wait,
+								onSuccess:function(response) {
 									self.update_state(obj,response.responseText.evalJSON());
 								}
 							}
 						);
 	},
 
-	stop:function(id) {
+	stop:function(id,wait) {
 		var obj = this.elementize(id);
 		var self = this;
+		var wait = wait ? wait : false;
+
 		this.update_state(obj, this.STOPPING_STATE);
+
 		new Ajax.Request(	this.STOP_URL + '/' + id,
-							{	onSuccess:function(response) {
+							{	asynchronous:!wait,
+								onSuccess:function(response) {
 									self.update_state(obj,response.responseText.evalJSON());
 								}
 							}
@@ -56,6 +65,10 @@ var project_blocks = {
 	},
 
 	restart:function(id) {
+		var obj = this.elementize(id);
+		this.update_state(obj, this.RESTART_STATE);
+
+		this.stop(id,true);
 		this.start(id);
 	},
 
