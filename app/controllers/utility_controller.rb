@@ -28,11 +28,17 @@ class UtilityController < ApplicationController
   # start a project
   def start_project
     project = Project.find(params[:id])
+    started = false
     begin
-      output = `mongrel_rails start -c #{project.rails_root} -p #{project.port} -e #{project.environment.command} -d`
-      # project.pid = File.open("#{project.rails_root}/tmp/pids/mongrel.pid").read.chomp.to_i             # command should have created a mongrel.pid file, read that in and store the pid
-      # raise NoSuchDirectory, "The directory #{project.rails_root} does not exist."                    # if the output is blank then there was an error, most likely that the command wasn't found (wrong directory structure)
-      project.last_started_at = Time.now.to_s(:db)                                                      # timestap the last started time as right now
+      while !started
+        output = `mongrel_rails start -c #{project.rails_root} -p #{project.port} -e #{project.environment.command} -d 2>&1`
+        if output.include? 'PID file log/mongrel.pid already exists'
+          `rm #{project.rails_root}/log/mongrel.pid`
+        else
+          project.last_started_at = Time.now.to_s(:db)
+          started = true
+        end
+      end
     rescue => e
       set_state(project, :error)
       project.notes = e.message

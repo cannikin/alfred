@@ -14,3 +14,7 @@
 - If an error is thrown when starting up, display a link to the results of the standard error out
 
 - Add link to email someone a URL to a project
+
+- Throw errors based on different conditions:
+  # project.pid = File.open("#{project.rails_root}/tmp/pids/mongrel.pid").read.chomp.to_i             # command should have created a mongrel.pid file, read that in and store the pid
+  # raise NoSuchDirectory, "The directory #{project.rails_root} does not exist."                    # if the output is blank then there was an error, most likely that the command wasn't found (wrong directory structure)

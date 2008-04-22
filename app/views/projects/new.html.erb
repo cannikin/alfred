@@ -4,7 +4,7 @@
 
 <% form_for :project, :url => { :action => 'create' } do |form| %>
 
-  <%= render partial => 'form', :locals => { :form => form, :project => project } %>
+  <%= render :partial => 'form', :locals => { :form => form, :project => @project } %>
 
   <div id="save">
     <%= submit_tag 'Save Settings' %> or <%= link_to 'Cancel', :controller => 'dashboard' %>
