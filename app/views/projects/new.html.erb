@@ -6,6 +6,12 @@
 
   <%= render :partial => 'form', :locals => { :form => form, :project => @project } %>
 
+  <div class="input">
+    <label>&nbsp;</label>
+    <input type="checkbox" name="build_app" value="1" />
+    Also generate the Rails app? (doesn't work)
+  </div>
+
   <div id="save">
     <%= submit_tag 'Save Settings' %> or <%= link_to 'Cancel', :controller => 'dashboard' %>
   </div>

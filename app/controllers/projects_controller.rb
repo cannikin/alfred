@@ -24,6 +24,7 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(params[:project])
     if @project.save
+      #`rails #{@project.rails_root}` if params[:build_app]   FIXME: Building the Rails app on the fly doesn't work, alfred never finishes the request and needs to be restarted. App is created as mode 777, is that a hint?
       redirect_to :controller => 'dashboard', :action => 'extended'
     else
       render :action => 'new'
