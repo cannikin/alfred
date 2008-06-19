@@ -26,7 +26,11 @@ Known Limitations
 
 Installation
 ------------
-Pretty simple. Get a copy of the code, `cd` to that directory and initialize the database:
+Pretty simple. Get a copy of the code:
+
+  git clone git@github.com:cannikin/alfred.git
+  
+`cd` to that directory and initialize the database:
 
   rake db:create
   rake db:migrate
