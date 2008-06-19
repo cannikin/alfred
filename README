@@ -28,7 +28,9 @@ Installation
 ------------
 Pretty simple. Get a copy of the code:
 
-  git clone git@github.com:cannikin/alfred.git
+  git clone git@github.com:cannikin/alfred.git   (if you have git)
+    or
+  http://github.com/cannikin/alfred/tarball/master    (if you don't)
   
 `cd` to that directory and initialize the database:
 
