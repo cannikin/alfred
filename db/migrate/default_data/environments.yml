@@ -19,5 +19,5 @@ production:
   name: Production
   short_name: Prod
   description: The production environment is used when your app is live in a production environment.
-  command: test
+  command: production
   log: '/log/production.log'

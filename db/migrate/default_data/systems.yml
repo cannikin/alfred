@@ -1,6 +1,6 @@
 default:
   id: 1
   local_hostname: localhost
-  remote_hostname: 172.16.19.225
+  remote_hostname: 127.0.0.1
   port: 3100
   poll_interval: 10

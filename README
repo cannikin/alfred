@@ -1,3 +1,69 @@
 Alfred is a Rails app for controlling other Rails apps. I developed it for myself to keep track of lots of 
 little prototypes that need to be up and available at various times so that others in the company can view
 and comment on them.
+
+Requirements
+------------
+Rails
+Mongrel - There is currently the option to start your app with either Mongrel or WEBrick but the code will
+          always try to start with Mongrel only.
+
+Known Limitations
+-----------------
+* Although the New Project screen says that you can specify WEBrick as the web server, you can't (there's no
+  code in the controller to try anything other than Mongrel).
+* The system does not gracefully respond to errors in your app. Let's say you try to start your app, but you
+  specified the wrong Rails Root. Ideally that project square turns red and gives you some info about why
+  the error occurred. This doesn't happen yet.
+* If you have an app running and you `kill` it, or the server restarts, Mongrel will not restart the app
+  until you clear out the mongrel.pid file (which for some reason seems to sometimes live in /log and
+  other times in /tmp). I attempted some code to rescue from this, but it doesn't seem to work. Haven't
+  had a chance to go back and take a second look.
+* You'll see a link to view the log of the current environment, but this doesn't work yet
+* There's a checkbox in the New Project screen to create the rails app itself along with the project.
+  This doesn't work yet!
+* No tests (sorry).
+
+Installation
+------------
+Pretty simple. Get a copy of the code, `cd` to that directory and initialize the database:
+
+  rake db:create
+  rake db:migrate
+
+Now start the app from Alfred's directory (switching it to a different port if you wish, my default 
+is 3100 to keep all the 3000's open for apps):
+
+  mongrel_rails start -p 3100 -d
+
+Alfred is now running and ready to serve your apps:
+
+  http://localhost:3100 
+  (if you used my default port above and you're running it locally).
+
+Usage
+-----
+The first screen you'll see is the Dashboard. This is where you'll see your projects and their current 
+status. There's an Extended and Compact view. They both have the same info, just that Compact takes up 
+less space. 
+
+Click the Settings tab to set the default values for new projects (local hostname, remote 
+hostname) as well as the port Alfred is running on and how often he should check for the current status 
+of projects. Unless you're doing some volatile testing, or someone else also has access to your apps, 
+their status isn't going to change very often. 600 seconds is 10 minutes which is still probably more
+often than necessary. 
+
+If you're running this in Firefox 2 you may want to disable Firebug -- after Alfred is open for a 
+couple of days Firefox's RAM tends to get a little out of control, I assume because Firebug is tracking 
+each status update AJAX request.
+
+Coming Soon
+-----------
+* Properly handle and recover from errors
+* Create a little command line "engine" to run all the logic of starting/stopping the apps, handling
+  errors that come back from the command line, etc. (right now this is handled by UtilityController)
+* Ability to view live log
+* Make Environment a dropdown in the dashboard so you can switch to others before starting the app (right
+  now you need to edit the project and change the environment there)
+* Add a Public view so that others can find your apps, but not have access to start/stop them
+* Ideally I would love to integrate with god: http://github.com/mojombo/god

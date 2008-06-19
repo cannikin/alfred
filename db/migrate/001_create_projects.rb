@@ -19,10 +19,6 @@ class CreateProjects < ActiveRecord::Migration
       t.timestamps
     end
 
-    # load some default data
-    directory = File.join(File.dirname(__FILE__), "default_data") 
-    Fixtures.create_fixtures(directory, "projects")
-
   end
 
   def self.down
