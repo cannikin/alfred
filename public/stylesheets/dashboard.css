@@ -99,6 +99,7 @@
 	.project form {
 		text-align: center;
 		margin: 10px 0 0;
+		overflow: hidden;
 	}
 
 	.project.error form p {

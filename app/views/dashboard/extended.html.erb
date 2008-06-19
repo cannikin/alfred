@@ -2,16 +2,20 @@
   <img src="/images/icons/add.png" alt="" /> <%= link_to 'Add a Project', :controller => 'projects', :action => 'new' %>
 </div>
 
-<% @projects.each_with_index do |project,index| %>
-  <% if index % 2 == 0 %>
-    <div class="row">
-  <% end %>
+<% unless @projects.blank? %>
+  <% @projects.each_with_index do |project,index| %>
+    <% if index % 2 == 0 %>
+      <div class="row">
+    <% end %>
 
-  <%= render :partial => 'extended_project', :locals => { :project => project } %>
+    <%= render :partial => 'extended_project', :locals => { :project => project } %>
   
-  <% if index % 2 == 1 || project == @projects.last%>
-    </div>
+    <% if index % 2 == 1 || project == @projects.last%>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
 
-<%= render :partial => 'polling_script', :locals => { :projects => @projects, :system => @system } %>
+  <%= render :partial => 'polling_script', :locals => { :projects => @projects, :system => @system } %>
+<% else %>
+  <p>You don't have any projects yet. <%= link_to 'Add one now', :controller => 'projects', :action => 'new' %></p>
+<% end %>

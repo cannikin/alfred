@@ -1,22 +1,26 @@
-<table cellspacing="0" id="summary">
-  <thead>
-    <tr>
-      <th>&nbsp;</th>
-      <th>Local URL</th>
-      <th>Remote URL</th>
-      <th>Rails Root</th>
-      <th>Env</th>
-      <th>Last Run</th>
-      <th>&nbsp;</th>
-    </tr>
-  </thead>
+<% unless @projects.blank? %>
+  <table cellspacing="0" id="summary">
+    <thead>
+      <tr>
+        <th>&nbsp;</th>
+        <th>Local URL</th>
+        <th>Remote URL</th>
+        <th>Rails Root</th>
+        <th>Env</th>
+        <th>Last Run</th>
+        <th>&nbsp;</th>
+      </tr>
+    </thead>
   
-  <tbody>
-    <% @projects.each_with_index do |project,index| %>
-      <%= render :partial => 'compact_project', :locals => { :project => project, :system => @system } %>
-    <% end %>
-  </tbody>
+    <tbody>
+      <% @projects.each_with_index do |project,index| %>
+        <%= render :partial => 'compact_project', :locals => { :project => project, :system => @system } %>
+      <% end %>
+    </tbody>
   
-</table>
+  </table>
 
-<%= render :partial => 'polling_script', :locals => { :projects => @projects, :system => @system } %>
+  <%= render :partial => 'polling_script', :locals => { :projects => @projects, :system => @system } %>
+<% else %>
+  <p>You don't have any projects yet. <%= link_to 'Add one now', :controller => 'projects', :action => 'new' %></p>
+<% end %>
