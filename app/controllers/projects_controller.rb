@@ -8,7 +8,11 @@ class ProjectsController < ApplicationController
     @project = Project.new
     @project.local_url = @system.local_hostname
     @project.remote_url = @system.remote_hostname
-    @project.port = Project.maximum(:port) + 1
+    if Project.maximum(:port)
+      @project.port = Project.maximum(:port) + 1
+    else
+      @project.port = @system.port == 3000 ? 3001 : 3000
+    end
     @project.state = State.find(State::STATES[:stopped][:id])
 
     @servers = Server.find(:all).map {|s| [s.name, s.id]}

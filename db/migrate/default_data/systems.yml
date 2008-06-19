@@ -3,4 +3,4 @@ default:
   local_hostname: localhost
   remote_hostname: 127.0.0.1
   port: 3100
-  poll_interval: 10
+  poll_interval: 600
