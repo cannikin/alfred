@@ -71,8 +71,8 @@ class UtilityController < ApplicationController
   def is_project_running
     project = Project.find(params[:id])
     output = 'project_running? returns ' + project_running?(project).to_s + '<br /><br />'
-    output += '`ps aux | grep ruby.*#{project.port.to_s} | grep -v grep` returns ' + '<pre>'
-    output += `ps aux | grep ruby.*#{project.port.to_s} | grep -v grep` + '</pre>'
+    output += '`ps wwwaux | grep ruby.*#{project.port.to_s} | grep -v grep` returns ' + '<pre>'
+    output += `ps wwwaux | grep ruby.*#{project.port.to_s} | grep -v grep` + '</pre>'
     render :text => output
   end
   

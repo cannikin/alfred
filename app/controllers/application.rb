@@ -24,18 +24,15 @@ class ApplicationController < ActionController::Base
   # query the state of an app
   private
   def project_running?(project)
-    !`ps aux | grep ruby.*#{project.port.to_s} | grep -v grep`.split(/\n/).empty?
+    !`ps wwwaux | grep ruby.*#{project.port.to_s} | grep -v grep`.split(/\n/).empty?
   end
 
   # get the pid of a running app
   private
   def get_pid(project)
     if project_running?(project)
-      output = `ps -e -o pid= -o args= | grep ruby.*#{project.port.to_s}`.split(/\n/)
-      process = output.find do |process|       # find the first process for which 'grep' is not found
-        !process.match(/grep/)
-      end
-      process.split().first.chomp              # split on spaces and return the first instance, which should be the pid
+      output = `ps wwwaux | grep ruby.*#{project.port.to_s} | grep -v grep`.split(/\n/)
+      process.split().first.strip              # split on spaces and return the first instance, which should be the pid
     else
       nil
     end
