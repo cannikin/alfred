@@ -68,6 +68,14 @@ class UtilityController < ApplicationController
     get_state
   end
   
+  def is_project_running
+    project = Project.find(params[:id])
+    output = 'project_running? returns ' + project_running?(project).to_s + '<br /><br />'
+    output += '`ps aux | grep ruby.*#{project.port.to_s} | grep -v grep` returns ' + '<pre>'
+    output += `ps aux | grep ruby.*#{project.port.to_s} | grep -v grep` + '</pre>'
+    render :text => output
+  end
+  
   private
   def set_state(project,new_state)
     project.state = State.find(State::STATES[new_state][:id])
