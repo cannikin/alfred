@@ -20,7 +20,7 @@
 </div>
 <div class="input">
   <label for="project_rails_root">Rails Root</label>
-  <%= form.text_field :rails_root %>
+  <%= form.text_field :rails_root, :value => @system.default_rails_root %>
   <span>The directory that your app runs from</span>
 </div>
 <div class="input">

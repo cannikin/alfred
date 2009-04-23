@@ -17,6 +17,7 @@ class ProjectsController < ApplicationController
 
     @servers = Server.find(:all).map {|s| [s.name, s.id]}
     @environments = Environment.find(:all).map {|e| [e.name, e.id]}
+    @system = System.find(:first)
   end
 
   def edit

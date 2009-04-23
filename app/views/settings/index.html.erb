@@ -23,6 +23,11 @@
     <%= form.text_field :poll_interval %>
     <span>How often I should ask apps about their status (in seconds)</span>
   </div>
+  <div class="input">
+    <label for="system_default_rails_root">Default Rails Root</label>
+    <%= form.text_field :default_rails_root %>
+    <span>If you keep most of your apps in one directory, enter that here and you won't need to type the full path each time (ex /Users/rob/Sites)</span>
+  </div>
   <div id="save">
     <%= submit_tag 'Save Settings' %> or <%= link_to 'Cancel', :controller => 'dashboard' %>
   </div>
